@@ -12,23 +12,17 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
+    secon: {
       flexGrow: 1,
     },
     buttonContainer: {
       margin: theme.spacing(2),
       width: '100%',
       display: 'flex',
-      justifyContent: 'space-between',
+      justifyContent: 'space-evenly',
     },
     icon: {
       marginLeft: theme.spacing(1),
-    },
-    img: {
-      margin: 'auto',
-      display: 'block',
-      maxWidth: '100%',
-      maxHeight: '100%',
     },
   })
 );
@@ -44,7 +38,6 @@ export default function Index() {
     <Container maxWidth="lg">
       <Grid container spacing={3}>
         <Grid item xs={6}>
-          <Typography variant="subtitle1">Hi there, my name is</Typography>
           <Typography variant="h1">Ben Shua</Typography>
           <Typography variant="h5">Product Architect</Typography>
           <Typography variant="body1">
@@ -67,9 +60,7 @@ export default function Index() {
             </Fab>
           </div>
         </Grid>
-        <Grid item xs={6}>
-            
-        </Grid>
+        <Grid item xs={6}></Grid>
       </Grid>
     </Container>
   );
