@@ -3,7 +3,14 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import theme from '../themes/theme';
 
+/**
+ * Document class component
+ */
 export default class MyDocument extends Document {
+  /**
+   * document render function
+   * @return {JSX.Element} the jsx element
+   */
   render() {
     return (
       <Html lang="en">
@@ -55,6 +62,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
+      // eslint-disable-next-line react/display-name
       enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
     });
 

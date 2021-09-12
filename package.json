@@ -4,11 +4,11 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "latest",
+    "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.0.0-rc.1",
+    "@mui/material": "^5.0.0-rc.1",
     "clsx": "latest",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
     "next": "latest",
-    "prettier": "^2.4.0",
     "react": "latest",
     "react-dom": "latest"
   },
@@ -27,7 +27,10 @@
     "@typescript-eslint/parser": "^4.31.0",
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.25.1",
+    "prettier": "^2.4.0",
     "typescript": "latest"
   }
 }
