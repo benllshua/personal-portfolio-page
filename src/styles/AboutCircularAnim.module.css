@@ -1,0 +1,27 @@
+.stackImages > img.xs {
+  width: 1800px;
+  margin: 100px;
+}
+.stackImages > img.smaller {
+  width: 1900px;
+  margin: 50px;
+}
+.stackImages > img.bigger {
+  width: 2100px;
+  margin: -50px;
+}
+.position {
+  position: absolute;
+  top: -500px;
+  left: -1200px;
+  z-index: -1;
+}
+.stackImages {
+  position: relative;
+}
+.stackImages > img {
+  opacity: 0.2;
+  position: absolute !important;
+  width: 2000px;
+  height: auto;
+}

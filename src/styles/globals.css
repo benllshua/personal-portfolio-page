@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
+* {
+  font-family: 'Poppins', 'Heebo', sans-serif !important;
+  transition: 0.3s !important;
+}
+
+body {
+  overflow-x: hidden;
+}
+.section {
+  width: 100vw;
+  min-height: 100vh;
+  margin-bottom: 64px;
+  position: relative;
+}

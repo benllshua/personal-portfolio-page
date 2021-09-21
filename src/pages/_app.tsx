@@ -1,14 +1,15 @@
 /* eslint-disable */
 
 import React from 'react';
+import { AppProps } from 'next/app';
 
-//components
+// components
 import Meta from '../components/Meta';
 
-import { ThemeProvider } from '@material-ui/core/styles';
-import { AppProps } from 'next/app';
+// styles
+import '../styles/globals.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from '../themes/theme';
+import Theme from '../themes/theme';
 
 export default function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
@@ -23,12 +24,12 @@ export default function MyApp(props: AppProps) {
 
   return (
     <React.Fragment>
-      <Meta />
-      <ThemeProvider theme={theme}>
+      <Theme>
+        <Meta />
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
-      </ThemeProvider>
+      </Theme>
     </React.Fragment>
   );
 }
