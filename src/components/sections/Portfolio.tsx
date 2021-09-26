@@ -1,7 +1,11 @@
 import React from 'react';
 
+// data
+import { UXProjects, FRONTENDProjects } from '../../data/projects';
+
 // components
 import { Typography, Container } from '@material-ui/core';
+import Project from '../Project';
 
 // styles
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
@@ -71,14 +75,8 @@ const TabPanel = (props: TabPanelProps) => {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Typography>{children}</Typography>}
+    <div hidden={value !== index} {...other}>
+      {value === index && <>{children}</>}
     </div>
   );
 };
@@ -127,10 +125,14 @@ const FullWidthTabs = () => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Item One
+          {UXProjects.map((project) => (
+            <Project project={project} />
+          ))}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
+          {FRONTENDProjects.map((project) => (
+            <Project project={project} />
+          ))}
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
           Item Three

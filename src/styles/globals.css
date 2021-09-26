@@ -3,7 +3,7 @@
 
 * {
   font-family: 'Poppins', 'Heebo', sans-serif !important;
-  transition: 0.3s !important;
+  transition: 0.3s;
 }
 
 body {

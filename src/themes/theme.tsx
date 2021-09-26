@@ -1,5 +1,10 @@
 import React from 'react';
 
+/* illustrations : 
+https://storyset.com/illustration/kids-studying-from-home/bro
+
+*/
+
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 interface Color {
   primary: string;
@@ -15,6 +20,12 @@ const colors = [
     darkGradient: '#000',
   },
   {
+    primary: '#BA68C8',
+    background: '#FCF2FF',
+    lightGradient: '#fff',
+    darkGradient: '#000',
+  },
+  {
     primary: '#039be5',
     background: '#e3f2fd',
     lightGradient: '#fff',
@@ -23,6 +34,12 @@ const colors = [
   {
     primary: '#d81b60',
     background: '#fce4ec',
+    lightGradient: '#fff',
+    darkGradient: '#000',
+  },
+  {
+    primary: '#FF725E',
+    background: '#FFECE9',
     lightGradient: '#fff',
     darkGradient: '#000',
   },
