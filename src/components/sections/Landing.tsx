@@ -73,7 +73,6 @@ const Landing = () => {
 
   return (
     <div className="section">
-      <LandingCircularAnim />
       <Container maxWidth="lg" className={classes.fullHeight}>
         <Grid container spacing={3} className={classes.fullHeight}>
           <Grid item xs={5} className={classes.verticalCenter1}>

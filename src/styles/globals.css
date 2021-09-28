@@ -3,15 +3,26 @@
 
 * {
   font-family: 'Poppins', 'Heebo', sans-serif !important;
-  transition: 0.3s;
+  transition: 0.3s !important;
 }
-
+/* html {
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+} */
 body {
   overflow-x: hidden;
 }
 .section {
   width: 100vw;
   min-height: 100vh;
-  margin-bottom: 64px;
   position: relative;
+  /* scroll-snap-align: start; */
+}
+.section:not(:first-child) {
+  padding-top: 64px;
+}
+
+.MuiTimelineOppositeContent-root {
+  flex: 0.4 !important;
 }

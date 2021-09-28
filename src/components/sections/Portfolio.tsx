@@ -125,13 +125,17 @@ const FullWidthTabs = () => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          {UXProjects.map((project) => (
-            <Project project={project} />
+          {UXProjects.map((project, index) => (
+            <div key={`${project.title} ${index}`}>
+              <Project project={project} />
+            </div>
           ))}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          {FRONTENDProjects.map((project) => (
-            <Project project={project} />
+          {FRONTENDProjects.map((project, index) => (
+            <div key={`${project.title} ${index}`}>
+              <Project project={project} />
+            </div>
           ))}
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>

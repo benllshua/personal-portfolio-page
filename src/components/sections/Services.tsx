@@ -45,7 +45,6 @@ const Services = () => {
         {'What I do & How I can help you'}
       </Typography>
       
-      <AboutCircularAnim />
     </div>
   );
 };

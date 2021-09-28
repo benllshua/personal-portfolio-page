@@ -15,15 +15,22 @@ import Portfolio from '../components/sections/Portfolio';
  */
 export default function Index() {
   return (
-    <div>
-      {/* <ColoredSection /> */}
+    <>
       <ThemeController />
       <SocialMediaLinks />
-      <Landing />
-      <Services />
-      <About />
-      <Skills />
-      <Portfolio />
-    </div>
+      <div
+        style={{
+          scrollSnapPointsY: 'repeat(100vh)',
+          scrollSnapType: 'y mandatory',
+          height: '100vh',
+        }}
+      >
+        <Landing />
+        <Services />
+        <About />
+        <Skills />
+        <Portfolio />
+      </div>
+    </>
   );
 }

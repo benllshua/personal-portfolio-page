@@ -43,7 +43,7 @@ interface Props {
   };
 }
 
-export default function Project({ project }: Props) {
+const Project = ({ project }: Props) => {
   const { title, description, tags, mainImg } = project;
   const basicImgPath = '/images/projects';
 
@@ -75,4 +75,6 @@ export default function Project({ project }: Props) {
       </div>
     </Grid>
   );
-}
+};
+
+export default Project;

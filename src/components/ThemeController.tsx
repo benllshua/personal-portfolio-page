@@ -1,4 +1,10 @@
-import React from 'react';
+import React, {
+  WheelEventHandler,
+  MouseEvent,
+  useRef,
+  useState,
+  useContext,
+} from 'react';
 
 // components
 import { SpeedDial, SpeedDialIcon, SpeedDialAction } from '@material-ui/lab';
@@ -14,9 +20,10 @@ import {
   Brightness4Outlined,
   Brightness7,
   Close,
+  FormatPaint,
   InvertColors,
   Palette,
-  StyleOutlined,
+  Style,
 } from '@material-ui/icons';
 
 // contexts
@@ -26,7 +33,7 @@ import {
   GlassModeContext,
   ColorContext,
 } from '../themes/theme';
-import { Button, Divider, Popover, Typography } from '@material-ui/core';
+import { Box, Divider, Fab, Popover, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -62,27 +69,31 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     colorFab: {
       margin: theme.spacing(2),
-      minHeight: 40,
+      '&:hover': {
+        transform: 'scale(1.1)',
+      },
     },
   })
 );
 
 const ThemeController = () => {
-  const darkMode = React.useContext(DarkModeContext);
-  const glassMode = React.useContext(GlassModeContext);
-  const colorMode = React.useContext(ColorContext);
+  const scrollContainer = useRef<HTMLDivElement>(null);
+
+  const darkMode = useContext(DarkModeContext);
+  const glassMode = useContext(GlassModeContext);
+  const colorMode = useContext(ColorContext);
   const theme = useTheme();
 
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [openColorMenu, setOpenColorMenu] = React.useState<
+  const [open, setOpen] = useState(false);
+  const [openColorMenu, setOpenColorMenu] = useState<
     undefined | null | HTMLElement
   >(null);
 
   const handleCloseColorMenu = () => {
     setOpenColorMenu(null);
   };
-  const handleOpenColorMenu = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleOpenColorMenu = (e: MouseEvent<HTMLDivElement>) => {
     setOpenColorMenu(e.currentTarget);
   };
 
@@ -101,10 +112,22 @@ const ThemeController = () => {
     glassMode.toggleGlassMode();
     handleClose();
   };
+  const horizontalScroll = (e: WheelEventHandler<HTMLDivElement>) => {
+    const container = scrollContainer.current;
+    if (container) {
+      const containerScrollPosition = container.scrollLeft;
+      container.scrollTo({
+        top: 0,
+        left: containerScrollPosition + e.deltaY,
+        behavior: 'smooth', // if you want smooth scrolling
+      });
+    }
+    console.log(container);
+  };
 
   const actions = [
     {
-      icon: <StyleOutlined />,
+      icon: <Style />,
       name: 'Change Colors',
       onClick: handleOpenColorMenu,
     },
@@ -150,34 +173,41 @@ const ThemeController = () => {
         open={Boolean(openColorMenu)}
         anchorEl={Boolean(openColorMenu) ? openColorMenu : undefined}
         anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
+          vertical: 'bottom',
+          horizontal: 'left',
         }}
         transformOrigin={{
-          vertical: 'bottom',
+          vertical: 'top',
           horizontal: 'left',
         }}
         onClose={handleCloseColorMenu}
       >
-        <Typography className={classes.colorFab}>
-          Choose your color !
-        </Typography>
-        <Divider />
-        <div className={classes.colorSizeContainer}>
-          <div className={classes.colorContainer}>
-            {colors.map((color) => (
-              <Button
-                className={classes.colorFab}
-                key={color.primary}
-                style={{ backgroundColor: color.primary }}
-                onClick={() => {
-                  colorMode.setColorMode(color);
-                  handleCloseColorMenu();
-                }}
-              />
-            ))}
+        <Box p={3}>
+          <Typography gutterBottom>Choose your color !</Typography>
+          <Divider />
+          <div
+            ref={scrollContainer}
+            className={classes.colorSizeContainer}
+            onWheel={horizontalScroll}
+          >
+            <div className={classes.colorContainer}>
+              {colors.map((color) => (
+                <Fab
+                  size="medium"
+                  className={classes.colorFab}
+                  key={color.primary}
+                  style={{ backgroundColor: color.primary }}
+                  onClick={() => {
+                    colorMode.setColorMode(color);
+                    handleCloseColorMenu();
+                  }}
+                >
+                  <FormatPaint style={{ color: '#ffffffcc' }} />
+                </Fab>
+              ))}
+            </div>
           </div>
-        </div>
+        </Box>
       </Popover>
     </>
   );

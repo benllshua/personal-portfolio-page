@@ -32,8 +32,14 @@ const colors = [
     darkGradient: '#000',
   },
   {
-    primary: '#d81b60',
+    primary: '#f83b80',
     background: '#fce4ec',
+    lightGradient: '#fff',
+    darkGradient: '#000',
+  },
+  {
+    primary: '#aaa',
+    background: '#fff',
     lightGradient: '#fff',
     darkGradient: '#000',
   },
