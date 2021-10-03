@@ -1,7 +1,7 @@
 import React from 'react';
 
 // data
-import { UXProjects, FRONTENDProjects } from '../../data/projects';
+import { UXProjects, FRONTENDProjects } from '../../content/projects';
 
 // components
 import { Typography, Container } from '@material-ui/core';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 // components
 import {
@@ -23,6 +23,8 @@ import {
 
 import { Description, School } from '@material-ui/icons';
 
+import Tilt from 'react-parallax-tilt';
+
 // styles
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
@@ -31,16 +33,36 @@ const useStyles = makeStyles((theme: Theme) =>
     primaryTail: {
       backgroundColor: theme.palette.primary.main,
     },
+    blob: {
+      transformStyle: 'preserve-3d',
+      transform: 'perspective(1000px)',
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+    },
+    innerTiltElement: {
+      transform: 'translateZ(40px) scale(0.8)',
+      width: '70%',
+      marginLeft: '25%',
+    },
+    flexCenter: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   })
 );
 
+// context
+import { ColorContext } from '../../../themes/theme';
+
 const EducationPanel = () => {
   const classes = useStyles();
+  const color = useContext(ColorContext);
 
   return (
     <Paper elevation={8}>
       <Box p={3}>
-        <Grid container >
+        <Grid container>
           <Grid item xs={8}>
             <Typography variant="h4" gutterBottom>
               My Education
@@ -113,7 +135,16 @@ const EducationPanel = () => {
               </TimelineItem>
             </Timeline>
           </Grid>
-          <Grid item xs={4}></Grid>
+          <Grid item xs={4} className={classes.flexCenter}>
+            <Tilt perspective={500}>
+              <img
+                src={`/images/illustrations/${
+                  color.getColor()?.folderName
+                }/learningBro.png`}
+                width="100%"
+              />
+            </Tilt>
+          </Grid>
         </Grid>
       </Box>
     </Paper>

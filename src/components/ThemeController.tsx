@@ -122,7 +122,6 @@ const ThemeController = () => {
         behavior: 'smooth', // if you want smooth scrolling
       });
     }
-    console.log(container);
   };
 
   const actions = [
