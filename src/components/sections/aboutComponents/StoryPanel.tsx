@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 // components
 import {
@@ -10,7 +10,8 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-} from '@material-ui/core';
+} from '@mui/material';
+import Tilt from 'react-parallax-tilt';
 
 import {
   BorderOuter,
@@ -19,10 +20,12 @@ import {
   Keyboard,
   MusicNote,
   SportsEsports,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 
 // styles
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@mui/material/styles';
+import { createStyles, makeStyles } from '@mui/styles';
+import { ColorContext } from '../../../themes/theme';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,6 +70,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const StoryPanel = () => {
   const classes = useStyles();
+  const color = useContext(ColorContext);
 
   return (
     <Paper elevation={8}>
@@ -130,7 +134,16 @@ const StoryPanel = () => {
               </ListItem>
             </List>
           </Grid>
-          <Grid item xs={6}></Grid>
+          <Grid item xs={6}>
+            <Tilt perspective={500}>
+              <img
+                src={`/images/illustrations/${
+                  color.getColor()?.folderName
+                }/growing.png`}
+                width="100%"
+              />
+            </Tilt>
+          </Grid>
         </Grid>
       </Box>
     </Paper>

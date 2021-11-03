@@ -2,11 +2,13 @@ import React from 'react';
 
 // components
 import Link from './Link';
-import { GitHub, Instagram, LinkedIn, Mail } from '@material-ui/icons';
+import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
 
 // styles
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Fab, Paper } from '@material-ui/core';
+import { Theme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
+
+import { Fab, Paper } from '@mui/material';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

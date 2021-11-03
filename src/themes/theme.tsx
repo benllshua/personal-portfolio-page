@@ -5,8 +5,7 @@ https://storyset.com/illustration/kids-studying-from-home/bro
 
 */
 
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
-import { color } from '@mui/system';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 interface Color {
   primary: string;
   background: string;
@@ -135,7 +134,7 @@ const Theme = ({ children }: ThemeProps) => {
     () =>
       createTheme({
         palette: {
-          type: mode,
+          mode: mode,
 
           primary: {
             main: color.primary,

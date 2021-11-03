@@ -1,15 +1,16 @@
 import React from 'react';
 
 // components
-import { Container, Grid, Typography, Fab } from '@material-ui/core';
+import { Container, Grid, Typography, Fab } from '@mui/material';
 import Link from '../Link';
 import LandingCircularAnim from '../LandingCircularAnim';
 
 // assets
-import { Chat, Description } from '@material-ui/icons';
+import { Chat, Description } from '@mui/icons-material';
 
 // styles
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

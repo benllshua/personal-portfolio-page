@@ -8,7 +8,7 @@ import Meta from '../components/Meta';
 
 // styles
 import '../styles/globals.css';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline';
 import Theme from '../themes/theme';
 
 export default function MyApp(props: AppProps) {

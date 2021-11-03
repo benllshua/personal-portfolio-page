@@ -1,10 +1,11 @@
 import React from 'react';
 
 // components
-import { Typography, Grid, Chip, Box } from '@material-ui/core';
+import { Typography, Grid, Chip, Box } from '@mui/material';
 
 // styles
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

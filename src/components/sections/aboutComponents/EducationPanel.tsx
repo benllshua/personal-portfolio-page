@@ -9,7 +9,7 @@ import {
   TimelineDot,
   TimelineConnector,
   TimelineContent,
-} from '@material-ui/lab';
+} from '@mui/lab';
 
 import {
   Grid,
@@ -19,14 +19,15 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-} from '@material-ui/core';
+} from '@mui/material';
 
-import { Description, School } from '@material-ui/icons';
+import { Description, School } from '@mui/icons-material';
 
 import Tilt from 'react-parallax-tilt';
 
 // styles
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@mui/material/styles';
+import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,7 +68,7 @@ const EducationPanel = () => {
             <Typography variant="h4" gutterBottom>
               My Education
             </Typography>
-            <Timeline align="left">
+            <Timeline position="left">
               <TimelineItem>
                 <TimelineOppositeContent>
                   <Typography variant="body1" color="textSecondary">

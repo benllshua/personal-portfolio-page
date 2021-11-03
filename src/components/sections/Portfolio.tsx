@@ -4,11 +4,12 @@ import React from 'react';
 import { UXProjects, FRONTENDProjects } from '../../content/projects';
 
 // components
-import { Typography, Container } from '@material-ui/core';
+import { Typography, Container } from '@mui/material';
 import Project from '../Project';
 
 // styles
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -59,10 +60,11 @@ const Portfolio = () => {
 export default Portfolio;
 
 import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import { useTheme } from '@mui/material/styles';
+
+import AppBar from '@mui/material/AppBar';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -111,12 +113,12 @@ const FullWidthTabs = () => {
           textColor="primary"
           variant="scrollable"
           scrollButtons="auto"
+          centered
           aria-label="full width tabs example"
         >
           <Tab label="UX Design" {...a11yProps(0)} />
           <Tab label="Front End Dev" {...a11yProps(1)} />
           <Tab label="Back End Dev" {...a11yProps(2)} />
-          <Tab label="More Tools" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
       <SwipeableViews

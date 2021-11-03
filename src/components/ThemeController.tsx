@@ -7,15 +7,12 @@ import React, {
 } from 'react';
 
 // components
-import { SpeedDial, SpeedDialIcon, SpeedDialAction } from '@material-ui/lab';
+import { SpeedDial, SpeedDialIcon, SpeedDialAction } from '@mui/material';
 
 // styles
-import {
-  makeStyles,
-  createStyles,
-  Theme,
-  useTheme,
-} from '@material-ui/core/styles';
+import { Theme, useTheme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
+
 import {
   Brightness4Outlined,
   Brightness7,
@@ -24,7 +21,7 @@ import {
   InvertColors,
   Palette,
   Style,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 
 // contexts
 import {
@@ -33,7 +30,7 @@ import {
   GlassModeContext,
   ColorContext,
 } from '../themes/theme';
-import { Box, Divider, Fab, Popover, Typography } from '@material-ui/core';
+import { Box, Divider, Fab, Popover, Typography } from '@mui/material';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

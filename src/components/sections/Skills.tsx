@@ -1,11 +1,14 @@
 import React from 'react';
 
 // components
-import { Chip, Typography, Container, Paper } from '@material-ui/core';
+import { Chip, Typography, Container, Paper } from '@mui/material';
 
 // styles
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Done } from '@material-ui/icons';
+import { Theme } from '@mui/material/styles';
+import { createStyles, makeStyles } from '@mui/styles';
+
+// icons
+import { Done } from '@mui/icons-material';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -43,6 +46,7 @@ const skills = [
   'UX research',
   'Teamworker',
   'App Development',
+  'Team Leading',
   'Software Development',
   'Team management',
 ];
@@ -95,11 +99,8 @@ const Skills = () => {
 export default Skills;
 
 import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
+import { useTheme } from '@mui/material/styles';
+import { AppBar, Tabs, Tab, Box } from '@mui/material';
 
 interface TabPanelProps {
   children?: React.ReactNode;

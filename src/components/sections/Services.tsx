@@ -1,11 +1,12 @@
 import React from 'react';
 
 // components
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import AboutCircularAnim from '../AboutCircularAnim';
 
 // styles
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,7 +45,6 @@ const Services = () => {
       >
         {'What I do & How I can help you'}
       </Typography>
-      
     </div>
   );
 };

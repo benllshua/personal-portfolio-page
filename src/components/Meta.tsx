@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
 
 type Props = { title: string; keywords: string; description: string };
 

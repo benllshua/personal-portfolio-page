@@ -6,12 +6,13 @@ import {
   SchoolOutlined,
   Work,
   WorkOutline,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 
-import { Button, ButtonGroup, Paper } from '@material-ui/core';
+import { Button, ButtonGroup, Paper } from '@mui/material';
 
 // styles
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@mui/material/styles';
+import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
