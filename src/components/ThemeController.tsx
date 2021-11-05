@@ -129,12 +129,12 @@ const ThemeController = () => {
     },
     {
       icon:
-        theme.palette.type === 'light' ? (
+        theme.palette.mode === 'light' ? (
           <Brightness4Outlined />
         ) : (
           <Brightness7 />
         ),
-      name: theme.palette.type === 'light' ? 'Dark Mode' : 'Light Mode ',
+      name: theme.palette.mode === 'light' ? 'Dark Mode' : 'Light Mode ',
       onClick: darkModeToggler,
     },
     {

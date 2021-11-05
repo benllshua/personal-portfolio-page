@@ -13,19 +13,13 @@ import {
 } from '@mui/material';
 import Tilt from 'react-parallax-tilt';
 
-import {
-  BorderOuter,
-  FitnessCenter,
-  Inbox,
-  Keyboard,
-  MusicNote,
-  SportsEsports,
-} from '@mui/icons-material';
+// data
+import { hobbies } from '../content/hobbies';
 
 // styles
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
-import { ColorContext } from '../../../themes/theme';
+import { ColorContext } from '../themes/theme';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -96,42 +90,12 @@ const StoryPanel = () => {
               More things I like:
             </Typography>
             <List dense>
-              <ListItem>
-                <ListItemIcon>
-                  <BorderOuter color="primary" />
-                </ListItemIcon>
-                <ListItemText primary="Chess" />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <FitnessCenter color="primary" />
-                </ListItemIcon>
-                <ListItemText primary="Gym training" />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <SportsEsports color="primary" />
-                </ListItemIcon>
-                <ListItemText primary="TFT (an online strategy game)" />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <MusicNote color="primary" />
-                </ListItemIcon>
-                <ListItemText primary="Listen to Music" />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <Inbox color="primary" />
-                </ListItemIcon>
-                <ListItemText primary="Board games" />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <Keyboard color="primary" />
-                </ListItemIcon>
-                <ListItemText primary="Coding games & competetive coding" />
-              </ListItem>
+              {hobbies.map((hobbie, index) => (
+                <ListItem key={index}>
+                  <ListItemIcon>{hobbie.icon}</ListItemIcon>
+                  <ListItemText primary={hobbie.title} />
+                </ListItem>
+              ))}
             </List>
           </Grid>
           <Grid item xs={6}>

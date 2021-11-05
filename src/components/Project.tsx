@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // components
-import { Typography, Grid, Chip, Box } from '@mui/material';
+import { Typography, Grid, Chip, Box, Button } from '@mui/material';
 
 // styles
 import { Theme } from '@mui/material/styles';
 import { makeStyles, createStyles } from '@mui/styles';
+import ImagesDialog from './ImagesDialog';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -39,16 +40,23 @@ interface Props {
     title: string;
     description: string;
     mainImg: string;
-    images: string[];
+    imageList: { label?: string; imgFileName: string }[];
     tags: string[];
   };
 }
 
 const Project = ({ project }: Props) => {
-  const { title, description, tags, mainImg } = project;
+  const { title, description, tags, mainImg, imageList } = project;
   const basicImgPath = '/images/projects';
-
   const classes = useStyles();
+
+  const [open, setOpen] = useState(false);
+  const onClose = () => {
+    setOpen(false);
+  };
+  const onOpen = () => {
+    setOpen(true);
+  };
 
   return (
     <Grid container className={classes.root}>
@@ -64,9 +72,17 @@ const Project = ({ project }: Props) => {
           <Typography variant="h5" gutterBottom>
             {title}
           </Typography>
-          <Typography variant="body1" className={classes.bodyText}>
+          <Typography variant="body1" className={classes.bodyText} gutterBottom>
             {description}
           </Typography>
+          <Button
+            color="primary"
+            variant="contained"
+            size="small"
+            onClick={onOpen}
+          >
+            {'VIEW MORE'}
+          </Button>
         </Box>
       </Grid>
       <div className={classes.tagsContainer}>
@@ -74,6 +90,9 @@ const Project = ({ project }: Props) => {
           <Chip key={tag} label={tag} color={'primary'} variant="outlined" />
         ))}
       </div>
+      {open && (
+        <ImagesDialog open={open} onClose={onClose} imageList={imageList} />
+      )}
     </Grid>
   );
 };

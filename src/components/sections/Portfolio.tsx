@@ -113,11 +113,10 @@ const FullWidthTabs = () => {
           textColor="primary"
           variant="scrollable"
           scrollButtons="auto"
-          centered
           aria-label="full width tabs example"
         >
           <Tab label="UX Design" {...a11yProps(0)} />
-          <Tab label="Front End Dev" {...a11yProps(1)} />
+          <Tab label="Development Projects" {...a11yProps(1)} />
           <Tab label="Back End Dev" {...a11yProps(2)} />
         </Tabs>
       </AppBar>

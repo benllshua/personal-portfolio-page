@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 
 // components
 import { Container, Grid, Typography } from '@mui/material';
-import StoryPanel from './aboutComponents/StoryPanel';
-import EducationPanel from './aboutComponents/EducationPanel';
-import PanelController from './aboutComponents/PanelController';
+import StoryPanel from '../StoryPanel';
+import EducationPanel from '../EducationPanel';
+import WorkPanel from '../WorkPanel';
+import PanelController from '../PanelController';
 
 // styles
 import { Theme } from '@mui/material/styles';
@@ -95,7 +96,7 @@ const About = () => {
                 panel === 3 ? '' : classes.inactivePanel
               }`}
             >
-              <StoryPanel />
+              <WorkPanel />
             </div>
           </Grid>
         </Grid>
