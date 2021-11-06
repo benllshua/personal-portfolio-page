@@ -91,7 +91,6 @@ const a11yProps = (index: any) => {
 };
 
 const FullWidthTabs = () => {
-  const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 

@@ -62,6 +62,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 // context
 import { ColorContext } from '../themes/theme';
+import { SSL_OP_NO_TLSv1_1 } from 'constants';
 
 const WorkPanel = () => {
   const classes = useStyles();
@@ -107,7 +108,7 @@ const WorkPanel = () => {
             </Timeline>
           </Grid>
           <Grid item xs={4} className={classes.flexCenter}>
-            <Tilt perspective={500}>
+            <Tilt perspective={500} scale={1.25}>
               <img
                 src={`/images/illustrations/${
                   color.getColor()?.folderName

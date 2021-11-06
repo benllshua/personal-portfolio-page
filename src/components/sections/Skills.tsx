@@ -1,14 +1,15 @@
 import React from 'react';
 
 // components
-import { Chip, Typography, Container, Paper } from '@mui/material';
+import { Typography, Container, Paper } from '@mui/material';
+import SkillChip from '../SkillChip';
 
 // styles
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 
-// icons
-import { Done } from '@mui/icons-material';
+// data
+import { skills } from '../../content/skills';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,20 +37,14 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
       overflow: 'hidden',
     },
+    chip: {
+      '&:hover': {
+        transform: 'scale(1.25)',
+        boxShadow: '1px 1px 5px #00000055',
+      },
+    },
   })
 );
-
-const skills = [
-  'Project management',
-  'Web Development',
-  'UX Design',
-  'UX research',
-  'Teamworker',
-  'App Development',
-  'Team Leading',
-  'Software Development',
-  'Team management',
-];
 
 const Skills = () => {
   const classes = useStyles();
@@ -75,8 +70,10 @@ const Skills = () => {
       </Typography>
       <Container>
         <div className={classes.pillContainer}>
-          {skills.map((skill) => (
-            <Chip key={skill} label={skill} color={'primary'} icon={<Done />} />
+          {skills.map((skill, index) => (
+            <div key={index}>
+              <SkillChip skill={skill} />
+            </div>
           ))}
         </div>
         <Typography

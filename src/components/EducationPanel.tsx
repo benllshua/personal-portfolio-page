@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 // components
 import {
@@ -19,6 +19,8 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Zoom,
+  Button,
 } from '@mui/material';
 
 import { ExpandMore } from '@mui/icons-material';
@@ -56,12 +58,14 @@ const useStyles = makeStyles((theme: Theme) =>
     bodyText: {
       fontStyle: 'italic',
       opacity: '0.7',
+      marginBottom: theme.spacing(2),
     },
   })
 );
 
 // context
 import { ColorContext } from '../themes/theme';
+import ImagesDialog from './ImagesDialog';
 
 const EducationPanel = () => {
   const classes = useStyles();
@@ -100,6 +104,7 @@ const EducationPanel = () => {
                     <EduAccordion
                       title={education.title}
                       description={education.description}
+                      imageList={education.imageList}
                     />
                   </TimelineContent>
                 </TimelineItem>
@@ -107,7 +112,7 @@ const EducationPanel = () => {
             </Timeline>
           </Grid>
           <Grid item xs={4} className={classes.flexCenter}>
-            <Tilt perspective={500}>
+            <Tilt perspective={500} scale={1.25}>
               <img
                 src={`/images/illustrations/${
                   color.getColor()?.folderName
@@ -127,22 +132,37 @@ export default EducationPanel;
 interface Props {
   title: string;
   description: string;
+  imageList: { label?: string; imgFileName: string }[];
 }
 
-const EduAccordion = ({ title, description }: Props) => {
+const EduAccordion = ({ title, description, imageList }: Props) => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  const onClose = () => {
+    setOpen(false);
+  };
+  const onOpen = () => {
+    setOpen(true);
+  };
+
   return (
-    <Paper>
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMore />}>
-          <Typography variant="subtitle2">{title}</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography variant="body2" className={classes.bodyText}>
-            {description}
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-    </Paper>
+    <>
+      <Paper>
+        <Accordion>
+          <AccordionSummary expandIcon={<ExpandMore />}>
+            <Typography variant="subtitle2">{title}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography variant="body2" className={classes.bodyText}>
+              {description}
+            </Typography>
+            <Button size={'small'} variant={'outlined'} onClick={onOpen}>
+              {'VIEW CERTIFICATES'}
+            </Button>
+          </AccordionDetails>
+        </Accordion>
+      </Paper>
+      <ImagesDialog open={open} onClose={onClose} imageList={imageList} />
+    </>
   );
 };

@@ -47,7 +47,6 @@ interface Props {
 
 const Project = ({ project }: Props) => {
   const { title, description, tags, mainImg, imageList } = project;
-  const basicImgPath = '/images/projects';
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
@@ -63,7 +62,7 @@ const Project = ({ project }: Props) => {
       <Grid item xs={6}>
         <img
           className={classes.image}
-          src={`${basicImgPath}/${mainImg}`}
+          src={mainImg}
           alt={`${title} project image`}
         />
       </Grid>

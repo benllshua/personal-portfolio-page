@@ -14,7 +14,7 @@ const Meta = (props: Props) => {
       <meta name="theme-color" content={theme.palette.primary.main} />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/images/logo.png" />
+      <link rel="icon" href="/images/logoIco.png" />
       <link rel="apple-touch-icon" href="/images/logo.png" />
     </Head>
   );

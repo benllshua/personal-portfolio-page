@@ -99,7 +99,7 @@ const StoryPanel = () => {
             </List>
           </Grid>
           <Grid item xs={6}>
-            <Tilt perspective={500}>
+            <Tilt perspective={500} scale={1.25}>
               <img
                 src={`/images/illustrations/${
                   color.getColor()?.folderName

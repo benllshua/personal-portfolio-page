@@ -16,7 +16,7 @@ interface Props {
 const SwipeableImageViews = ({ imageList }: Props) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const basicPath = '/images/projects';
+  
   const maxSteps = imageList.length;
 
   const handleNext = () => {
@@ -64,7 +64,7 @@ const SwipeableImageViews = ({ imageList }: Props) => {
                   overflow: 'hidden',
                   width: '100%',
                 }}
-                src={`${basicPath}/${item.imgFileName}`}
+                src={item.imgFileName}
                 alt={item.label}
               />
             ) : null}

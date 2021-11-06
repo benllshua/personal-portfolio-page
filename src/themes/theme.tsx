@@ -154,6 +154,7 @@ const Theme = ({ children }: ThemeProps) => {
                 : '#303030',
           },
         },
+        
       }),
     [mode, glassModeState, color]
   );
