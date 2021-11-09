@@ -19,8 +19,9 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Zoom,
   Button,
+  Zoom,
+  Slide,
 } from '@mui/material';
 
 import { ExpandMore } from '@mui/icons-material';
@@ -28,10 +29,10 @@ import { ExpandMore } from '@mui/icons-material';
 import Tilt from 'react-parallax-tilt';
 
 // Data
-import { educationPlaces, iconDictionary } from '../content/education';
+import { educationPlaces, Education } from '../content/education';
 
 // styles
-import { Theme } from '@mui/material/styles';
+import { Theme, useTheme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -55,10 +56,17 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
     },
+
     bodyText: {
       fontStyle: 'italic',
       opacity: '0.7',
       marginBottom: theme.spacing(2),
+    },
+    eduAccordion: {
+      transition: '0.3s',
+      '&:hover': {
+        marginRight: theme.spacing(-2),
+      },
     },
   })
 );
@@ -71,6 +79,12 @@ const EducationPanel = () => {
   const classes = useStyles();
   const color = useContext(ColorContext);
 
+  const theme = useTheme();
+  const transitionDuration = {
+    enter: theme.transitions.duration.enteringScreen,
+    exit: theme.transitions.duration.leavingScreen,
+  };
+
   return (
     <Paper elevation={8}>
       <Box p={3}>
@@ -81,33 +95,12 @@ const EducationPanel = () => {
             </Typography>
             <Timeline position="right">
               {educationPlaces.map((education, index) => (
-                <TimelineItem key={index}>
-                  <TimelineOppositeContent>
-                    <Typography variant="body1" color="textSecondary">
-                      {education.type}
-                    </Typography>
-                    <Typography variant="caption" color="textSecondary">
-                      {education.startDate} - {education.endDate}
-                    </Typography>
-                  </TimelineOppositeContent>
-                  <TimelineSeparator>
-                    <TimelineDot color="primary" variant="outlined">
-                      {iconDictionary[education.type]}
-                    </TimelineDot>
-                    {index !== educationPlaces.length - 1 ? (
-                      <TimelineConnector className={classes.primaryTail} />
-                    ) : (
-                      ''
-                    )}
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <EduAccordion
-                      title={education.title}
-                      description={education.description}
-                      imageList={education.imageList}
-                    />
-                  </TimelineContent>
-                </TimelineItem>
+                <div key={index}>
+                  <Item
+                    education={education}
+                    last={index === educationPlaces.length - 1}
+                  />
+                </div>
               ))}
             </Timeline>
           </Grid>
@@ -129,13 +122,53 @@ const EducationPanel = () => {
 
 export default EducationPanel;
 
-interface Props {
+interface ItemProps {
+  education: Education;
+  last: boolean;
+}
+
+const Item = ({ education, last }: ItemProps) => {
+  const classes = useStyles();
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <TimelineItem
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <TimelineOppositeContent>
+        <Typography variant="body1" color="textSecondary">
+          {education.type}
+        </Typography>
+
+        <Typography variant="caption" color="textSecondary">
+          {education.startDate} - {education.endDate}
+        </Typography>
+      </TimelineOppositeContent>
+      <TimelineSeparator>
+        <TimelineDot color="primary" variant="outlined">
+          {education.icon}
+        </TimelineDot>
+        {!last && <TimelineConnector className={classes.primaryTail} />}
+      </TimelineSeparator>
+      <TimelineContent>
+        <EduAccordion
+          title={education.title}
+          description={education.description}
+          imageList={education.imageList}
+        />
+      </TimelineContent>
+    </TimelineItem>
+  );
+};
+
+interface EduAccordionProps {
   title: string;
   description: string;
   imageList: { label?: string; imgFileName: string }[];
 }
 
-const EduAccordion = ({ title, description, imageList }: Props) => {
+const EduAccordion = ({ title, description, imageList }: EduAccordionProps) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const onClose = () => {
@@ -147,7 +180,7 @@ const EduAccordion = ({ title, description, imageList }: Props) => {
 
   return (
     <>
-      <Paper>
+      <Paper className={classes.eduAccordion}>
         <Accordion>
           <AccordionSummary expandIcon={<ExpandMore />}>
             <Typography variant="subtitle2">{title}</Typography>

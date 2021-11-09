@@ -8,7 +8,7 @@ import {
   WorkOutline,
 } from '@mui/icons-material';
 
-import { Button, ButtonGroup, Paper } from '@mui/material';
+import { Button, ButtonGroup, Paper, Zoom } from '@mui/material';
 
 // styles
 import { Theme } from '@mui/material/styles';
@@ -70,10 +70,15 @@ const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
           className={classes.buttonSpacing}
           onClick={() => setPanelTo(1)}
         >
-          {panel === 1 ? (
-            <Person fontSize={'large'} />
-          ) : (
-            <PersonOutlined fontSize={'large'} />
+          {panel === 1 && (
+            <Zoom in={panel === 1}>
+              <Person fontSize={'large'} />
+            </Zoom>
+          )}
+          {panel !== 1 && (
+            <Zoom in={panel !== 1}>
+              <PersonOutlined fontSize={'large'} />
+            </Zoom>
           )}
         </Button>
         <Button
@@ -81,10 +86,15 @@ const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
           className={classes.buttonSpacing}
           onClick={() => setPanelTo(2)}
         >
-          {panel === 2 ? (
-            <School fontSize={'large'} />
-          ) : (
-            <SchoolOutlined fontSize={'large'} />
+          {panel === 2 && (
+            <Zoom in={panel === 2}>
+              <School fontSize={'large'} />
+            </Zoom>
+          )}
+          {panel !== 2 && (
+            <Zoom in={panel !== 2}>
+              <SchoolOutlined fontSize={'large'} />
+            </Zoom>
           )}
         </Button>
         <Button
@@ -92,10 +102,15 @@ const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
           className={classes.buttonSpacing}
           onClick={() => setPanelTo(3)}
         >
-          {panel === 3 ? (
-            <Work fontSize={'large'} />
-          ) : (
-            <WorkOutline fontSize={'large'} />
+          {panel === 3 && (
+            <Zoom in={panel === 3}>
+              <Work fontSize={'large'} />
+            </Zoom>
+          )}
+          {panel !== 3 && (
+            <Zoom in={panel !== 3}>
+              <WorkOutline fontSize={'large'} />
+            </Zoom>
           )}
         </Button>
       </ButtonGroup>

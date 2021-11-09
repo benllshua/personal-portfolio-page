@@ -14,13 +14,13 @@ export const skills = [
   {
     name: 'UX Design',
     description:
-      'description description description description description description descriptiondescriptiondescriptiondescription description description descriptiondescription',
+      '"User experience (UX) design is the process design teams use to create products that provide meaningful and relevant experiences to users. This involves the design of the entire process of acquiring and integrating the product, including aspects of branding, design, usability and function." - Interaction Design Foundation',
   },
 
   {
     name: 'UX research',
     description:
-      'description description description description description description descriptiondescriptiondescriptiondescription description description descriptiondescription',
+      '"Understand users and learn about their backgrounds, demographics, motivations, pain points, emotions, and life goals." - Google UX Course',
   },
 
   {

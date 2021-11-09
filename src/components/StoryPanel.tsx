@@ -48,14 +48,7 @@ const useStyles = makeStyles((theme: Theme) =>
       opacity: '0.7',
       marginBottom: theme.spacing(4),
     },
-    eduPaper: {
-      padding: '6px 16px',
-      '&:not(:hover) p': {
-        transform: 'scaleY(0)',
 
-        opacity: 0,
-      },
-    },
     primaryTail: {
       backgroundColor: theme.palette.primary.main,
     },
@@ -99,7 +92,7 @@ const StoryPanel = () => {
             </List>
           </Grid>
           <Grid item xs={6}>
-            <Tilt perspective={500} scale={1.25}>
+            <Tilt perspective={500} scale={1.1}>
               <img
                 src={`/images/illustrations/${
                   color.getColor()?.folderName

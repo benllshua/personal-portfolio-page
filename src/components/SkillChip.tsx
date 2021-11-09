@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // components
-import { Chip, Popover, Typography } from '@mui/material';
+import {
+  Chip,
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Divider,
+  Rating,
+  Typography,
+} from '@mui/material';
 
 // styles
 import { Theme } from '@mui/material/styles';
@@ -18,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     chip: {
       '&:hover': {
-        transform: 'scale(1.25)',
+        transform: 'scale(1.1)',
         boxShadow: '1px 1px 5px #00000055',
       },
     },
@@ -32,14 +41,12 @@ interface SkillChip {
 const SkillChip = ({ skill }: SkillChip) => {
   const classes = useStyles();
 
-  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
-
-  const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
+  const [open, setOpen] = useState(false);
+  const onClose = () => {
+    setOpen(false);
   };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
+  const onOpen = () => {
+    setOpen(true);
   };
 
   return (
@@ -48,29 +55,20 @@ const SkillChip = ({ skill }: SkillChip) => {
         label={skill.name}
         color={'primary'}
         deleteIcon={<Info />}
-        onDelete={handlePopoverOpen}
+        onDelete={onOpen}
         className={classes.chip}
       />
-      <Popover
-        open={Boolean(anchorEl)}
-        anchorEl={anchorEl}
-        onClose={handlePopoverClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-      >
-        <Box p={3}>
-          <Typography
-            gutterBottom
-          >{`What does ${skill.name} mean:`}</Typography>
-          <Typography>{skill.description}</Typography>
+      <Dialog open={open} onClose={onClose}>
+        <Box p={1}>
+          <DialogTitle>
+            {`What does`}
+            <b> {skill.name} </b> {`mean:`}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText>{skill.description}</DialogContentText>
+          </DialogContent>
         </Box>
-      </Popover>
+      </Dialog>
     </>
   );
 };

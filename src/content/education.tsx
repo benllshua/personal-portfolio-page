@@ -1,10 +1,17 @@
 import React from 'react';
-import { Description, School, Verified } from '@mui/icons-material';
+import {
+  Description,
+  DescriptionOutlined,
+  School,
+  SchoolOutlined,
+} from '@mui/icons-material';
 const basicPath = '/images/certificates';
-const educationPlaces = [
+export const educationPlaces = [
   {
     title: 'Meir Shfeia',
     description: 'This page that youre watching right now',
+    icon: <SchoolOutlined color="primary" />,
+    hoveredIcon: <School color="primary" />,
     type: 'High School',
     imageList: [],
     startDate: '09/2015',
@@ -13,6 +20,8 @@ const educationPlaces = [
   {
     title: 'Digital Operator',
     description: 'csakldjsfkajls dhfkjl dsklajhf asdkfjh ksjdahf',
+    icon: <DescriptionOutlined color="primary" />,
+    hoveredIcon: <Description color="primary" />,
     type: 'Certification',
     imageList: [],
     startDate: '09/2020',
@@ -21,6 +30,8 @@ const educationPlaces = [
   {
     title: 'Google UX Design',
     description: 'csakldjsfkajls dhfkjl dsklajhf asdkfjh ksjdahf',
+    icon: <DescriptionOutlined color="primary" />,
+    hoveredIcon: <Description color="primary" />,
     type: 'Certification',
     imageList: [],
     startDate: '04/2021',
@@ -29,6 +40,8 @@ const educationPlaces = [
   {
     title: 'The Open University Of Israel',
     description: 'csakldjsfkajls dhfkjl dsklajhf asdkfjh ksjdahf',
+    icon: <SchoolOutlined color="primary" />,
+    hoveredIcon: <School color="primary" />,
     type: 'University',
     imageList: [],
     startDate: '10/2021',
@@ -37,18 +50,23 @@ const educationPlaces = [
   {
     title: 'React App Security',
     description: 'csakldjsfkajls dhfkjl dsklajhf asdkfjh ksjdahf',
+    icon: <DescriptionOutlined color="primary" />,
+    hoveredIcon: <Description color="primary" />,
     type: 'Certification',
+
     imageList: [{ imgFileName: `${basicPath}/ReactSecurity.png` }],
     startDate: '11/2021',
     endDate: '12/2021',
   },
 ];
 
-const iconDictionary = {
-  Certification: <Description color="primary" />,
-  'High School': <School color="primary" />,
-  University: <School color="primary" />,
-  Verification: <Verified color="primary" />,
+export type Education = {
+  title: string;
+  description: string;
+  icon: any;
+  hoveredIcon: any;
+  type: string;
+  imageList: { label?: string; imgFileName: string }[];
+  startDate: string;
+  endDate: string;
 };
-
-export { educationPlaces, iconDictionary };

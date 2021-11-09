@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexWrap: 'wrap',
     },
     card: {
+      transition: '0.3s',
       width: 350,
       margin: theme.spacing(8),
       '&:hover': {

@@ -57,12 +57,16 @@ const useStyles = makeStyles((theme: Theme) =>
       fontStyle: 'italic',
       opacity: '0.7',
     },
+    eduAccordion: {
+      '&:hover': {
+        marginRight: theme.spacing(-2),
+      },
+    },
   })
 );
 
 // context
 import { ColorContext } from '../themes/theme';
-import { SSL_OP_NO_TLSv1_1 } from 'constants';
 
 const WorkPanel = () => {
   const classes = useStyles();
@@ -134,7 +138,7 @@ const WorkAccordion = ({ title, description }: Props) => {
   const classes = useStyles();
 
   return (
-    <Paper>
+    <Paper className={classes.eduAccordion}>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMore />}>
           <Typography variant="subtitle2">{title}</Typography>
