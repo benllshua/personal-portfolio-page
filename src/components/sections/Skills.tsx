@@ -50,7 +50,7 @@ const Skills = () => {
   const classes = useStyles();
 
   return (
-    <div className="section">
+    <div className="section" id="skillsSection">
       <Typography
         variant="h3"
         component="h3"

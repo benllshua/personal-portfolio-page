@@ -31,7 +31,7 @@ const Portfolio = () => {
   const classes = useStyles();
 
   return (
-    <div className="section">
+    <div className="section" id="portfolioSection">
       <Typography
         variant="h3"
         component="h3"

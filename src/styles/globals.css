@@ -9,7 +9,9 @@
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;
 } */
-body {
+body,
+html {
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 .section {

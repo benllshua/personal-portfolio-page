@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     colorFab: {
+      transition: '0.3s',
       margin: theme.spacing(2),
       '&:hover': {
         transform: 'scale(1.1)',

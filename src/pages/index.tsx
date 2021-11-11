@@ -8,6 +8,7 @@ import Skills from '../components/sections/Skills';
 import SocialMediaLinks from '../components/SocialMediaLinks';
 import ThemeController from '../components/ThemeController';
 import Portfolio from '../components/sections/Portfolio';
+import Footer from '../components/Footer';
 
 /**
  * Main page component
@@ -18,19 +19,13 @@ export default function Index() {
     <>
       <ThemeController />
       <SocialMediaLinks />
-      <div
-        style={{
-          scrollSnapPointsY: 'repeat(100vh)',
-          scrollSnapType: 'y mandatory',
-          height: '100vh',
-        }}
-      >
-        <Landing />
-        <Services />
-        <About />
-        <Skills />
-        <Portfolio />
-      </div>
+
+      <Landing />
+      <Services />
+      <About />
+      <Skills />
+      <Portfolio />
+      <Footer />
     </>
   );
 }

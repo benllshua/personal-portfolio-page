@@ -61,7 +61,7 @@ const About = () => {
   };
 
   return (
-    <div className="section">
+    <div className="section" id="aboutSection">
       <Typography
         variant="h3"
         component="h3"

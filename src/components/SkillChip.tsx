@@ -26,6 +26,7 @@ import { Box } from '@mui/system';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     chip: {
+      transition: '0.3s',
       '&:hover': {
         transform: 'scale(1.1)',
         boxShadow: '1px 1px 5px #00000055',

@@ -57,7 +57,7 @@ const Services = () => {
   const classes = useStyles();
 
   return (
-    <div className="section">
+    <div className="section" id="servicesSection">
       <Typography
         variant="h3"
         component="h3"
