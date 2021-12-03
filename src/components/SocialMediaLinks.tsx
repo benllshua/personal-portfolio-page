@@ -2,12 +2,12 @@ import React from 'react';
 
 // components
 import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
+import { IconButton, Tooltip } from '@mui/material';
+import SlideAndFade from './animations/SlideAndFade';
 
 // styles
 import { Theme } from '@mui/material/styles';
 import { makeStyles, createStyles } from '@mui/styles';
-
-import { IconButton, Tooltip } from '@mui/material';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,22 +36,30 @@ const SocialMediaLinks = () => {
 
   return (
     <div className={classes.position}>
-      <IconLink icon={<Mail />} href={'#'} text={'email'} />
-      <IconLink
-        icon={<GitHub />}
-        text={'GitHub link'}
-        href={'https://github.com/benllshua'}
-      />
-      <IconLink
-        text={'LinkedIn link'}
-        icon={<LinkedIn />}
-        href={'https://www.linkedin.com/in/ben-shua-08b103198/'}
-      />
-      <IconLink
-        text={'Instagram link'}
-        icon={<Instagram />}
-        href={'https://www.instagram.com/benllshua/'}
-      />
+      <SlideAndFade delay={3.0}>
+        <IconLink icon={<Mail />} href={'#'} text={'email'} />
+      </SlideAndFade>
+      <SlideAndFade delay={3.2}>
+        <IconLink
+          icon={<GitHub />}
+          text={'GitHub link'}
+          href={'https://github.com/benllshua'}
+        />
+      </SlideAndFade>
+      <SlideAndFade delay={3.4}>
+        <IconLink
+          text={'LinkedIn link'}
+          icon={<LinkedIn />}
+          href={'https://www.linkedin.com/in/ben-shua-08b103198/'}
+        />
+      </SlideAndFade>
+      <SlideAndFade delay={3.8}>
+        <IconLink
+          text={'Instagram link'}
+          icon={<Instagram />}
+          href={'https://www.instagram.com/benllshua/'}
+        />
+      </SlideAndFade>
     </div>
   );
 };

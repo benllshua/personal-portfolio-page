@@ -16,7 +16,7 @@ interface Props {
 const SwipeableImageViews = ({ imageList }: Props) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  
+
   const maxSteps = imageList.length;
 
   const handleNext = () => {

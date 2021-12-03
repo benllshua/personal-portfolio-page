@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
       height: 0,
     },
     bodyText: {
-      fontStyle: 'italic',
+      // fontStyle: 'italic',
       opacity: '0.7',
       marginBottom: theme.spacing(4),
     },
@@ -65,7 +65,7 @@ const StoryPanel = () => {
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="h4" gutterBottom>
-              My Story
+              {'My Story'}
             </Typography>
             <Typography variant="body2" className={classes.bodyText}>
               {`
@@ -77,10 +77,10 @@ const StoryPanel = () => {
               specialist.`}
               <br />
               {`I love it, I like exploring ideas, try to achieve them throw
-              hard work and teamwork.`}
+              hard work (and teamwork 😉 ). maybe someday even with you...`}
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
-              More things I like:
+              {'More things I like:'}
             </Typography>
             <List dense>
               {hobbies.map((hobbie, index) => (

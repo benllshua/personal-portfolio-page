@@ -104,21 +104,18 @@ const FullWidthTabs = () => {
 
   return (
     <div>
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="scrollable"
-          scrollButtons="auto"
-          aria-label="full width tabs example"
-        >
-          <Tab label="UX Design" {...a11yProps(0)} />
-          <Tab label="Development Projects" {...a11yProps(1)} />
-          <Tab label="Back End Dev" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="primary"
+        textColor="primary"
+        variant="fullWidth"
+        aria-label="full width tabs example"
+      >
+        <Tab label="UX Design" {...a11yProps(0)} />
+        <Tab label="Development Projects" {...a11yProps(1)} />
+        <Tab label="Management " {...a11yProps(2)} />
+      </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
