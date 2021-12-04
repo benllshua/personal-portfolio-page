@@ -1,13 +1,7 @@
 import React, { useContext, useState } from 'react';
 
 // components
-import {
-  Typography,
-  Card,
-  CardActionArea,
-  Box,
-  Container,
-} from '@mui/material';
+import { Typography, Card, CardActionArea, Box } from '@mui/material';
 // import AboutCircularAnim from '../AboutCircularAnim';
 import Image from 'next/image';
 
@@ -75,16 +69,13 @@ const Services = () => {
       >
         {'What I do & How I can help you'}
       </Typography>
-
-      <Container>
-        <div className={classes.cardsContainer}>
-          {services.map((service, index) => (
-            <div key={index}>
-              <ServiceCard service={service} />
-            </div>
-          ))}
-        </div>
-      </Container>
+      <div className={classes.cardsContainer}>
+        {services.map((service, index) => (
+          <div key={index}>
+            <ServiceCard service={service} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

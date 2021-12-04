@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import { Typography, Container, Paper } from '@mui/material';
+import { Typography, Paper, Divider } from '@mui/material';
 import SkillChip from '../SkillChip';
 
 // styles
@@ -9,7 +9,12 @@ import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 
 // data
-import { skills } from '../../content/skills';
+import {
+  BackEndSkills,
+  FrontEndSkills,
+  skills,
+  UXSkills,
+} from '../../content/skills';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -43,6 +48,21 @@ const useStyles = makeStyles((theme: Theme) =>
         boxShadow: '1px 1px 5px #00000055',
       },
     },
+    skillRoot: {
+      margin: theme.spacing(2),
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column',
+    },
+    skillsContainer: {
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
+      display: 'flex',
+      justifyContent: 'space-evenly',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+    },
   })
 );
 
@@ -68,27 +88,25 @@ const Skills = () => {
       >
         {'what I`m good at:'}
       </Typography>
-      <Container>
-        <div className={classes.pillContainer}>
-          {skills.map((skill, index) => (
-            <div key={index}>
-              <SkillChip skill={skill} />
-            </div>
-          ))}
-        </div>
-        <Typography
-          variant="h5"
-          component="h5"
-          align="center"
-          gutterBottom
-          className={classes.subTitle}
-        >
-          {'Practical Skills'}
-        </Typography>
-        <Paper>
-          <FullWidthTabs />
-        </Paper>
-      </Container>
+      <div className={classes.pillContainer}>
+        {skills.map((skill, index) => (
+          <div key={index}>
+            <SkillChip skill={skill} />
+          </div>
+        ))}
+      </div>
+      <Typography
+        variant="h5"
+        component="h5"
+        align="center"
+        gutterBottom
+        className={classes.subTitle}
+      >
+        {'Practical Skills'}
+      </Typography>
+      <Paper>
+        <FullWidthTabs />
+      </Paper>
     </div>
   );
 };
@@ -110,13 +128,7 @@ const TabPanel = (props: TabPanelProps) => {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
+    <div hidden={value !== index} {...other}>
       {value === index && (
         <Box p={6}>
           <Typography>{children}</Typography>
@@ -126,17 +138,10 @@ const TabPanel = (props: TabPanelProps) => {
   );
 };
 
-const a11yProps = (index: any) => {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
-};
-
 const FullWidthTabs = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -158,10 +163,10 @@ const FullWidthTabs = () => {
           scrollButtons="auto"
           aria-label="full width tabs example"
         >
-          <Tab label="UX Design" {...a11yProps(0)} />
-          <Tab label="Front End Dev" {...a11yProps(1)} />
-          <Tab label="Back End Dev" {...a11yProps(2)} />
-          <Tab label="More Tools" {...a11yProps(3)} />
+          <Tab label="UX Design" />
+          <Tab label="Front End Dev" />
+          <Tab label="Back End Dev" />
+          <Tab label="More Tools" />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -170,18 +175,118 @@ const FullWidthTabs = () => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Item One
+          <SkillSection skills={UXSkills} />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
+          <SkillSection skills={FrontEndSkills} />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
+          <SkillSection skills={BackEndSkills} />
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
           Item Three
         </TabPanel>
       </SwipeableViews>
+    </div>
+  );
+};
+
+interface SkillProps {
+  skills: {
+    languages?: SkillType[];
+    librarys?: SkillType[];
+    moreRelated?: SkillType[];
+    tools?: SkillType[];
+    notes?: string;
+  };
+}
+type SkillType = {
+  name: string;
+  imgDir: string;
+};
+
+const SkillSection = ({ skills }: SkillProps) => {
+  const classes = useStyles();
+  return (
+    <>
+      {skills.languages?.length && (
+        <>
+          <Typography variant={'h5'} align={'center'} gutterBottom>
+            {'Languages'}
+          </Typography>
+          <Divider />
+          <div className={classes.skillsContainer}>
+            {skills.languages.map((skill) => (
+              <div key={skill.name}>
+                <Skill imgDir={skill.imgDir} name={skill.name} />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+      {skills.librarys?.length && (
+        <>
+          <Typography variant={'h5'} align={'center'} gutterBottom>
+            {'Librarys / Frameworks'}
+          </Typography>
+          <Divider />
+          <div className={classes.skillsContainer}>
+            {skills.librarys.map((skill) => (
+              <div key={skill.name}>
+                <Skill imgDir={skill.imgDir} name={skill.name} />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+      {skills.moreRelated?.length && (
+        <>
+          <Typography variant={'h5'} align={'center'} gutterBottom>
+            {'Other'}
+          </Typography>
+          <Divider />
+          <div className={classes.skillsContainer}>
+            {skills.moreRelated.map((skill) => (
+              <div key={skill.name}>
+                <Skill imgDir={skill.imgDir} name={skill.name} />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+      {skills.tools?.length && (
+        <>
+          <Typography variant={'h5'} align={'center'} gutterBottom>
+            {'Tools'}
+          </Typography>
+          <Divider />
+          <div className={classes.skillsContainer}>
+            {skills.tools.map((skill) => (
+              <div key={skill.name}>
+                <Skill imgDir={skill.imgDir} name={skill.name} />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+      <Typography variant={'body2'}>{skills.notes}</Typography>
+    </>
+  );
+};
+
+const Skill = ({ imgDir, name }: SkillType) => {
+  const basicPath = '/svgs/skills';
+  const classes = useStyles();
+
+  return (
+    <div className={classes.skillRoot}>
+      <img
+        src={`${basicPath}/${imgDir}.svg`}
+        alt={imgDir}
+        width={50}
+        height={50}
+      ></img>
+      <Typography variant={'caption'}>{name}</Typography>
     </div>
   );
 };

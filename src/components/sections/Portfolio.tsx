@@ -4,7 +4,7 @@ import React from 'react';
 import { UXProjects, FRONTENDProjects } from '../../content/projects';
 
 // components
-import { Typography, Container } from '@mui/material';
+import { Typography } from '@mui/material';
 import Project from '../Project';
 
 // styles
@@ -50,9 +50,7 @@ const Portfolio = () => {
       >
         {'past work & projects'}
       </Typography>
-      <Container>
-        <FullWidthTabs />
-      </Container>
+      <FullWidthTabs />
     </div>
   );
 };
@@ -62,7 +60,6 @@ export default Portfolio;
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
 
-import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 

@@ -15,7 +15,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-parallax-tilt": "^1.5.74",
-    "react-swipeable-views": "^0.14.0"
+    "react-swipeable-views": "^0.14.0",
+    "react-tsparticles": "^1.37.5"
   },
   "scripts": {
     "dev": "next",

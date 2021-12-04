@@ -17,17 +17,17 @@ import {
   Brightness4Outlined,
   Brightness7,
   Close,
+  Flare,
   FormatPaint,
-  InvertColors,
   Palette,
-  Style,
+  Settings,
 } from '@mui/icons-material';
 
 // contexts
 import {
   DarkModeContext,
   colors,
-  GlassModeContext,
+  ParticalsModeContext,
   ColorContext,
 } from '../themes/theme';
 import { Box, Divider, Fab, Popover, Typography } from '@mui/material';
@@ -78,7 +78,7 @@ const ThemeController = () => {
   const scrollContainer = useRef<HTMLDivElement>(null);
 
   const darkMode = useContext(DarkModeContext);
-  const glassMode = useContext(GlassModeContext);
+  const particalsMode = useContext(ParticalsModeContext);
   const colorMode = useContext(ColorContext);
   const theme = useTheme();
 
@@ -106,8 +106,8 @@ const ThemeController = () => {
     darkMode.toggleDarkMode();
     handleClose();
   };
-  const glassModeToggler = () => {
-    glassMode.toggleGlassMode();
+  const particalsModeToggler = () => {
+    particalsMode.toggleParticalsMode();
     handleClose();
   };
   const horizontalScroll = (e: WheelEventHandler<HTMLDivElement>) => {
@@ -124,7 +124,7 @@ const ThemeController = () => {
 
   const actions = [
     {
-      icon: <Style />,
+      icon: <Palette />,
       name: 'Change Colors',
       onClick: handleOpenColorMenu,
     },
@@ -139,9 +139,9 @@ const ThemeController = () => {
       onClick: darkModeToggler,
     },
     {
-      icon: <InvertColors />,
-      name: 'Glass Effect',
-      onClick: glassModeToggler,
+      icon: <Flare />,
+      name: 'Toggle Particals Effect',
+      onClick: particalsModeToggler,
     },
   ];
 
@@ -150,7 +150,7 @@ const ThemeController = () => {
       <SpeedDial
         ariaLabel="Theme Controller"
         className={classes.speedDial}
-        icon={<SpeedDialIcon icon={<Palette />} openIcon={<Close />} />}
+        icon={<SpeedDialIcon icon={<Settings />} openIcon={<Close />} />}
         onClose={handleClose}
         onOpen={handleOpen}
         open={open}

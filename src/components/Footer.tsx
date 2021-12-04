@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '100vw',
       minHeight: 600,
       marginTop: 80,
+      zIndex: 1000,
     },
     text: {
       transition: '0.3s',
