@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // components
-import { Container, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import StoryPanel from '../StoryPanel';
 import EducationPanel from '../EducationPanel';
 import WorkPanel from '../WorkPanel';
@@ -70,37 +70,35 @@ const About = () => {
       >
         About me
       </Typography>
-      <Container maxWidth="lg">
-        <Grid container>
-          <Grid item xs={1}>
-            <PanelController panel={panel} setPanelTo={setPanelTo} />
-          </Grid>
-          <Grid item xs={10}>
-            <div
-              className={`${classes.panel} ${
-                panel === 1 ? '' : classes.inactivePanel
-              }`}
-            >
-              <StoryPanel />
-            </div>
-            <div
-              className={`${classes.panel} ${
-                panel === 2 ? '' : classes.inactivePanel
-              }`}
-            >
-              <EducationPanel />
-            </div>
-
-            <div
-              className={`${classes.panel} ${
-                panel === 3 ? '' : classes.inactivePanel
-              }`}
-            >
-              <WorkPanel />
-            </div>
-          </Grid>
+      <Grid container>
+        <Grid item xs={1}>
+          <PanelController panel={panel} setPanelTo={setPanelTo} />
         </Grid>
-      </Container>
+        <Grid item xs={10}>
+          <div
+            className={`${classes.panel} ${
+              panel === 1 ? '' : classes.inactivePanel
+            }`}
+          >
+            <StoryPanel />
+          </div>
+          <div
+            className={`${classes.panel} ${
+              panel === 2 ? '' : classes.inactivePanel
+            }`}
+          >
+            <EducationPanel />
+          </div>
+
+          <div
+            className={`${classes.panel} ${
+              panel === 3 ? '' : classes.inactivePanel
+            }`}
+          >
+            <WorkPanel />
+          </div>
+        </Grid>
+      </Grid>
     </div>
   );
 };

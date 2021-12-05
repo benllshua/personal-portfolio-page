@@ -64,6 +64,7 @@ const SkillChip = ({ skill }: SkillChip) => {
           <DialogTitle>
             {`What does`}
             <b> {skill.name} </b> {`mean:`}
+            <Divider />
           </DialogTitle>
           <DialogContent>
             <DialogContentText>{skill.description}</DialogContentText>

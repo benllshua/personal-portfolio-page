@@ -4,7 +4,7 @@ import React from 'react';
 import { UXProjects, FRONTENDProjects } from '../../content/projects';
 
 // components
-import { Typography, Container } from '@mui/material';
+import { Typography } from '@mui/material';
 import Project from '../Project';
 
 // styles
@@ -50,9 +50,7 @@ const Portfolio = () => {
       >
         {'past work & projects'}
       </Typography>
-      <Container>
-        <FullWidthTabs />
-      </Container>
+      <FullWidthTabs />
     </div>
   );
 };
@@ -62,7 +60,6 @@ export default Portfolio;
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
 
-import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
@@ -104,21 +101,18 @@ const FullWidthTabs = () => {
 
   return (
     <div>
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="scrollable"
-          scrollButtons="auto"
-          aria-label="full width tabs example"
-        >
-          <Tab label="UX Design" {...a11yProps(0)} />
-          <Tab label="Development Projects" {...a11yProps(1)} />
-          <Tab label="Back End Dev" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="primary"
+        textColor="primary"
+        variant="fullWidth"
+        aria-label="full width tabs example"
+      >
+        <Tab label="UX Design" {...a11yProps(0)} />
+        <Tab label="Development Projects" {...a11yProps(1)} />
+        <Tab label="Management " {...a11yProps(2)} />
+      </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}

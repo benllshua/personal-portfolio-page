@@ -27,7 +27,7 @@ const FRONTENDProjects = [
       'Apollo Client',
       'MUI',
       'Socket.io',
-      'ESLint, Linter & Prettier',
+      'ESLint & Prettier',
       'Docker',
     ],
     githubLink: '',

@@ -58,3 +58,188 @@ export type Skill = {
   name: string;
   description: string;
 };
+
+export const FrontEndSkills = {
+  languages: [
+    {
+      name: 'HTML',
+      imgDir: 'HTML',
+    },
+    {
+      name: 'CSS',
+      imgDir: 'CSS',
+    },
+    {
+      name: 'JavaScript',
+      imgDir: 'javascript',
+    },
+    {
+      name: 'TypeScript',
+      imgDir: 'typescript',
+    },
+    {
+      name: 'C#',
+      imgDir: 'Csharp',
+    },
+    {
+      name: 'JAVA',
+      imgDir: 'Java',
+    },
+  ],
+  librarys: [
+    {
+      name: 'React',
+      imgDir: 'react',
+    },
+    {
+      name: 'Next.js',
+      imgDir: 'next-js',
+    },
+    {
+      name: 'Vue',
+      imgDir: 'vue',
+    },
+    {
+      name: 'Xamarin',
+      imgDir: 'xamarin',
+    },
+  ],
+  moreRelated: [
+    {
+      name: 'Bootstrap',
+      imgDir: 'Bootstrap',
+    },
+    {
+      name: 'Material UI',
+      imgDir: 'MeterialUI',
+    },
+    {
+      name: 'Chart.js',
+      imgDir: 'chartjs',
+    },
+    {
+      name: 'Eslint',
+      imgDir: 'eslint',
+    },
+    {
+      name: 'Prettier',
+      imgDir: 'prettier',
+    },
+    {
+      name: 'SocketIO',
+      imgDir: 'socket-io',
+    },
+    {
+      name: 'Apollo',
+      imgDir: 'apollo',
+    },
+  ],
+  tools: [
+    {
+      name: 'Visual Studio Code',
+      imgDir: 'VSCode',
+    },
+    {
+      name: 'Visual Studio 2019',
+      imgDir: 'VisualStudio2019',
+    },
+    {
+      name: 'Web Storm',
+      imgDir: 'WebStorm',
+    },
+  ],
+};
+
+export const BackEndSkills = {
+  notes:
+    "*I also worked with C# (ASP.Net) & low-level languages like ASM, didn't add it because I don't use them anymore or they are not for backend",
+  languages: [
+    {
+      name: 'JavaScript',
+      imgDir: 'javascript',
+    },
+    {
+      name: 'TypeScript',
+      imgDir: 'typescript',
+    },
+    {
+      name: 'Python',
+      imgDir: 'Python',
+    },
+  ],
+  librarys: [
+    {
+      name: 'Express',
+      imgDir: 'Express',
+    },
+    {
+      name: 'GraphQL',
+      imgDir: 'GraphQL',
+    },
+
+    {
+      name: 'Django',
+      imgDir: 'Django',
+    },
+  ],
+  moreRelated: [
+    {
+      name: 'Apollo',
+      imgDir: 'apollo',
+    },
+
+    {
+      name: 'Mongo',
+      imgDir: 'mongo',
+    },
+    {
+      name: 'Postgresql',
+      imgDir: 'Postgresql',
+    },
+    {
+      name: 'SocketIO',
+      imgDir: 'socket-io',
+    },
+  ],
+  tools: [
+    {
+      name: 'Visual Studio Code',
+      imgDir: 'VSCode',
+    },
+    {
+      name: 'Post Man',
+      imgDir: 'postman.com',
+    },
+    {
+      name: 'Access',
+      imgDir: 'Access',
+    },
+  ],
+};
+export const UXSkills = {
+  moreRelated: [
+    {
+      name: 'Gravit Designer',
+      imgDir: 'Gravit_Designer',
+    },
+    {
+      name: 'Adobe Illustraitor',
+      imgDir: 'Ai',
+    },
+    {
+      name: 'Adobe Lightroom',
+      imgDir: 'Li',
+    },
+  ],
+
+  tools: [
+    {
+      name: 'Figma',
+      imgDir: 'Figma-logo',
+    },
+    {
+      name: 'Adobe XD',
+      imgDir: 'XD',
+    },
+  ],
+};

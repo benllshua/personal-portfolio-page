@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import { useTheme } from '@mui/material/styles';
 
 type Props = { title: string; keywords: string; description: string };
@@ -7,7 +6,7 @@ type Props = { title: string; keywords: string; description: string };
 const Meta = (props: Props) => {
   const theme = useTheme();
   return (
-    <Head>
+    <>
       <title>{props.title}</title>
       <meta name="keywords" content={props.keywords} />
       <meta name="description" content={props.description} />
@@ -16,7 +15,7 @@ const Meta = (props: Props) => {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/images/logoIco.png" />
       <link rel="apple-touch-icon" href="/images/logo.png" />
-    </Head>
+    </>
   );
 };
 

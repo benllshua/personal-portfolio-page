@@ -11,16 +11,16 @@
 } */
 body,
 html {
+  transition: 0.3s;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 .section {
-  width: 100vw;
+  /* backdrop-filter: blur(3px); */
+  width: 100%;
   min-height: 100vh;
   position: relative;
   /* scroll-snap-align: start; */
-}
-.section:not(:first-child) {
   padding-top: 64px;
 }
 

@@ -9,72 +9,57 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 interface Color {
   primary: string;
   background: string;
-  lightGradient: string;
-  darkGradient: string;
   folderName: string;
 }
 const colors = [
   {
     primary: '#58BFBF',
     background: '#F1FcFc',
-    lightGradient: '#fff',
-    darkGradient: '#000',
     folderName: 'till',
   },
   {
     primary: '#039be5',
     background: '#e3f2fd',
-    lightGradient: '#fff',
-    darkGradient: '#000',
     folderName: 'blue',
   },
   {
     primary: '#BA68C8',
     background: '#FCF2FF',
-    lightGradient: '#fff',
-    darkGradient: '#000',
     folderName: 'purple',
   },
   {
     primary: '#f83b80',
     background: '#fce4ec',
-    lightGradient: '#fff',
-    darkGradient: '#000',
     folderName: 'pink',
   },
   {
     primary: '#FF725E',
     background: '#FFECE9',
-    lightGradient: '#fff',
-    darkGradient: '#000',
     folderName: 'orange',
   },
   {
     primary: '#fdd835',
     background: '#fffde7',
-    lightGradient: '#fffde7',
-    darkGradient: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%) !importent',
     folderName: 'yellow',
   },
   {
     primary: '#aaa',
     background: '#fff',
-    lightGradient: '#fff',
-    darkGradient: '#000',
     folderName: 'grey',
   },
 ];
 
-const DarkModeContext = React.createContext({ toggleDarkMode: () => {} });
-const GlassModeContext = React.createContext({ toggleGlassMode: () => {} });
+const DarkModeContext = React.createContext({
+  toggleDarkMode: () => {},
+  mode: 'light',
+});
+const ParticalsModeContext = React.createContext({
+  toggleParticalsMode: () => {},
+  mode: true,
+});
 
 const ColorContext = React.createContext({
-  setColorMode: ({
-    primary,
-    background,
-    lightGradient,
-    darkGradient,
-  }: Color) => {},
+  setColorMode: ({ primary, background }: Color) => {},
   getColor: (): Color | null => {
     return null;
   },
@@ -85,7 +70,7 @@ interface ThemeProps {
 }
 const Theme = ({ children }: ThemeProps) => {
   const [mode, setMode] = React.useState<'light' | 'dark'>('light');
-  const [glassModeState, setGlassMode] = React.useState(false);
+  const [particalsModeState, setParticalsMode] = React.useState(true);
   const [color, setColor] = React.useState(colors[0]);
 
   const darkMode = React.useMemo(
@@ -93,33 +78,27 @@ const Theme = ({ children }: ThemeProps) => {
       toggleDarkMode: () => {
         setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
       },
+      mode: mode,
     }),
-    []
+    [mode]
   );
 
-  const glassMode = React.useMemo(
+  const particalsMode = React.useMemo(
     () => ({
-      toggleGlassMode: () => {
-        setGlassMode((prevMode) => !prevMode);
+      toggleParticalsMode: () => {
+        setParticalsMode((prevMode) => !prevMode);
       },
+      mode: particalsModeState,
     }),
-    []
+    [particalsModeState]
   );
 
   const ColorMode = React.useMemo(
     () => ({
-      setColorMode: ({
-        primary,
-        background,
-        lightGradient,
-        darkGradient,
-        folderName,
-      }: Color) => {
+      setColorMode: ({ primary, background, folderName }: Color) => {
         setColor({
           primary,
           background,
-          lightGradient,
-          darkGradient,
           folderName,
         });
       },
@@ -144,29 +123,22 @@ const Theme = ({ children }: ThemeProps) => {
             main: '#3F5C77',
           },
           background: {
-            default:
-              mode === 'light'
-                ? glassModeState
-                  ? color.lightGradient
-                  : color.background
-                : glassModeState
-                ? color.darkGradient
-                : '#303030',
+            default: mode === 'light' ? color.background : '#303030',
           },
         },
       }),
-    [mode, glassModeState, color]
+    [mode, particalsModeState, color]
   );
 
   return (
     <DarkModeContext.Provider value={darkMode}>
-      <GlassModeContext.Provider value={glassMode}>
+      <ParticalsModeContext.Provider value={particalsMode}>
         <ColorContext.Provider value={ColorMode}>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </ColorContext.Provider>
-      </GlassModeContext.Provider>
+      </ParticalsModeContext.Provider>
     </DarkModeContext.Provider>
   );
 };
-export { DarkModeContext, GlassModeContext, ColorContext, colors };
+export { DarkModeContext, ParticalsModeContext, ColorContext, colors };
 export default Theme;

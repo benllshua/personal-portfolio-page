@@ -7,6 +7,7 @@ import { Typography, Grid, Chip, Box, Button } from '@mui/material';
 import { Theme } from '@mui/material/styles';
 import { makeStyles, createStyles } from '@mui/styles';
 import ImagesDialog from './ImagesDialog';
+import { ReadMore } from '@mui/icons-material';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -59,14 +60,14 @@ const Project = ({ project }: Props) => {
 
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={6}>
+      <Grid item xs={12} md={6}>
         <img
           className={classes.image}
           src={mainImg}
           alt={`${title} project image`}
         />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} md={6}>
         <Box p={3}>
           <Typography variant="h5" gutterBottom>
             {title}
@@ -79,6 +80,7 @@ const Project = ({ project }: Props) => {
             variant="contained"
             size="small"
             onClick={onOpen}
+            endIcon={<ReadMore />}
           >
             {'VIEW MORE'}
           </Button>

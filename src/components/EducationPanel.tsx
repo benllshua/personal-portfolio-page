@@ -20,8 +20,6 @@ import {
   AccordionSummary,
   AccordionDetails,
   Button,
-  Zoom,
-  Slide,
 } from '@mui/material';
 
 import { ExpandMore } from '@mui/icons-material';
@@ -32,7 +30,7 @@ import Tilt from 'react-parallax-tilt';
 import { educationPlaces, Education } from '../content/education';
 
 // styles
-import { Theme, useTheme } from '@mui/material/styles';
+import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -79,12 +77,6 @@ const EducationPanel = () => {
   const classes = useStyles();
   const color = useContext(ColorContext);
 
-  const theme = useTheme();
-  const transitionDuration = {
-    enter: theme.transitions.duration.enteringScreen,
-    exit: theme.transitions.duration.leavingScreen,
-  };
-
   return (
     <Paper elevation={8}>
       <Box p={3}>
@@ -129,13 +121,9 @@ interface ItemProps {
 
 const Item = ({ education, last }: ItemProps) => {
   const classes = useStyles();
-  const [hovered, setHovered] = useState(false);
 
   return (
-    <TimelineItem
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <TimelineItem>
       <TimelineOppositeContent>
         <Typography variant="body1" color="textSecondary">
           {education.type}

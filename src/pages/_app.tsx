@@ -4,7 +4,6 @@ import React from 'react';
 import { AppProps } from 'next/app';
 
 // components
-import Meta from '../components/Meta';
 
 // styles
 import '../styles/globals.css';
@@ -25,7 +24,6 @@ export default function MyApp(props: AppProps) {
   return (
     <React.Fragment>
       <Theme>
-        <Meta />
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
