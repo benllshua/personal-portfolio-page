@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import { Typography, Paper, Divider } from '@mui/material';
+import { Typography, Paper, Divider, Slide, Fade } from '@mui/material';
 import SkillChip from '../SkillChip';
 
 // styles
@@ -115,7 +115,7 @@ export default Skills;
 
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
-import { AppBar, Tabs, Tab, Box } from '@mui/material';
+import { Tabs, Tab, Box } from '@mui/material';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -128,11 +128,17 @@ const TabPanel = (props: TabPanelProps) => {
   const { children, value, index, ...other } = props;
 
   return (
-    <div hidden={value !== index} {...other}>
+    <div
+      hidden={value !== index}
+      {...other}
+      style={{ width: '90%', margin: '16px auto' }}
+    >
       {value === index && (
-        <Box p={6}>
-          <Typography>{children}</Typography>
-        </Box>
+        <Fade in={value === index}>
+          <Box p={6}>
+            <Typography>{children}</Typography>
+          </Box>
+        </Fade>
       )}
     </div>
   );
@@ -152,23 +158,19 @@ const FullWidthTabs = () => {
   };
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="scrollable"
-          scrollButtons="auto"
-          aria-label="full width tabs example"
-        >
-          <Tab label="UX Design" />
-          <Tab label="Front End Dev" />
-          <Tab label="Back End Dev" />
-          <Tab label="More Tools" />
-        </Tabs>
-      </AppBar>
+    <Paper elevation={8}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="primary"
+        textColor="primary"
+        centered
+        scrollButtons="auto"
+      >
+        <Tab label="UX Design" />
+        <Tab label="Front End Dev" />
+        <Tab label="Back End Dev" />
+      </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
@@ -183,11 +185,8 @@ const FullWidthTabs = () => {
         <TabPanel value={value} index={2} dir={theme.direction}>
           <SkillSection skills={BackEndSkills} />
         </TabPanel>
-        <TabPanel value={value} index={3} dir={theme.direction}>
-          Item Three
-        </TabPanel>
       </SwipeableViews>
-    </div>
+    </Paper>
   );
 };
 

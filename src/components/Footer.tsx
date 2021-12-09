@@ -14,7 +14,10 @@ import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor:
+        theme.palette.mode === 'dark'
+          ? theme.palette.primary.dark
+          : theme.palette.primary.main,
       width: '100vw',
       minHeight: 600,
       marginTop: 80,
@@ -26,6 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       color: '#ffffffaa',
+      textDecoration: 'none',
       '&:hover': {
         color: '#ffffffee',
       },

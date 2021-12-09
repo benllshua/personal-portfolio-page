@@ -38,7 +38,7 @@ const colors = [
     folderName: 'orange',
   },
   {
-    primary: '#fdd835',
+    primary: '#FDD212',
     background: '#fffde7',
     folderName: 'yellow',
   },
