@@ -22,7 +22,7 @@ import {
 } from '@mui/material';
 
 import { ExpandMore, Work } from '@mui/icons-material';
-
+import SlideAndFade from './animations/SlideAndFade';
 import Tilt from 'react-parallax-tilt';
 
 // Data
@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme: Theme) =>
       opacity: '0.7',
     },
     eduAccordion: {
+      transition: '0.3s',
       '&:hover': {
         marginRight: theme.spacing(-2),
       },
@@ -76,50 +77,56 @@ const WorkPanel = () => {
     <Paper elevation={8}>
       <Box p={3}>
         <Grid container>
-          <Grid item xs={8}>
+          <Grid item md={8}>
             <Typography variant="h4" gutterBottom>
               Work Places
             </Typography>
             <Timeline position="right">
               {workPlaces.map((work, index) => (
-                <TimelineItem key={index}>
-                  <TimelineOppositeContent>
-                    <Typography variant="body1" color="textSecondary">
-                      {work.type}
-                    </Typography>
-                    <Typography variant="caption" color="textSecondary">
-                      {work.startDate} - {work.endDate}
-                    </Typography>
-                  </TimelineOppositeContent>
-                  <TimelineSeparator>
-                    <TimelineDot color="primary" variant="outlined">
-                      <Work color="primary" />
-                    </TimelineDot>
-                    {index !== workPlaces.length - 1 ? (
-                      <TimelineConnector className={classes.primaryTail} />
-                    ) : (
-                      ''
-                    )}
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <WorkAccordion
-                      title={work.title}
-                      description={work.description}
-                    />
-                  </TimelineContent>
-                </TimelineItem>
+                <div key={index}>
+                  <SlideAndFade delay={0.3 + 0.1 * index}>
+                    <TimelineItem>
+                      <TimelineOppositeContent>
+                        <Typography variant="body1" color="textSecondary">
+                          {work.type}
+                        </Typography>
+                        <Typography variant="caption" color="textSecondary">
+                          {work.startDate} - {work.endDate}
+                        </Typography>
+                      </TimelineOppositeContent>
+                      <TimelineSeparator>
+                        <TimelineDot color="primary" variant="outlined">
+                          <Work color="primary" />
+                        </TimelineDot>
+                        {index !== workPlaces.length - 1 ? (
+                          <TimelineConnector className={classes.primaryTail} />
+                        ) : (
+                          ''
+                        )}
+                      </TimelineSeparator>
+                      <TimelineContent>
+                        <WorkAccordion
+                          title={work.title}
+                          description={work.description}
+                        />
+                      </TimelineContent>
+                    </TimelineItem>
+                  </SlideAndFade>
+                </div>
               ))}
             </Timeline>
           </Grid>
-          <Grid item xs={4} className={classes.flexCenter}>
-            <Tilt perspective={500} scale={1.25}>
-              <img
-                src={`/images/illustrations/${
-                  color.getColor()?.folderName
-                }/working.png`}
-                width="100%"
-              />
-            </Tilt>
+          <Grid item md={4} className={classes.flexCenter}>
+            <SlideAndFade delay={1}>
+              <Tilt perspective={500} scale={1.25}>
+                <img
+                  src={`/images/illustrations/${
+                    color.getColor()?.folderName
+                  }/working.png`}
+                  width="100%"
+                />
+              </Tilt>
+            </SlideAndFade>
           </Grid>
         </Grid>
       </Box>

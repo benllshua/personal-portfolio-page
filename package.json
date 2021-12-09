@@ -22,7 +22,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
+    "format": "npx eslint ./src/** --quiet --fix && npx prettier --write ./src/**"
   },
   "devDependencies": {
     "@types/next": "latest",

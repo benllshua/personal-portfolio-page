@@ -62,6 +62,7 @@ import { useTheme } from '@mui/material/styles';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import SlideAndFade from '../animations/SlideAndFade';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -74,17 +75,10 @@ const TabPanel = (props: TabPanelProps) => {
   const { children, value, index, ...other } = props;
 
   return (
-    <div hidden={value !== index} {...other}>
+    <div hidden={value !== index} style={{ overflowX: 'hidden' }} {...other}>
       {value === index && <>{children}</>}
     </div>
   );
-};
-
-const a11yProps = (index: any) => {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
 };
 
 const FullWidthTabs = () => {
@@ -109,9 +103,9 @@ const FullWidthTabs = () => {
         variant="fullWidth"
         aria-label="full width tabs example"
       >
-        <Tab label="UX Design" {...a11yProps(0)} />
-        <Tab label="Development Projects" {...a11yProps(1)} />
-        <Tab label="Management " {...a11yProps(2)} />
+        <Tab label="UX Design" />
+        <Tab label="Development Projects" />
+        <Tab label="Management " />
       </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -121,14 +115,18 @@ const FullWidthTabs = () => {
         <TabPanel value={value} index={0} dir={theme.direction}>
           {UXProjects.map((project, index) => (
             <div key={`${project.title} ${index}`}>
-              <Project project={project} />
+              <SlideAndFade delay={0.3 * index}>
+                <Project project={project} />
+              </SlideAndFade>
             </div>
           ))}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           {FRONTENDProjects.map((project, index) => (
             <div key={`${project.title} ${index}`}>
-              <Project project={project} />
+              <SlideAndFade delay={0.3 * index}>
+                <Project project={project} />
+              </SlideAndFade>
             </div>
           ))}
         </TabPanel>

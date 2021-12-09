@@ -13,19 +13,25 @@ import ParticalsBackground from '../components/ParticalsBackground';
 import { ParticalsModeContext } from '../themes/theme';
 import { Container } from '@mui/material';
 
+// hooks
+import { useMediaQuery } from '../hooks/useMediaQuery';
+
 /**
  * Main page component
  * @return {JSX.Element} : The JSX for the Main page
  */
 export default function Index() {
   const particalsMode = useContext(ParticalsModeContext);
+
+  const isBreakpoint = useMediaQuery(768);
+
   return (
     <>
       {particalsMode.mode && <ParticalsBackground />}
       <ThemeController />
       <SocialMediaLinks />
 
-      <Container>
+      <Container maxWidth={isBreakpoint ? 'xs' : 'lg'}>
         <Landing />
         <Services />
         <About />

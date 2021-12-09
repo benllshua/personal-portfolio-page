@@ -30,7 +30,7 @@ export const services = [
 ];
 
 export type serviceType = {
-  name: string; 
+  name: string;
   description: string;
   imgSrc: string;
   tags: string[];

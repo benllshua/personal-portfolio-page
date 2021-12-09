@@ -16,7 +16,7 @@ const ImagesDialog = ({ onClose, imageList, open }: ImagesDialogProps) => {
         imageList.length === 1 ? (
           <img
             src={imageList[0].imgFileName}
-            style={{ maxHeight: '80vh', maxWidth: '80vw',  }}
+            style={{ maxHeight: '80vh', maxWidth: '80vw' }}
           />
         ) : (
           <SwipeableImageViews imageList={imageList} />

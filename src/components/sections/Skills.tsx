@@ -1,8 +1,9 @@
 import React from 'react';
 
 // components
-import { Typography, Paper, Divider, Slide, Fade } from '@mui/material';
+import { Typography, Paper, Divider, Fade } from '@mui/material';
 import SkillChip from '../SkillChip';
+import SlideAndFade from '../animations/SlideAndFade';
 
 // styles
 import { Theme } from '@mui/material/styles';
@@ -145,7 +146,6 @@ const TabPanel = (props: TabPanelProps) => {
 };
 
 const FullWidthTabs = () => {
-  const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(1);
 
@@ -215,9 +215,11 @@ const SkillSection = ({ skills }: SkillProps) => {
           </Typography>
           <Divider />
           <div className={classes.skillsContainer}>
-            {skills.languages.map((skill) => (
+            {skills.languages.map((skill, index) => (
               <div key={skill.name}>
-                <Skill imgDir={skill.imgDir} name={skill.name} />
+                <SlideAndFade delay={0.1 * index}>
+                  <Skill imgDir={skill.imgDir} name={skill.name} />
+                </SlideAndFade>
               </div>
             ))}
           </div>
@@ -230,9 +232,11 @@ const SkillSection = ({ skills }: SkillProps) => {
           </Typography>
           <Divider />
           <div className={classes.skillsContainer}>
-            {skills.librarys.map((skill) => (
+            {skills.librarys.map((skill, index) => (
               <div key={skill.name}>
-                <Skill imgDir={skill.imgDir} name={skill.name} />
+                <SlideAndFade delay={0.1 * index}>
+                  <Skill imgDir={skill.imgDir} name={skill.name} />
+                </SlideAndFade>
               </div>
             ))}
           </div>
@@ -245,9 +249,11 @@ const SkillSection = ({ skills }: SkillProps) => {
           </Typography>
           <Divider />
           <div className={classes.skillsContainer}>
-            {skills.moreRelated.map((skill) => (
+            {skills.moreRelated.map((skill, index) => (
               <div key={skill.name}>
-                <Skill imgDir={skill.imgDir} name={skill.name} />
+                <SlideAndFade delay={0.1 * index}>
+                  <Skill imgDir={skill.imgDir} name={skill.name} />
+                </SlideAndFade>
               </div>
             ))}
           </div>
@@ -260,9 +266,11 @@ const SkillSection = ({ skills }: SkillProps) => {
           </Typography>
           <Divider />
           <div className={classes.skillsContainer}>
-            {skills.tools.map((skill) => (
+            {skills.tools.map((skill, index) => (
               <div key={skill.name}>
-                <Skill imgDir={skill.imgDir} name={skill.name} />
+                <SlideAndFade delay={0.1 * index}>
+                  <Skill imgDir={skill.imgDir} name={skill.name} />
+                </SlideAndFade>
               </div>
             ))}
           </div>

@@ -14,13 +14,10 @@ import { Button, ButtonGroup, Paper, Zoom } from '@mui/material';
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 
+import { useMediaQuery } from '../hooks/useMediaQuery';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    subTitle: {
-      opacity: '0.6',
-      fontWeight: 300,
-      marginBottom: theme.spacing(16),
-    },
     paper: {
       display: 'inline-block',
     },
@@ -61,10 +58,14 @@ interface PanelControllerProps {
 }
 const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
   const classes = useStyles();
+  const isBreakpoint = useMediaQuery(768);
 
   return (
     <Paper className={classes.paper} elevation={4}>
-      <ButtonGroup orientation="vertical" variant="text">
+      <ButtonGroup
+        orientation={isBreakpoint ? 'horizontal' : 'vertical'}
+        variant="text"
+      >
         <Button
           color="primary"
           className={classes.buttonSpacing}

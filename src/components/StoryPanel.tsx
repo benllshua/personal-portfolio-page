@@ -20,6 +20,7 @@ import { hobbies } from '../content/hobbies';
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 import { ColorContext } from '../themes/theme';
+import SlideAndFade from './animations/SlideAndFade';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -63,43 +64,56 @@ const StoryPanel = () => {
     <Paper elevation={8}>
       <Box p={3}>
         <Grid container>
-          <Grid item xs={6}>
+          <Grid item md={6}>
             <Typography variant="h4" gutterBottom>
               {'My Story'}
             </Typography>
             <Typography variant="body2" className={classes.bodyText}>
-              {`
+              <SlideAndFade>
+                {`
               Hi! my name is Ben Shua, Born in 2001 and I'm from Israel!`}
-              <br />
-              {`
+                <br />
+                {`
               Since a young age, I'm working on design and programming projects
               as my mom is a graphic designer and my dad is a cyber-security
               specialist.`}
-              <br />
-              {`I love it, I like exploring ideas, try to achieve them throw
+              </SlideAndFade>
+              <SlideAndFade delay={0.1}>
+                <br />
+                {`I love it, I like exploring ideas, try to achieve them throw
               hard work (and teamwork 😉 ). maybe someday even with you...`}
+              </SlideAndFade>
             </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              {'More things I like:'}
-            </Typography>
+
+            <SlideAndFade delay={0.6}>
+              <Typography variant="subtitle1" gutterBottom>
+                {'More things I like:'}
+              </Typography>
+            </SlideAndFade>
             <List dense>
               {hobbies.map((hobbie, index) => (
-                <ListItem key={index}>
-                  <ListItemIcon>{hobbie.icon}</ListItemIcon>
-                  <ListItemText primary={hobbie.title} />
-                </ListItem>
+                <div key={index}>
+                  <SlideAndFade delay={0.7 + index * 0.1}>
+                    <ListItem>
+                      <ListItemIcon>{hobbie.icon}</ListItemIcon>
+                      <ListItemText primary={hobbie.title} />
+                    </ListItem>
+                  </SlideAndFade>
+                </div>
               ))}
             </List>
           </Grid>
-          <Grid item xs={6}>
-            <Tilt perspective={500} scale={1.1}>
-              <img
-                src={`/images/illustrations/${
-                  color.getColor()?.folderName
-                }/growing.png`}
-                width="100%"
-              />
-            </Tilt>
+          <Grid item md={6}>
+            <SlideAndFade delay={1}>
+              <Tilt perspective={500} scale={1.1}>
+                <img
+                  src={`/images/illustrations/${
+                    color.getColor()?.folderName
+                  }/growing.png`}
+                  width="100%"
+                />
+              </Tilt>
+            </SlideAndFade>
           </Grid>
         </Grid>
       </Box>

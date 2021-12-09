@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: 10,
     },
     cardsContainer: {
+      marginTop: theme.spacing(1),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -35,14 +36,25 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     card: {
       transition: '0.3s',
-      width: 350,
-      margin: theme.spacing(8),
+      width: 150,
+      height: 150,
+      margin: theme.spacing(2),
       '&:hover': {
         transform: 'scale(1.1)',
+      },
+      [theme.breakpoints.up('md')]: {
+        margin: theme.spacing(8),
+        width: 350,
+        height: 350,
       },
     },
     cardTitle: {
       opacity: 0.6,
+    },
+    clickLabel: {
+      [theme.breakpoints.down('md')]: {
+        display: 'none',
+      },
     },
   })
 );
@@ -103,7 +115,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
     <>
       <Card className={classes.card} elevation={8} onClick={onOpen}>
         <CardActionArea>
-          <Box p={3}>
+          <Box p={1}>
             <Typography
               variant="h6"
               align="center"
@@ -127,6 +139,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
               align="center"
               color="primary"
               gutterBottom
+              className={classes.clickLabel}
             >
               {'click for more information'}
             </Typography>

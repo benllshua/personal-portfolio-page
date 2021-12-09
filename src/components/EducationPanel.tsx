@@ -23,6 +23,8 @@ import {
 } from '@mui/material';
 
 import { ExpandMore } from '@mui/icons-material';
+import ImagesDialog from './ImagesDialog';
+import SlideAndFade from './animations/SlideAndFade';
 
 import Tilt from 'react-parallax-tilt';
 
@@ -66,12 +68,17 @@ const useStyles = makeStyles((theme: Theme) =>
         marginRight: theme.spacing(-2),
       },
     },
+    text: {
+      fontSize: '0.6rem',
+    },
+    caption: {
+      fontSize: '0.5rem',
+    },
   })
 );
 
 // context
 import { ColorContext } from '../themes/theme';
-import ImagesDialog from './ImagesDialog';
 
 const EducationPanel = () => {
   const classes = useStyles();
@@ -81,30 +88,34 @@ const EducationPanel = () => {
     <Paper elevation={8}>
       <Box p={3}>
         <Grid container>
-          <Grid item xs={8}>
+          <Grid item md={8}>
             <Typography variant="h4" gutterBottom>
               My Education
             </Typography>
             <Timeline position="right">
               {educationPlaces.map((education, index) => (
                 <div key={index}>
-                  <Item
-                    education={education}
-                    last={index === educationPlaces.length - 1}
-                  />
+                  <SlideAndFade delay={0.3 + 0.1 * index}>
+                    <Item
+                      education={education}
+                      last={index === educationPlaces.length - 1}
+                    />
+                  </SlideAndFade>
                 </div>
               ))}
             </Timeline>
           </Grid>
-          <Grid item xs={4} className={classes.flexCenter}>
-            <Tilt perspective={500} scale={1.25}>
-              <img
-                src={`/images/illustrations/${
-                  color.getColor()?.folderName
-                }/learningBro.png`}
-                width="100%"
-              />
-            </Tilt>
+          <Grid item md={4} className={classes.flexCenter}>
+            <SlideAndFade delay={1}>
+              <Tilt perspective={500} scale={1.15}>
+                <img
+                  src={`/images/illustrations/${
+                    color.getColor()?.folderName
+                  }/learningBro.png`}
+                  width="100%"
+                />
+              </Tilt>
+            </SlideAndFade>
           </Grid>
         </Grid>
       </Box>
@@ -125,11 +136,19 @@ const Item = ({ education, last }: ItemProps) => {
   return (
     <TimelineItem>
       <TimelineOppositeContent>
-        <Typography variant="body1" color="textSecondary">
+        <Typography
+          variant="body1"
+          color="textSecondary"
+          className={classes.text}
+        >
           {education.type}
         </Typography>
 
-        <Typography variant="caption" color="textSecondary">
+        <Typography
+          variant="caption"
+          color="textSecondary"
+          className={classes.caption}
+        >
           {education.startDate} - {education.endDate}
         </Typography>
       </TimelineOppositeContent>

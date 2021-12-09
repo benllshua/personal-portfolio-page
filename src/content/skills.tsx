@@ -193,6 +193,10 @@ export const BackEndSkills = {
       imgDir: 'mongo',
     },
     {
+      name: 'Node.js',
+      imgDir: 'Node.js_logo',
+    },
+    {
       name: 'Postgresql',
       imgDir: 'Postgresql',
     },

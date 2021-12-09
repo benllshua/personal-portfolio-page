@@ -10,6 +10,7 @@ import PanelController from '../PanelController';
 // styles
 import { Theme } from '@mui/material/styles';
 import { makeStyles, createStyles } from '@mui/styles';
+import SlideAndFade from '../animations/SlideAndFade';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -70,33 +71,26 @@ const About = () => {
       >
         About me
       </Typography>
-      <Grid container>
-        <Grid item xs={1}>
+      <Grid container spacing={3}>
+        <Grid item md={1}>
           <PanelController panel={panel} setPanelTo={setPanelTo} />
         </Grid>
-        <Grid item xs={10}>
-          <div
-            className={`${classes.panel} ${
-              panel === 1 ? '' : classes.inactivePanel
-            }`}
-          >
-            <StoryPanel />
-          </div>
-          <div
-            className={`${classes.panel} ${
-              panel === 2 ? '' : classes.inactivePanel
-            }`}
-          >
-            <EducationPanel />
-          </div>
-
-          <div
-            className={`${classes.panel} ${
-              panel === 3 ? '' : classes.inactivePanel
-            }`}
-          >
-            <WorkPanel />
-          </div>
+        <Grid item md={10}>
+          {panel === 1 && (
+            <SlideAndFade>
+              <StoryPanel />
+            </SlideAndFade>
+          )}
+          {panel === 2 && (
+            <SlideAndFade>
+              <EducationPanel />
+            </SlideAndFade>
+          )}
+          {panel === 3 && (
+            <SlideAndFade>
+              <WorkPanel />
+            </SlideAndFade>
+          )}
         </Grid>
       </Grid>
     </div>

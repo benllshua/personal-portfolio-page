@@ -8,8 +8,6 @@ import {
   DialogContentText,
   DialogTitle,
   Divider,
-  Rating,
-  Typography,
 } from '@mui/material';
 
 // styles

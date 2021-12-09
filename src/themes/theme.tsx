@@ -123,7 +123,7 @@ const Theme = ({ children }: ThemeProps) => {
             main: '#3F5C77',
           },
           background: {
-            default: mode === 'light' ? color.background : '#303030',
+            default: mode === 'light' ? color.background : '#222',
           },
         },
       }),
