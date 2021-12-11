@@ -23,7 +23,7 @@ import { useMediaQuery } from '../hooks/useMediaQuery';
 export default function Index() {
   const particalsMode = useContext(ParticalsModeContext);
 
-  const isBreakpoint = useMediaQuery(768);
+  const isBreakpoint = useMediaQuery(900);
 
   return (
     <>

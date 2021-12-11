@@ -68,7 +68,11 @@ const StoryPanel = () => {
             <Typography variant="h4" gutterBottom>
               {'My Story'}
             </Typography>
-            <Typography variant="body2" className={classes.bodyText}>
+            <Typography
+              variant="body2"
+              className={classes.bodyText}
+              component="div"
+            >
               <SlideAndFade>
                 {`
               Hi! my name is Ben Shua, Born in 2001 and I'm from Israel!`}

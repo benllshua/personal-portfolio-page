@@ -1,10 +1,5 @@
-import React from 'react';
-
-/* illustrations : 
-https://storyset.com/illustration/kids-studying-from-home/bro
-
-*/
-
+import React, { useState, useMemo, createContext, useEffect } from 'react';
+import { useMediaQuery } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 interface Color {
   primary: string;
@@ -49,16 +44,16 @@ const colors = [
   },
 ];
 
-const DarkModeContext = React.createContext({
+const DarkModeContext = createContext({
   toggleDarkMode: () => {},
   mode: 'light',
 });
-const ParticalsModeContext = React.createContext({
+const ParticalsModeContext = createContext({
   toggleParticalsMode: () => {},
   mode: true,
 });
 
-const ColorContext = React.createContext({
+const ColorContext = createContext({
   setColorMode: ({ primary, background }: Color) => {},
   getColor: (): Color | null => {
     return null;
@@ -69,11 +64,18 @@ interface ThemeProps {
   children: React.ReactNode;
 }
 const Theme = ({ children }: ThemeProps) => {
-  const [mode, setMode] = React.useState<'light' | 'dark'>('light');
-  const [particalsModeState, setParticalsMode] = React.useState(true);
-  const [color, setColor] = React.useState(colors[0]);
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const [mode, setMode] = useState<'light' | 'dark'>(
+    prefersDarkMode ? 'dark' : 'light'
+  );
+  const [particalsModeState, setParticalsMode] = useState(true);
+  const [color, setColor] = useState(colors[0]);
 
-  const darkMode = React.useMemo(
+  useEffect(() => {
+    setMode(prefersDarkMode ? 'dark' : 'light');
+  }, [prefersDarkMode]);
+
+  const darkMode = useMemo(
     () => ({
       toggleDarkMode: () => {
         setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
@@ -83,7 +85,7 @@ const Theme = ({ children }: ThemeProps) => {
     [mode]
   );
 
-  const particalsMode = React.useMemo(
+  const particalsMode = useMemo(
     () => ({
       toggleParticalsMode: () => {
         setParticalsMode((prevMode) => !prevMode);
@@ -93,7 +95,7 @@ const Theme = ({ children }: ThemeProps) => {
     [particalsModeState]
   );
 
-  const ColorMode = React.useMemo(
+  const ColorMode = useMemo(
     () => ({
       setColorMode: ({ primary, background, folderName }: Color) => {
         setColor({
@@ -109,7 +111,7 @@ const Theme = ({ children }: ThemeProps) => {
     [color]
   );
 
-  const theme = React.useMemo(
+  const theme = useMemo(
     () =>
       createTheme({
         palette: {

@@ -1,20 +1,32 @@
 import React, { useState } from 'react';
 
 // components
-import { Typography, Grid, Chip, Box, Button } from '@mui/material';
+import {
+  Typography,
+  Grid,
+  Chip,
+  Box,
+  Button,
+  ImageListItem,
+  ImageListItemBar,
+} from '@mui/material';
+import Image from 'next/image';
+import ImagesDialog from './ImagesDialog';
 
 // styles
 import { Theme } from '@mui/material/styles';
 import { makeStyles, createStyles } from '@mui/styles';
-import ImagesDialog from './ImagesDialog';
-import { ReadMore } from '@mui/icons-material';
+
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       height: 'auto',
-      width: '70%',
       marginTop: theme.spacing(6),
+      [theme.breakpoints.up('md')]: {
+        // width: '70%',
+      },
     },
     tagsContainer: {
       display: 'flex',
@@ -24,14 +36,24 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     image: {
-      width: '100%',
-      height: 'auto',
       boxShadow: '1px 1px 15px rgba(0,0,0,0.4)',
       borderRadius: theme.shape.borderRadius,
+      overflow: 'hidden',
     },
     bodyText: {
       fontStyle: 'italic',
       opacity: '0.7',
+    },
+    flexCenter: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      marginTop: theme.spacing(1),
+    },
+    projectBox: {
+      backdropFilter: 'blur(2px)',
+      backgroundColor: '#ffffff33',
     },
   })
 );
@@ -57,33 +79,52 @@ const Project = ({ project }: Props) => {
   const onOpen = () => {
     setOpen(true);
   };
+  const isSmallScreen = useMediaQuery(900);
 
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={12} md={6}>
-        <img
-          className={classes.image}
-          src={mainImg}
-          alt={`${title} project image`}
-        />
+      <Grid item md={6}>
+        <ImageListItem className={classes.image}>
+          <Image
+            layout="fill"
+            src={mainImg}
+            alt={`${title} project image`}
+            placeholder={'blur'}
+            blurDataURL={mainImg}
+          />
+          <ImageListItemBar
+            sx={{
+              background:
+                'linear-gradient(to top, rgba(0,0,0,0.7) 0%, ' +
+                'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+            }}
+            title={title}
+            position="bottom"
+            actionPosition="left"
+          />
+        </ImageListItem>
       </Grid>
-      <Grid item xs={12} md={6}>
-        <Box p={3}>
-          <Typography variant="h5" gutterBottom>
-            {title}
-          </Typography>
-          <Typography variant="body1" className={classes.bodyText} gutterBottom>
-            {description}
-          </Typography>
-          <Button
-            color="primary"
-            variant="contained"
-            size="small"
-            onClick={onOpen}
-            endIcon={<ReadMore />}
-          >
-            {'VIEW MORE'}
-          </Button>
+      <Grid item md={6}>
+        <Box p={isSmallScreen ? 0 : 3}>
+          {!isSmallScreen && (
+            <Typography variant="h5" gutterBottom>
+              {title}
+            </Typography>
+          )}
+          <Box marginTop={1} marginBottom={2}>
+            <Typography
+              variant="body1"
+              className={classes.bodyText}
+              gutterBottom
+            >
+              {description}
+            </Typography>
+          </Box>
+          {!isSmallScreen && (
+            <Button color="primary" variant="contained" onClick={onOpen}>
+              {'VIEW MORE'}
+            </Button>
+          )}
         </Box>
       </Grid>
       <div className={classes.tagsContainer}>
@@ -91,6 +132,13 @@ const Project = ({ project }: Props) => {
           <Chip key={tag} label={tag} color={'primary'} variant="outlined" />
         ))}
       </div>
+      {isSmallScreen && (
+        <div className={classes.flexCenter}>
+          <Button color="primary" variant="contained" onClick={onOpen}>
+            {'VIEW MORE'}
+          </Button>
+        </div>
+      )}
       {open && (
         <ImagesDialog open={open} onClose={onClose} imageList={imageList} />
       )}

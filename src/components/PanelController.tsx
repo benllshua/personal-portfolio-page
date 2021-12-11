@@ -58,7 +58,7 @@ interface PanelControllerProps {
 }
 const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
   const classes = useStyles();
-  const isBreakpoint = useMediaQuery(768);
+  const isBreakpoint = useMediaQuery(900);
 
   return (
     <Paper className={classes.paper} elevation={4}>

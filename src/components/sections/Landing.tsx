@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Landing = () => {
   const classes = useStyles();
-  const isBreakpoint = useMediaQuery(768);
+  const isBreakpoint = useMediaQuery(900);
 
   return (
     <div className="section">

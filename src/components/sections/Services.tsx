@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme: Theme) =>
     card: {
       transition: '0.3s',
       width: 150,
-      height: 150,
       margin: theme.spacing(2),
       '&:hover': {
         transform: 'scale(1.1)',
@@ -45,7 +44,6 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up('md')]: {
         margin: theme.spacing(8),
         width: 350,
-        height: 350,
       },
     },
     cardTitle: {

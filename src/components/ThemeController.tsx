@@ -1,10 +1,4 @@
-import React, {
-  WheelEventHandler,
-  MouseEvent,
-  useRef,
-  useState,
-  useContext,
-} from 'react';
+import React, { MouseEvent, useRef, useState, useContext } from 'react';
 
 // components
 import { SpeedDial, SpeedDialIcon, SpeedDialAction } from '@mui/material';
@@ -84,12 +78,10 @@ const ThemeController = () => {
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [openColorMenu, setOpenColorMenu] = useState<
-    undefined | null | HTMLElement
-  >(null);
+  const [openColorMenu, setOpenColorMenu] = useState<undefined | HTMLElement>();
 
   const handleCloseColorMenu = () => {
-    setOpenColorMenu(null);
+    setOpenColorMenu(undefined);
   };
   const handleOpenColorMenu = (e: MouseEvent<HTMLDivElement>) => {
     setOpenColorMenu(e.currentTarget);
@@ -109,17 +101,6 @@ const ThemeController = () => {
   const particalsModeToggler = () => {
     particalsMode.toggleParticalsMode();
     handleClose();
-  };
-  const horizontalScroll = (e: WheelEventHandler<HTMLDivElement>) => {
-    const container = scrollContainer.current;
-    if (container) {
-      const containerScrollPosition = container.scrollLeft;
-      container.scrollTo({
-        top: 0,
-        left: containerScrollPosition + e.deltaY,
-        behavior: 'smooth', // if you want smooth scrolling
-      });
-    }
   };
 
   const actions = [
@@ -185,7 +166,16 @@ const ThemeController = () => {
           <div
             ref={scrollContainer}
             className={classes.colorSizeContainer}
-            onWheel={horizontalScroll}
+            onWheel={(e) => {
+              const container = scrollContainer.current;
+              if (container) {
+                container.scrollTo({
+                  top: 0,
+                  left: container.scrollLeft + e.deltaY,
+                  behavior: 'smooth', // if you want smooth scrolling
+                });
+              }
+            }}
           >
             <div className={classes.colorContainer}>
               {colors.map((color) => (

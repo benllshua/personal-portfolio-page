@@ -3,18 +3,18 @@
   "version": "4.0.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
-    "@mui/icons-material": "^5.0.5",
-    "@mui/lab": "^5.0.0-alpha.53",
-    "@mui/material": "^5.0.6",
-    "@mui/styles": "^5.0.2",
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.1",
+    "@mui/lab": "^5.0.0-alpha.59",
+    "@mui/material": "^5.2.3",
+    "@mui/styles": "^5.2.3",
     "clsx": "latest",
-    "framer-motion": "^5.3.3",
-    "next": "^12.0.3",
+    "framer-motion": "^5.4.5",
+    "next": "^12.0.7",
     "react": "latest",
     "react-dom": "latest",
-    "react-parallax-tilt": "^1.5.74",
+    "react-parallax-tilt": "^1.5.82",
     "react-swipeable-views": "^0.14.0",
     "react-tsparticles": "^1.37.5"
   },
@@ -26,9 +26,10 @@
     "format": "npx eslint ./src/** --quiet --fix && npx prettier --write ./src/**"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^12.0.7",
     "@types/next": "latest",
-    "@types/node": "latest",
-    "@types/react": "latest",
+    "@types/node": "^16.11.12",
+    "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "@types/react-swipeable-views": "^0.13.1",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
@@ -37,8 +38,8 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.26.1",
-    "prettier": "^2.4.1",
-    "typescript": "^4.4.4"
+    "eslint-plugin-react": "^7.27.1",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.3"
   }
 }

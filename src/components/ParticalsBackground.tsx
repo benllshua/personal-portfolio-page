@@ -7,7 +7,7 @@ const ParticalsBackground = () => {
   const theme = useTheme();
   const color =
     theme.palette.mode === 'light' ? '#aaa' : theme.palette.primary.main;
-  const isBreakpoint = useMediaQuery(768);
+  const isBreakpoint = useMediaQuery(900);
 
   return (
     <Particals

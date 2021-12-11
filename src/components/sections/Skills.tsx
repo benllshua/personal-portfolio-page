@@ -117,6 +117,7 @@ export default Skills;
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
 import { Tabs, Tab, Box } from '@mui/material';
+import { Api, DesignServices, DeveloperMode } from '@mui/icons-material';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -136,9 +137,7 @@ const TabPanel = (props: TabPanelProps) => {
     >
       {value === index && (
         <Fade in={value === index}>
-          <Box p={6}>
-            <Typography>{children}</Typography>
-          </Box>
+          <Box p={6}>{children}</Box>
         </Fade>
       )}
     </div>
@@ -164,12 +163,12 @@ const FullWidthTabs = () => {
         onChange={handleChange}
         indicatorColor="primary"
         textColor="primary"
-        centered
+        variant="fullWidth"
         scrollButtons="auto"
       >
-        <Tab label="UX Design" />
-        <Tab label="Front End Dev" />
-        <Tab label="Back End Dev" />
+        <Tab label="UX Design" icon={<DesignServices />} />
+        <Tab label="Front End Dev" icon={<DeveloperMode />} />
+        <Tab label="Back End Dev" icon={<Api />} />
       </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
