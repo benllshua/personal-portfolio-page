@@ -3,7 +3,7 @@ export const services = [
     name: 'Front-End Development',
     description:
       'a kjb adskjb sadfkjb ldasfk jldbfsakjbf dlsa adsjfn kladjsn jnkfsda ndaksljfn dajs kn',
-    imgSrc: 'frontend.png',
+    imgSrc: 'FrontEnd.png',
     tags: ['a', 'b', 'c'],
   },
   {
