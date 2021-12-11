@@ -1,15 +1,21 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 
-type Props = { title: string; keywords: string; description: string };
-
-const Meta = (props: Props) => {
+const Meta = () => {
   const theme = useTheme();
   return (
     <>
-      <title>{props.title}</title>
-      <meta name="keywords" content={props.keywords} />
-      <meta name="description" content={props.description} />
+      <title>Ben Shua Portfolio</title>
+      <meta
+        name="keywords"
+        content={'Ben BEN SHUA shua benllshua BenllShua בן שועה portfolio '}
+      />
+      <meta
+        name="description"
+        content={
+          'I can bring your project from 0 to 100. By offering experience in all product build parts, from identifying & designing to development & deployment, including proper management skills.'
+        }
+      />
       <meta name="theme-color" content={theme.palette.primary.main} />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,12 +23,6 @@ const Meta = (props: Props) => {
       <link rel="apple-touch-icon" href="/images/logo.png" />
     </>
   );
-};
-
-Meta.defaultProps = {
-  title: "Ben Shua's Portfolio",
-  keywords: '',
-  description: '',
 };
 
 export default Meta;
