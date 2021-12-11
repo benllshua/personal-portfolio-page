@@ -1,19 +1,26 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheets } from '@material-ui/core/styles';
-import theme from '../themes/theme';
+import { ServerStyleSheets } from '@mui/styles';
+import Meta from '../components/Meta';
 
+/**
+ * Document class component
+ */
 export default class MyDocument extends Document {
+  /**
+   * document render function
+   * @return {JSX.Element} the jsx element
+   */
   render() {
     return (
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content={theme.palette.primary.main} />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
+          <Meta />
         </Head>
         <body>
           <Main />
@@ -55,6 +62,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
+      // eslint-disable-next-line react/display-name
       enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
     });
 
@@ -63,6 +71,9 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+    styles: [
+      ...React.Children.toArray(initialProps.styles),
+      sheets.getStyleElement(),
+    ],
   };
 };

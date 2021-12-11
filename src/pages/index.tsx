@@ -1,26 +1,45 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import ProTip from '../components/ProTip';
-import Link from '../components/Link';
+import React, { useContext } from 'react';
+
+// components
+import Landing from '../components/sections/Landing';
+import Services from '../components/sections/Services';
+import About from '../components/sections/About';
+import Skills from '../components/sections/Skills';
+import SocialMediaLinks from '../components/SocialMediaLinks';
+import ThemeController from '../components/ThemeController';
+import Portfolio from '../components/sections/Portfolio';
+import Footer from '../components/Footer';
+import ParticalsBackground from '../components/ParticalsBackground';
+import { ParticalsModeContext } from '../themes/theme';
+import { Container } from '@mui/material';
+
+// hooks
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 /**
  * Main page component
  * @return {JSX.Element} : The JSX for the Main page
  */
 export default function Index() {
+  const particalsMode = useContext(ParticalsModeContext);
+
+  const isBreakpoint = useMediaQuery(900);
+
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Next.js with TypeScript example
-        </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
-        <ProTip />
-      </Box>
-    </Container>
+    <>
+      {particalsMode.mode && <ParticalsBackground />}
+      <ThemeController />
+      <SocialMediaLinks />
+
+      <Container maxWidth={isBreakpoint ? 'xs' : 'lg'}>
+        <Landing />
+        <Services />
+        <About />
+        <Skills />
+        <Portfolio />
+      </Container>
+
+      <Footer />
+    </>
   );
 }
