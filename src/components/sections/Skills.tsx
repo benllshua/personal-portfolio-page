@@ -289,7 +289,7 @@ const Skill = ({ imgDir, name }: SkillType) => {
     <div className={classes.skillRoot}>
       <Image
         src={`${basicPath}/${imgDir}.svg`}
-        alt={imgDir}
+        alt={`${name} illustration`}
         width={50}
         height={50}
       />
