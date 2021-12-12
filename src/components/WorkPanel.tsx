@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 // context
 import { ColorContext } from '../themes/theme';
+import Image from 'next/image';
 
 const WorkPanel = () => {
   const classes = useStyles();
@@ -118,13 +119,21 @@ const WorkPanel = () => {
           </Grid>
           <Grid item md={4} className={classes.flexCenter}>
             <SlideAndFade delay={1}>
-              <Tilt perspective={500} scale={1.25}>
-                <img
-                  src={`/images/illustrations/${
-                    color.getColor()?.folderName
-                  }/working.png`}
-                  width="100%"
-                />
+              <Tilt perspective={500} scale={1.1}>
+                <div style={{ width: '100%', position: 'relative' }}>
+                  <Image
+                    width={350}
+                    height={350}
+                    alt="illustration"
+                    src={`/images/illustrations/${
+                      color.getColor()?.folderName
+                    }/working.png`}
+                    placeholder="blur"
+                    blurDataURL={`/images/illustrations/${
+                      color.getColor()?.folderName
+                    }/working.png`}
+                  />
+                </div>
               </Tilt>
             </SlideAndFade>
           </Grid>

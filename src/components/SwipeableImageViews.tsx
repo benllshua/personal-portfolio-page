@@ -54,7 +54,7 @@ const SwipeableImageViews = ({ imageList }: Props) => {
       >
         {imageList.map((item, index) => (
           <div key={index}>
-            {Math.abs(activeStep - index) <= 2 ? (
+            {Math.abs(activeStep - index) <= 2 && (
               <Box
                 component="img"
                 sx={{
@@ -67,7 +67,7 @@ const SwipeableImageViews = ({ imageList }: Props) => {
                 src={item.imgFileName}
                 alt={item.label}
               />
-            ) : null}
+            )}
           </div>
         ))}
       </SwipeableViews>
