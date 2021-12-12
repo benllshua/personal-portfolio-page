@@ -67,6 +67,7 @@ const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
         variant="text"
       >
         <Button
+          aria-label="My Story"
           color="primary"
           className={classes.buttonSpacing}
           onClick={() => setPanelTo(1)}
@@ -83,6 +84,7 @@ const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
           )}
         </Button>
         <Button
+          aria-label="My Education"
           color="primary"
           className={classes.buttonSpacing}
           onClick={() => setPanelTo(2)}
@@ -99,6 +101,7 @@ const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
           )}
         </Button>
         <Button
+          aria-label="Past work places"
           color="primary"
           className={classes.buttonSpacing}
           onClick={() => setPanelTo(3)}
