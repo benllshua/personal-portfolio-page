@@ -129,6 +129,10 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
                 src={`${basicPath}/${color.getColor()?.folderName}/${
                   service.imgSrc
                 }`}
+                placeholder="blur"
+                blurDataURL={`${basicPath}/${color.getColor()?.folderName}/${
+                  service.imgSrc
+                }`}
               />
             </div>
             <Typography

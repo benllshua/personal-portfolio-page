@@ -21,6 +21,7 @@ import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 import { ColorContext } from '../themes/theme';
 import SlideAndFade from './animations/SlideAndFade';
+import Image from 'next/image';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -52,6 +53,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
     primaryTail: {
       backgroundColor: theme.palette.primary.main,
+    },
+    flexCenter: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
   })
 );
@@ -107,15 +113,23 @@ const StoryPanel = () => {
               ))}
             </List>
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} className={classes.flexCenter}>
             <SlideAndFade delay={1}>
               <Tilt perspective={500} scale={1.1}>
-                <img
-                  src={`/images/illustrations/${
-                    color.getColor()?.folderName
-                  }/growing.png`}
-                  width="100%"
-                />
+                <div style={{ width: '100%', position: 'relative' }}>
+                  <Image
+                    width={350}
+                    height={350}
+                    alt="illustration"
+                    src={`/images/illustrations/${
+                      color.getColor()?.folderName
+                    }/growing.png`}
+                    placeholder="blur"
+                    blurDataURL={`/images/illustrations/${
+                      color.getColor()?.folderName
+                    }/growing.png`}
+                  />
+                </div>
               </Tilt>
             </SlideAndFade>
           </Grid>

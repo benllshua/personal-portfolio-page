@@ -12,6 +12,7 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 // styles
 import { Theme } from '@mui/material/styles';
 import { makeStyles, createStyles } from '@mui/styles';
+import Image from 'next/image';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -160,7 +161,17 @@ const Landing = () => {
           </div>
         </Grid>
         <Grid item md={7} className={classes.verticalCenter2}>
-          <img src={'/images/profile5.png'} className={classes.image} />
+          <div>
+            <Image
+              src={'/images/profile5.png'}
+              alt="profileImg"
+              layout="responsive"
+              width={600}
+              height={600}
+              placeholder="blur"
+              blurDataURL={'/images/profile5.png'}
+            />
+          </div>
         </Grid>
       </Grid>
     </div>

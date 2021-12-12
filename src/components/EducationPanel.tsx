@@ -79,6 +79,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 // context
 import { ColorContext } from '../themes/theme';
+import Image from 'next/image';
 
 const EducationPanel = () => {
   const classes = useStyles();
@@ -107,13 +108,21 @@ const EducationPanel = () => {
           </Grid>
           <Grid item md={4} className={classes.flexCenter}>
             <SlideAndFade delay={1}>
-              <Tilt perspective={500} scale={1.15}>
-                <img
-                  src={`/images/illustrations/${
-                    color.getColor()?.folderName
-                  }/learningBro.png`}
-                  width="100%"
-                />
+              <Tilt perspective={500} scale={1.1}>
+                <div style={{ width: '100%', position: 'relative' }}>
+                  <Image
+                    width={350}
+                    height={350}
+                    alt="illustration"
+                    src={`/images/illustrations/${
+                      color.getColor()?.folderName
+                    }/learningBro.png`}
+                    placeholder="blur"
+                    blurDataURL={`/images/illustrations/${
+                      color.getColor()?.folderName
+                    }/learningBro.png`}
+                  />
+                </div>
               </Tilt>
             </SlideAndFade>
           </Grid>

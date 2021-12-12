@@ -118,6 +118,7 @@ import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
 import { Tabs, Tab, Box } from '@mui/material';
 import { Api, DesignServices, DeveloperMode } from '@mui/icons-material';
+import Image from 'next/image';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -286,12 +287,12 @@ const Skill = ({ imgDir, name }: SkillType) => {
 
   return (
     <div className={classes.skillRoot}>
-      <img
+      <Image
         src={`${basicPath}/${imgDir}.svg`}
         alt={imgDir}
         width={50}
         height={50}
-      ></img>
+      />
       <Typography variant={'caption'}>{name}</Typography>
     </div>
   );
