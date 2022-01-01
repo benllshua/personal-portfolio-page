@@ -45,7 +45,6 @@ export default function Index() {
   return (
     <>
       {particalsMode.mode && <ParticalsBackground />}
-      <ThemeController />
       {!isBreakpoint && <SocialMediaLinks />}
 
       <Container maxWidth={isBreakpoint ? 'xs' : 'lg'}>
@@ -55,6 +54,7 @@ export default function Index() {
         <Skills />
         <Portfolio />
       </Container>
+      <ThemeController />
 
       <Footer />
     </>
