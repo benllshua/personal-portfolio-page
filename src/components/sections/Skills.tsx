@@ -136,11 +136,9 @@ const TabPanel = (props: TabPanelProps) => {
       {...other}
       style={{ width: '90%', margin: '16px auto' }}
     >
-      {value === index && (
-        <Fade in={value === index}>
-          <Box p={6}>{children}</Box>
-        </Fade>
-      )}
+      <Fade in={value === index}>
+        <Box p={6}>{children}</Box>
+      </Fade>
     </div>
   );
 };

@@ -146,9 +146,7 @@ const Project = ({ project }: Props) => {
           </Button>
         </div>
       )}
-      {open && (
-        <ImagesDialog open={open} onClose={onClose} imageList={imageList} />
-      )}
+      <ImagesDialog open={open} onClose={onClose} imageList={imageList} />
     </Grid>
   );
 };

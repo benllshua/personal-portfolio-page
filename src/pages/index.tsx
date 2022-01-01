@@ -6,29 +6,15 @@ import { ParticalsModeContext } from '../themes/theme';
 import { Container } from '@mui/material';
 
 // sections
+
 import Landing from '../components/sections/Landing';
-import dynamic from 'next/dynamic';
-
-const SocialMediaLinks = dynamic(
-  () => import('../components/SocialMediaLinks')
-);
-const ThemeController = dynamic(() => import('../components/ThemeController'));
-
-const Services = dynamic(() => import('../components/sections/Services'), {
-  loading: () => <p>...</p>,
-});
-const About = dynamic(() => import('../components/sections/About'), {
-  loading: () => <p>...</p>,
-});
-const Skills = dynamic(() => import('../components/sections/Skills'), {
-  loading: () => <p>...</p>,
-});
-const Portfolio = dynamic(() => import('../components/sections/Portfolio'), {
-  loading: () => <p>...</p>,
-});
-const Footer = dynamic(() => import('../components/Footer'), {
-  loading: () => <p>...</p>,
-});
+import Services from '../components/sections/Services';
+import About from '../components/sections/About';
+import Skills from '../components/sections/Skills';
+import SocialMediaLinks from '../components/SocialMediaLinks';
+import ThemeController from '../components/ThemeController';
+import Portfolio from '../components/sections/Portfolio';
+import Footer from '../components/Footer';
 
 // hooks
 import { useMediaQuery } from '../hooks/useMediaQuery';

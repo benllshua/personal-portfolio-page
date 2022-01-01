@@ -76,7 +76,7 @@ const TabPanel = (props: TabPanelProps) => {
 
   return (
     <div hidden={value !== index} style={{ overflowX: 'hidden' }} {...other}>
-      {value === index && <>{children}</>}
+      {children}
     </div>
   );
 };
