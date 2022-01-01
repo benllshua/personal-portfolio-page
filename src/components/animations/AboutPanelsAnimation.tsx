@@ -11,11 +11,18 @@ const AboutPanelsAnimation = ({ children, status }: Props) => {
   return (
     <motion.div
       variants={{
-        out: { x: 500, opacity: 0, zIndex: -1 },
-        in: { x: 0, opacity: 1, zIndex: 0 },
+        out: {
+          x: 500,
+          opacity: 0,
+          transition: { duration: 0.5 },
+        },
+        in: {
+          x: 0,
+          opacity: 1,
+          transition: { duration: 0.5, delay: 0.5 },
+        },
       }}
       animate={status}
-      transition={{ duration: 0.5 }}
       style={{
         position: 'absolute',
         left: 0,

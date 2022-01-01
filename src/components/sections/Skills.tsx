@@ -64,6 +64,11 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       flexWrap: 'wrap',
     },
+    spaceOnMobile: {
+      [theme.breakpoints.down('md')]: {
+        marginTop: theme.spacing(64),
+      },
+    },
   })
 );
 
@@ -71,16 +76,18 @@ const Skills = () => {
   const classes = useStyles();
 
   return (
-    <div className="section" id="skillsSection">
-      <Typography
-        variant="h3"
-        component="h3"
-        align="center"
-        gutterBottom
-        className={classes.subTitle}
-      >
-        {'Skills'}
-      </Typography>
+    <div className={`section ${classes.spaceOnMobile}`} id="skillsSection">
+      <title>
+        <Typography
+          variant="h3"
+          component="h3"
+          align="center"
+          gutterBottom
+          className={classes.subTitle}
+        >
+          {'Skills'}
+        </Typography>
+      </title>
       <Typography
         variant="h5"
         component="h5"

@@ -90,15 +90,14 @@ const Project = ({ project }: Props) => {
     <Grid container className={classes.root}>
       <Grid item md={6}>
         <ImageListItem className={classes.image}>
-          <div className={classes.imgFlexWrapper}>
-            <Image
-              layout="fill"
-              src={mainImg}
-              alt={`${title} project image`}
-              placeholder={'blur'}
-              blurDataURL={mainImg}
-            />
-          </div>
+          <Image
+            width={400}
+            height={400}
+            src={mainImg}
+            alt={`${title} project image`}
+            placeholder={'blur'}
+            blurDataURL={mainImg}
+          />
           <ImageListItemBar
             sx={{
               background:

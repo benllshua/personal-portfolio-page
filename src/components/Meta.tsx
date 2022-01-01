@@ -8,7 +8,9 @@ const Meta = () => {
       <title>BenllShua Portfolio | Ben Shua</title>
       <meta
         name="keywords"
-        content={'Ben BEN SHUA shua benllshua BenllShua בן שועה portfolio '}
+        content={
+          'Ben BEN SHUA shua benllshua BenllShua בן שועה portfolio development team illustrations management design information skills portfolio '
+        }
       />
       <meta
         name="description"
@@ -17,7 +19,7 @@ const Meta = () => {
         }
       />
 
-      <meta name="robots" content="index, follow"></meta>
+      <meta name="robots" content="index, follow" />
 
       <meta name="theme-color" content={theme.palette.primary.main} />
       <meta charSet="utf-8" />

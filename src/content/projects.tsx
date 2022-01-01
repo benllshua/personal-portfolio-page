@@ -5,7 +5,7 @@ const FRONTENDProjects = [
     title: 'Wine Site',
     description:
       'One of my earliest projects was creating a wine shopping site, It was a learning project to explore the capabilities of only CSS & HTML with almost no JS',
-    mainImg: `${basicPath}/wineSite1.png`,
+    mainImg: `${basicPath}/wineSiteThumb.png`,
     imageList: [
       { label: 'string', imgFileName: `${basicPath}/wineSite1.png` },
       { label: 'string2', imgFileName: `${basicPath}/wineSite1.png` },
