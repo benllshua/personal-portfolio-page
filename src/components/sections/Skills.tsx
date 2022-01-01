@@ -64,6 +64,11 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       flexWrap: 'wrap',
     },
+    spaceOnMobile: {
+      [theme.breakpoints.down('md')]: {
+        marginTop: theme.spacing(64),
+      },
+    },
   })
 );
 
@@ -71,7 +76,7 @@ const Skills = () => {
   const classes = useStyles();
 
   return (
-    <div className="section" id="skillsSection">
+    <div className={`section ${classes.spaceOnMobile}`} id="skillsSection">
       <Typography
         variant="h3"
         component="h3"
@@ -136,11 +141,9 @@ const TabPanel = (props: TabPanelProps) => {
       {...other}
       style={{ width: '90%', margin: '16px auto' }}
     >
-      {value === index && (
-        <Fade in={value === index}>
-          <Box p={6}>{children}</Box>
-        </Fade>
-      )}
+      <Fade in={value === index}>
+        <Box p={6}>{children}</Box>
+      </Fade>
     </div>
   );
 };

@@ -62,15 +62,15 @@ const Services = () => {
 
   return (
     <div className="section" id="servicesSection">
-      <Typography
-        variant="h3"
-        component="h3"
-        align="center"
-        gutterBottom
-        className={classes.subTitle}
-      >
-        Services
-      </Typography>
+        <Typography
+          variant="h3"
+          component="h3"
+          align="center"
+          gutterBottom
+          className={classes.subTitle}
+        >
+          Services
+        </Typography>
       <Typography
         variant="h5"
         component="h5"

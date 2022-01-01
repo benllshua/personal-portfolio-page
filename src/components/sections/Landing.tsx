@@ -90,6 +90,11 @@ const useStyles = makeStyles((theme: Theme) =>
     fullWidth: {
       width: '100%',
     },
+    imgFlexWrapper: {
+      flexGrow: 0,
+      flexShrink: 0,
+      flexBasis: '50%',
+    },
   })
 );
 
@@ -161,11 +166,10 @@ const Landing = () => {
           </div>
         </Grid>
         <Grid item md={7} className={classes.verticalCenter2}>
-          <div>
+          <div className={classes.imgFlexWrapper}>
             <Image
               src={'/images/profile5.png'}
               alt="profileImg"
-              layout="responsive"
               width={600}
               height={600}
               placeholder="blur"

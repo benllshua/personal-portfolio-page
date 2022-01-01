@@ -5,10 +5,12 @@ const Meta = () => {
   const theme = useTheme();
   return (
     <>
-      <title>Ben Shua Portfolio</title>
+      <title>BenllShua Portfolio | Ben Shua</title>
       <meta
         name="keywords"
-        content={'Ben BEN SHUA shua benllshua BenllShua בן שועה portfolio '}
+        content={
+          'Ben BEN SHUA shua benllshua BenllShua בן שועה portfolio development team illustrations management design information skills portfolio '
+        }
       />
       <meta
         name="description"
@@ -16,6 +18,9 @@ const Meta = () => {
           'I can bring your project from 0 to 100. By offering experience in all product build parts, from identifying & designing to development & deployment, including proper management skills.'
         }
       />
+
+      <meta name="robots" content="index, follow" />
+
       <meta name="theme-color" content={theme.palette.primary.main} />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />

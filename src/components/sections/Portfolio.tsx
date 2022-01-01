@@ -76,7 +76,7 @@ const TabPanel = (props: TabPanelProps) => {
 
   return (
     <div hidden={value !== index} style={{ overflowX: 'hidden' }} {...other}>
-      {value === index && <>{children}</>}
+      {children}
     </div>
   );
 };
@@ -101,7 +101,7 @@ const FullWidthTabs = () => {
         indicatorColor="primary"
         textColor="primary"
         variant="fullWidth"
-        aria-label="full width tabs example"
+        aria-label="full width portfolio tabs"
       >
         <Tab label="UX Design" />
         <Tab label="Development Projects" />

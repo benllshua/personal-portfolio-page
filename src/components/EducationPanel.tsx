@@ -69,10 +69,14 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     text: {
-      fontSize: '0.6rem',
+      [theme.breakpoints.down('md')]: {
+        fontSize: '0.6rem',
+      },
     },
     caption: {
-      fontSize: '0.5rem',
+      [theme.breakpoints.down('md')]: {
+        fontSize: '0.5rem',
+      },
     },
   })
 );

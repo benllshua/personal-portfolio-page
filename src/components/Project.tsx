@@ -55,6 +55,11 @@ const useStyles = makeStyles((theme: Theme) =>
       backdropFilter: 'blur(2px)',
       backgroundColor: '#ffffff33',
     },
+    imgFlexWrapper: {
+      flexGrow: 0,
+      flexShrink: 0,
+      flexBasis: '50%',
+    },
   })
 );
 
@@ -83,10 +88,11 @@ const Project = ({ project }: Props) => {
 
   return (
     <Grid container className={classes.root}>
-      <Grid item md={6}>
+      <Grid item md={5} lg={4}>
         <ImageListItem className={classes.image}>
           <Image
-            layout="fill"
+            width={400}
+            height={225}
             src={mainImg}
             alt={`${title} project image`}
             placeholder={'blur'}
@@ -104,7 +110,7 @@ const Project = ({ project }: Props) => {
           />
         </ImageListItem>
       </Grid>
-      <Grid item md={6}>
+      <Grid item md={6} lg={8}>
         <Box p={isSmallScreen ? 0 : 3}>
           {!isSmallScreen && (
             <Typography variant="h5" gutterBottom>
@@ -139,9 +145,7 @@ const Project = ({ project }: Props) => {
           </Button>
         </div>
       )}
-      {open && (
-        <ImagesDialog open={open} onClose={onClose} imageList={imageList} />
-      )}
+      <ImagesDialog open={open} onClose={onClose} imageList={imageList} />
     </Grid>
   );
 };
