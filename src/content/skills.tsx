@@ -101,7 +101,7 @@ export const FrontEndSkills = {
     },
     {
       name: 'Xamarin',
-      imgDir: 'xamarin',
+      imgDir: 'Xamarin',
     },
   ],
   moreRelated: [
