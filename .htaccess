@@ -1,0 +1,3 @@
+<Files ~ "\.pdf$">
+Header set X-Robots-Tag "noindex, nofollow"
+</Files>
