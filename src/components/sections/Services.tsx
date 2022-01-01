@@ -62,15 +62,15 @@ const Services = () => {
 
   return (
     <div className="section" id="servicesSection">
-        <Typography
-          variant="h3"
-          component="h3"
-          align="center"
-          gutterBottom
-          className={classes.subTitle}
-        >
-          Services
-        </Typography>
+      <Typography
+        variant="h3"
+        component="h3"
+        align="center"
+        gutterBottom
+        className={classes.subTitle}
+      >
+        Services
+      </Typography>
       <Typography
         variant="h5"
         component="h5"
@@ -126,6 +126,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
               <Image
                 width={250}
                 height={250}
+                alt={`${service.name} illustration`}
                 src={`${basicPath}/${color.getColor()?.folderName}/${
                   service.imgSrc
                 }`}
