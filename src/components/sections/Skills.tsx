@@ -77,17 +77,15 @@ const Skills = () => {
 
   return (
     <div className={`section ${classes.spaceOnMobile}`} id="skillsSection">
-      <title>
-        <Typography
-          variant="h3"
-          component="h3"
-          align="center"
-          gutterBottom
-          className={classes.subTitle}
-        >
-          {'Skills'}
-        </Typography>
-      </title>
+      <Typography
+        variant="h3"
+        component="h3"
+        align="center"
+        gutterBottom
+        className={classes.subTitle}
+      >
+        {'Skills'}
+      </Typography>
       <Typography
         variant="h5"
         component="h5"

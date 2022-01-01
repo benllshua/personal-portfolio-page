@@ -62,7 +62,6 @@ const Services = () => {
 
   return (
     <div className="section" id="servicesSection">
-      <title>
         <Typography
           variant="h3"
           component="h3"
@@ -72,7 +71,6 @@ const Services = () => {
         >
           Services
         </Typography>
-      </title>
       <Typography
         variant="h5"
         component="h5"

@@ -88,11 +88,11 @@ const Project = ({ project }: Props) => {
 
   return (
     <Grid container className={classes.root}>
-      <Grid item md={6}>
+      <Grid item md={5} lg={4}>
         <ImageListItem className={classes.image}>
           <Image
             width={400}
-            height={400}
+            height={225}
             src={mainImg}
             alt={`${title} project image`}
             placeholder={'blur'}
@@ -110,7 +110,7 @@ const Project = ({ project }: Props) => {
           />
         </ImageListItem>
       </Grid>
-      <Grid item md={6}>
+      <Grid item md={6} lg={8}>
         <Box p={isSmallScreen ? 0 : 3}>
           {!isSmallScreen && (
             <Typography variant="h5" gutterBottom>

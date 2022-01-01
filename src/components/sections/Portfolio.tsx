@@ -32,17 +32,15 @@ const Portfolio = () => {
 
   return (
     <div className="section" id="portfolioSection">
-      <title>
-        <Typography
-          variant="h3"
-          component="h3"
-          align="center"
-          gutterBottom
-          className={classes.subTitle}
-        >
-          {'Portfolio'}
-        </Typography>
-      </title>
+      <Typography
+        variant="h3"
+        component="h3"
+        align="center"
+        gutterBottom
+        className={classes.subTitle}
+      >
+        {'Portfolio'}
+      </Typography>
       <Typography
         variant="h5"
         component="h5"
@@ -103,7 +101,7 @@ const FullWidthTabs = () => {
         indicatorColor="primary"
         textColor="primary"
         variant="fullWidth"
-        aria-label="full width tabs example"
+        aria-label="full width portfolio tabs"
       >
         <Tab label="UX Design" />
         <Tab label="Development Projects" />
