@@ -179,15 +179,21 @@ const FullWidthTabs = () => {
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          <SkillSection skills={UXSkills} />
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <SkillSection skills={FrontEndSkills} />
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          <SkillSection skills={BackEndSkills} />
-        </TabPanel>
+        {value === 0 && (
+          <TabPanel value={value} index={0} dir={theme.direction}>
+            <SkillSection skills={UXSkills} />
+          </TabPanel>
+        )}
+        {value === 1 && (
+          <TabPanel value={value} index={1} dir={theme.direction}>
+            <SkillSection skills={FrontEndSkills} />
+          </TabPanel>
+        )}
+        {value === 2 && (
+          <TabPanel value={value} index={2} dir={theme.direction}>
+            <SkillSection skills={BackEndSkills} />
+          </TabPanel>
+        )}
       </SwipeableViews>
     </Paper>
   );
