@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 
 // components
 import {
@@ -7,12 +7,46 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Divider,
+  Icon,
   IconButton,
+  Typography,
 } from '@mui/material';
-import { Close } from '@mui/icons-material';
+import { Beenhere, Close } from '@mui/icons-material';
+import { Theme } from '@mui/material/styles';
+import { createStyles, makeStyles } from '@mui/styles';
+import Image from 'next/image';
 
 // data
 import { serviceType } from '../content/services';
+
+import { useMediaQuery } from '../hooks/useMediaQuery';
+import { ColorContext } from '../themes/theme';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    chip: {
+      margin: theme.spacing(1),
+    },
+    divider: {
+      marginBottom: theme.spacing(2),
+    },
+    miniTitle: {
+      marginBottom: theme.spacing(1),
+      marginTop: theme.spacing(3),
+      display: 'flex',
+      alignItems: 'center',
+      '&>span': {
+        marginRight: theme.spacing(1),
+      },
+    },
+    imageWrapper: {
+      display: 'flex',
+      justifyContent: 'center',
+      marginBottom: theme.spacing(2),
+    },
+  })
+);
 
 interface ServiceDialogProps {
   open: boolean;
@@ -21,6 +55,10 @@ interface ServiceDialogProps {
 }
 
 const ServiceDialog = ({ service, onClose, open }: ServiceDialogProps) => {
+  const classes = useStyles();
+  const isBreakpoint = useMediaQuery(900);
+  const color = useContext(ColorContext);
+
   return (
     <Dialog onClose={onClose} open={open}>
       <DialogTitle>{service?.name}</DialogTitle>
@@ -38,12 +76,35 @@ const ServiceDialog = ({ service, onClose, open }: ServiceDialogProps) => {
           <Close />
         </IconButton>
       )}
+      <Divider />
       <DialogContent>
+        <div className={classes.imageWrapper}>
+          <Image
+            src={`/images/illustrations/${color.getColor()?.folderName}/${
+              service.imgSrc
+            }`}
+            width={150}
+            height={150}
+          />
+        </div>
+        <Typography variant="subtitle1">So what is {service.name} ?</Typography>
         <DialogContentText gutterBottom>
           {service?.description}
         </DialogContentText>
+        <div className={classes.miniTitle}>
+          <Icon>
+            <Beenhere color="primary" />
+          </Icon>
+          <Typography variant="subtitle1">More Knowledge Provided</Typography>
+        </div>
+        <Divider className={classes.divider} />
         {service?.tags.map((tag, index) => (
-          <Chip key={index} label={tag} />
+          <Chip
+            key={index}
+            label={tag}
+            className={classes.chip}
+            size={isBreakpoint ? 'small' : 'medium'}
+          />
         ))}
       </DialogContent>
     </Dialog>
