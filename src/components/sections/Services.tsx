@@ -149,9 +149,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           </Box>
         </CardActionArea>
       </Card>
-      {open && (
-        <ServiceDialog open={open} onClose={onClose} service={service} />
-      )}
+      <ServiceDialog open={open} onClose={onClose} service={service} />
     </>
   );
 };

@@ -83,7 +83,7 @@ const TabPanel = (props: TabPanelProps) => {
 
 const FullWidthTabs = () => {
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -112,27 +112,34 @@ const FullWidthTabs = () => {
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          {UXProjects.map((project, index) => (
-            <div key={`${project.title} ${index}`}>
-              <SlideAndFade delay={0.3 * index}>
-                <Project project={project} />
-              </SlideAndFade>
-            </div>
-          ))}
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          {FRONTENDProjects.map((project, index) => (
-            <div key={`${project.title} ${index}`}>
-              <SlideAndFade delay={0.3 * index}>
-                <Project project={project} />
-              </SlideAndFade>
-            </div>
-          ))}
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
-        </TabPanel>
+        {value === 0 && (
+          <TabPanel value={value} index={0} dir={theme.direction}>
+            {UXProjects.map((project, index) => (
+              <div key={`${project.title} ${index}`}>
+                <SlideAndFade delay={0.3 * index}>
+                  <Project project={project} />
+                </SlideAndFade>
+              </div>
+            ))}
+          </TabPanel>
+        )}
+        {value === 1 && (
+          <TabPanel value={value} index={1} dir={theme.direction}>
+            {FRONTENDProjects.map((project, index) => (
+              <div key={`${project.title} ${index}`}>
+                <SlideAndFade delay={0.3 * index}>
+                  <Project project={project} />
+                </SlideAndFade>
+              </div>
+            ))}
+          </TabPanel>
+        )}
+        {value === 2 && (
+          <TabPanel value={value} index={2} dir={theme.direction}>
+            Item Three
+          </TabPanel>
+        )}
+
         <TabPanel value={value} index={3} dir={theme.direction}>
           Item Three
         </TabPanel>
