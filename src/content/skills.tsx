@@ -190,7 +190,7 @@ export const BackEndSkills = {
 
     {
       name: 'Mongo',
-      imgDir: 'mongo',
+      imgDir: 'Mongo',
     },
     {
       name: 'Node.js',
@@ -228,7 +228,7 @@ export const UXSkills = {
     },
     {
       name: 'Adobe Illustraitor',
-      imgDir: 'Ai',
+      imgDir: 'AI',
     },
     {
       name: 'Adobe Lightroom',
