@@ -5,8 +5,7 @@ import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const ParticalsBackground = () => {
   const theme = useTheme();
-  const color =
-    theme.palette.mode === 'light' ? '#aaa' : theme.palette.primary.main;
+  const color = theme.palette.mode === 'light' ? '#aaa' : theme.palette.primary.main;
   const isBreakpoint = useMediaQuery(900);
 
   return (

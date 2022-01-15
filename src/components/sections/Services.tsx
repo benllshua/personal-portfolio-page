@@ -62,21 +62,10 @@ const Services = () => {
 
   return (
     <div className="section" id="servicesSection">
-      <Typography
-        variant="h3"
-        component="h3"
-        align="center"
-        gutterBottom
-        className={classes.subTitle}
-      >
+      <Typography variant="h3" component="h3" align="center" gutterBottom className={classes.subTitle}>
         Services
       </Typography>
-      <Typography
-        variant="h5"
-        component="h5"
-        align="center"
-        className={classes.subTitle}
-      >
+      <Typography variant="h5" component="h5" align="center" className={classes.subTitle}>
         {'What I do & How I can help you'}
       </Typography>
       <div className={classes.cardsContainer}>
@@ -114,12 +103,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
       <Card className={classes.card} elevation={8} onClick={onOpen}>
         <CardActionArea>
           <Box p={1}>
-            <Typography
-              variant="h6"
-              align="center"
-              className={classes.subTitle}
-              gutterBottom
-            >
+            <Typography variant="h6" align="center" className={classes.subTitle} gutterBottom>
               {service.name}
             </Typography>
             <div className={classes.cardsContainer}>
@@ -127,13 +111,9 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
                 width={250}
                 height={250}
                 alt={`${service.name} illustration`}
-                src={`${basicPath}/${color.getColor()?.folderName}/${
-                  service.imgSrc
-                }`}
+                src={`${basicPath}/${color.getColor()?.folderName}/${service.imgSrc}`}
                 placeholder="blur"
-                blurDataURL={`${basicPath}/${color.getColor()?.folderName}/${
-                  service.imgSrc
-                }`}
+                blurDataURL={`${basicPath}/${color.getColor()?.folderName}/${service.imgSrc}`}
               />
             </div>
             <Typography

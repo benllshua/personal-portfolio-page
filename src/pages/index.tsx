@@ -9,9 +9,7 @@ import { Container } from '@mui/material';
 import Landing from '../components/sections/Landing';
 import dynamic from 'next/dynamic';
 
-const SocialMediaLinks = dynamic(
-  () => import('../components/SocialMediaLinks')
-);
+const SocialMediaLinks = dynamic(() => import('../components/SocialMediaLinks'));
 const ThemeController = dynamic(() => import('../components/ThemeController'));
 
 const Services = dynamic(() => import('../components/sections/Services'), {

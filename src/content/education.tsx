@@ -1,15 +1,11 @@
 import React from 'react';
-import {
-  Description,
-  DescriptionOutlined,
-  School,
-  SchoolOutlined,
-} from '@mui/icons-material';
+import { Description, DescriptionOutlined, School, SchoolOutlined } from '@mui/icons-material';
 const basicPath = '/images/certificates';
 export const educationPlaces = [
   {
     title: 'Meir Shfeia',
-    description: 'This page that youre watching right now',
+    description:
+      'A quality and inspiring educational institution, which directs its students to be valued and educated human beings, citizens who contribute to the state and are involved in Israeli society',
     icon: <SchoolOutlined color="primary" />,
     hoveredIcon: <School color="primary" />,
     type: 'High School',
@@ -19,7 +15,7 @@ export const educationPlaces = [
   },
   {
     title: 'Digital Operator',
-    description: 'csakldjsfkajls dhfkjl dsklajhf asdkfjh ksjdahf',
+    description: 'A challenging, innovative role that requires independence, solidity, and fieldwork',
     icon: <DescriptionOutlined color="primary" />,
     hoveredIcon: <Description color="primary" />,
     type: 'Certification',
@@ -29,7 +25,8 @@ export const educationPlaces = [
   },
   {
     title: 'Google UX Design',
-    description: 'csakldjsfkajls dhfkjl dsklajhf asdkfjh ksjdahf',
+    description:
+      'User experience (UX) designers focus on the interaction that users have with products, like websites, apps, and physical objects. They make those everyday interactions useful, enjoyable, and accessible.',
     icon: <DescriptionOutlined color="primary" />,
     hoveredIcon: <Description color="primary" />,
     type: 'Certification',
@@ -39,7 +36,8 @@ export const educationPlaces = [
   },
   {
     title: 'The Open University Of Israel',
-    description: 'csakldjsfkajls dhfkjl dsklajhf asdkfjh ksjdahf',
+    description:
+      'The Open University combines studies at a high and meticulous academic level with the pursuit of scientific and research excellence, all while giving all those who wish to study there without any admission requirements.',
     icon: <SchoolOutlined color="primary" />,
     hoveredIcon: <School color="primary" />,
     type: 'University',
@@ -49,7 +47,7 @@ export const educationPlaces = [
   },
   {
     title: 'React App Security',
-    description: 'csakldjsfkajls dhfkjl dsklajhf asdkfjh ksjdahf',
+    description: 'Application Security and Secure Coding Trainig',
     icon: <DescriptionOutlined color="primary" />,
     hoveredIcon: <Description color="primary" />,
     type: 'Certification',

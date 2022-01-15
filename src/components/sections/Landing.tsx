@@ -140,11 +140,7 @@ const Landing = () => {
 
           <div className={classes.buttonContainer}>
             <SlideAndFade delay={2}>
-              <Link
-                href="/documents/BensResume.pdf"
-                target="_blank"
-                underline="none"
-              >
+              <Link href="/documents/BensResume.pdf" target="_blank" underline="none">
                 <Button variant="contained" color="primary">
                   {'resume'}
                   <Description className={classes.icon} />
@@ -152,11 +148,7 @@ const Landing = () => {
               </Link>
             </SlideAndFade>
             <SlideAndFade delay={2.5}>
-              <Link
-                href="/documents/BensResume.pdf"
-                target="_blank"
-                underline="none"
-              >
+              <Link href="/documents/BensResume.pdf" target="_blank" underline="none">
                 <Button variant="contained" color="primary">
                   {'get in contact'}
                   <Chat className={classes.icon} />

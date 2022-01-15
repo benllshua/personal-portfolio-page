@@ -20,16 +20,7 @@ const FRONTENDProjects = [
       'OctoTask is a web-based system application I built for the IDF to transfer & share crucial data efficiently and understandably. The goal is to reduce work from workers & supervisors and reduce their mistake potential',
     mainImg: `${basicPath}/wineSite1.png`,
     imageList: [],
-    tags: [
-      'React',
-      'TS',
-      'GraphQL',
-      'Apollo Client',
-      'MUI',
-      'Socket.io',
-      'ESLint & Prettier',
-      'Docker',
-    ],
+    tags: ['React', 'TS', 'GraphQL', 'Apollo Client', 'MUI', 'Socket.io', 'ESLint & Prettier', 'Docker'],
     githubLink: '',
   },
   {

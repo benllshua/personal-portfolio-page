@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  BorderOuter,
-  FitnessCenter,
-  Inbox,
-  Keyboard,
-  MusicNote,
-  SportsEsports,
-} from '@mui/icons-material';
+import { BorderOuter, FitnessCenter, Inbox, Keyboard, MusicNote, SportsEsports } from '@mui/icons-material';
 
 const hobbies = [
   {

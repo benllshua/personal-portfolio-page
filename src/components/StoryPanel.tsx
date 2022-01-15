@@ -1,16 +1,7 @@
 import React, { useContext } from 'react';
 
 // components
-import {
-  Grid,
-  Paper,
-  Box,
-  Typography,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from '@mui/material';
+import { Grid, Paper, Box, Typography, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import Tilt from 'react-parallax-tilt';
 
 // data
@@ -74,11 +65,7 @@ const StoryPanel = () => {
             <Typography variant="h4" gutterBottom>
               {'My Story'}
             </Typography>
-            <Typography
-              variant="body2"
-              className={classes.bodyText}
-              component="div"
-            >
+            <Typography variant="body2" className={classes.bodyText} component="div">
               <SlideAndFade>
                 {`
               Hi! my name is Ben Shua, Born in 2001 and I'm from Israel!`}
@@ -121,13 +108,9 @@ const StoryPanel = () => {
                     width={350}
                     height={350}
                     alt="illustration"
-                    src={`/images/illustrations/${
-                      color.getColor()?.folderName
-                    }/growing.png`}
+                    src={`/images/illustrations/${color.getColor()?.folderName}/growing.png`}
                     placeholder="blur"
-                    blurDataURL={`/images/illustrations/${
-                      color.getColor()?.folderName
-                    }/growing.png`}
+                    blurDataURL={`/images/illustrations/${color.getColor()?.folderName}/growing.png`}
                   />
                 </div>
               </Tilt>

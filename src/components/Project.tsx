@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 
 // components
-import {
-  Typography,
-  Grid,
-  Chip,
-  Box,
-  Button,
-  ImageListItem,
-  ImageListItemBar,
-} from '@mui/material';
+import { Typography, Grid, Chip, Box, Button, ImageListItem, ImageListItemBar } from '@mui/material';
 import Image from 'next/image';
 import ImagesDialog from './ImagesDialog';
 
@@ -100,9 +92,7 @@ const Project = ({ project }: Props) => {
           />
           <ImageListItemBar
             sx={{
-              background:
-                'linear-gradient(to top, rgba(0,0,0,0.7) 0%, ' +
-                'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+              background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, ' + 'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
             }}
             title={title}
             position="bottom"
@@ -118,11 +108,7 @@ const Project = ({ project }: Props) => {
             </Typography>
           )}
           <Box marginTop={1} marginBottom={2}>
-            <Typography
-              variant="body1"
-              className={classes.bodyText}
-              gutterBottom
-            >
+            <Typography variant="body1" className={classes.bodyText} gutterBottom>
               {description}
             </Typography>
           </Box>

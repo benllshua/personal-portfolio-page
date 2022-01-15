@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Person,
-  PersonOutlined,
-  School,
-  SchoolOutlined,
-  Work,
-  WorkOutline,
-} from '@mui/icons-material';
+import { Person, PersonOutlined, School, SchoolOutlined, Work, WorkOutline } from '@mui/icons-material';
 
 import { Button, ButtonGroup, Paper, Zoom } from '@mui/material';
 
@@ -62,16 +55,8 @@ const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
 
   return (
     <Paper className={classes.paper} elevation={4}>
-      <ButtonGroup
-        orientation={isBreakpoint ? 'horizontal' : 'vertical'}
-        variant="text"
-      >
-        <Button
-          aria-label="My Story"
-          color="primary"
-          className={classes.buttonSpacing}
-          onClick={() => setPanelTo(1)}
-        >
+      <ButtonGroup orientation={isBreakpoint ? 'horizontal' : 'vertical'} variant="text">
+        <Button aria-label="My Story" color="primary" className={classes.buttonSpacing} onClick={() => setPanelTo(1)}>
           {panel === 1 && (
             <Zoom in={panel === 1}>
               <Person fontSize={'large'} />

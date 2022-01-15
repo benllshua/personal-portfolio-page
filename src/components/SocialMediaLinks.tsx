@@ -40,25 +40,13 @@ const SocialMediaLinks = () => {
         <IconLink icon={<Mail />} href={'#'} text={'email'} />
       </SlideAndFade>
       <SlideAndFade delay={3.2}>
-        <IconLink
-          icon={<GitHub />}
-          text={'GitHub link'}
-          href={'https://github.com/benllshua'}
-        />
+        <IconLink icon={<GitHub />} text={'GitHub link'} href={'https://github.com/benllshua'} />
       </SlideAndFade>
       <SlideAndFade delay={3.4}>
-        <IconLink
-          text={'LinkedIn link'}
-          icon={<LinkedIn />}
-          href={'https://www.linkedin.com/in/ben-shua-08b103198/'}
-        />
+        <IconLink text={'LinkedIn link'} icon={<LinkedIn />} href={'https://www.linkedin.com/in/ben-shua-08b103198/'} />
       </SlideAndFade>
       <SlideAndFade delay={3.8}>
-        <IconLink
-          text={'Instagram link'}
-          icon={<Instagram />}
-          href={'https://www.instagram.com/benllshua/'}
-        />
+        <IconLink text={'Instagram link'} icon={<Instagram />} href={'https://www.instagram.com/benllshua/'} />
       </SlideAndFade>
     </div>
   );
@@ -76,13 +64,7 @@ const IconLink = ({ icon, href, text, onClick }: IconLinkProps) => {
 
   return (
     <Tooltip title={text} placement="left">
-      <IconButton
-        className={classes.iconFab}
-        href={href}
-        color="primary"
-        onClick={onClick}
-        size={'large'}
-      >
+      <IconButton className={classes.iconFab} href={href} color="primary" onClick={onClick} size={'large'}>
         {icon}
       </IconButton>
     </Tooltip>
