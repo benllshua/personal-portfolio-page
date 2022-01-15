@@ -9,9 +9,7 @@ import { Container } from '@mui/material';
 import Landing from '../components/sections/Landing';
 import dynamic from 'next/dynamic';
 
-const SocialMediaLinks = dynamic(
-  () => import('../components/SocialMediaLinks')
-);
+const SocialMediaLinks = dynamic(() => import('../components/SocialMediaLinks'));
 const ThemeController = dynamic(() => import('../components/ThemeController'));
 
 const Services = dynamic(() => import('../components/sections/Services'), {
@@ -32,6 +30,7 @@ const Footer = dynamic(() => import('../components/Footer'), {
 
 // hooks
 import { useMediaQuery } from '../hooks/useMediaQuery';
+import Message from '../components/Message';
 
 /**
  * Main page component
@@ -55,6 +54,7 @@ export default function Index() {
         <Portfolio />
       </Container>
       <ThemeController />
+      <Message />
 
       <Footer />
     </>

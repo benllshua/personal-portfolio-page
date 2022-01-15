@@ -80,17 +80,13 @@ const ServiceDialog = ({ service, onClose, open }: ServiceDialogProps) => {
       <DialogContent>
         <div className={classes.imageWrapper}>
           <Image
-            src={`/images/illustrations/${color.getColor()?.folderName}/${
-              service.imgSrc
-            }`}
+            src={`/images/illustrations/${color.getColor()?.folderName}/${service.imgSrc}`}
             width={150}
             height={150}
           />
         </div>
         <Typography variant="subtitle1">So what is {service.name} ?</Typography>
-        <DialogContentText gutterBottom>
-          {service?.description}
-        </DialogContentText>
+        <DialogContentText gutterBottom>{service?.description}</DialogContentText>
         <div className={classes.miniTitle}>
           <Icon>
             <Beenhere color="primary" />
@@ -99,12 +95,7 @@ const ServiceDialog = ({ service, onClose, open }: ServiceDialogProps) => {
         </div>
         <Divider className={classes.divider} />
         {service?.tags.map((tag, index) => (
-          <Chip
-            key={index}
-            label={tag}
-            className={classes.chip}
-            size={isBreakpoint ? 'small' : 'medium'}
-          />
+          <Chip key={index} label={tag} className={classes.chip} size={isBreakpoint ? 'small' : 'medium'} />
         ))}
       </DialogContent>
     </Dialog>

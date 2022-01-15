@@ -2,13 +2,13 @@ export const skills = [
   {
     name: 'Project Management',
     description:
-      'description description description description description description descriptiondescriptiondescriptiondescription description description descriptiondescription',
+      'Project management is the process of combining systems, techniques, and knowledge to complete a project within the established goals on time, budget, and scope. Every project has to manage four constraints; scope, schedule, budget, and quality.',
   },
 
   {
     name: 'Web Development',
     description:
-      'description description description description description description descriptiondescriptiondescriptiondescription description description descriptiondescription',
+      'Web development is the work involved in developing a website for the Internet (World Wide Web) or an intranet (a private network). Web development can range from developing a simple single static page of plain text to complex web applications, electronic businesses, and social network services. A more comprehensive list of tasks to which Web development commonly refers may include Web engineering, Web design, Web content development, client liaison, client-side/server-side scripting, Web server and network security configuration, and e-commerce development. Among Web professionals, "web development" usually refers to the main non-design aspects of building Web sites: writing markup and coding. Web development may use content management systems (CMS) to make content changes easier and available with basic technical skills.',
   },
 
   {
@@ -26,31 +26,25 @@ export const skills = [
   {
     name: 'Teamworker',
     description:
-      'description description description description description description descriptiondescriptiondescriptiondescription description description descriptiondescription',
+      'Teamwork is the collaborative effort of a group to achieve a common goal or complete a task most effectively and efficiently. I know how to communicate well with colleagues and get the work done well.',
   },
 
   {
     name: 'App Development',
     description:
-      'description description description description description description descriptiondescriptiondescriptiondescription description description descriptiondescription',
+      'Mobile app development is the act or process by which a mobile app is developed for mobile devices, such as personal digital assistants or mobile phones. ... As part of the development process, mobile user interface (UI) design is also essential in the creation of mobile apps.',
   },
 
   {
     name: 'Team Leading',
     description:
-      'description description description description description description descriptiondescriptiondescriptiondescription description description descriptiondescription',
+      'A team leader leads, monitors, and supervises a group of employees to achieve goals that contribute to the growth of the organization. Team leaders motivate and inspire their team by creating an environment that promotes positive communication, encourages the bonding of team members, and demonstrates flexibility.',
   },
 
   {
     name: 'Software Development',
     description:
-      'description description description description description description descriptiondescriptiondescriptiondescription description description descriptiondescription',
-  },
-
-  {
-    name: 'Team management',
-    description:
-      'description description description description description description descriptiondescriptiondescriptiondescription description description descriptiondescription',
+      "According to the U.S. Department of Labor (DOL), developers in this sector are responsible for designing computer or mobile applications. The nature of a developer's work is creating for consumers. It involves understanding user needs, developing software solutions, monitoring performance, and modifying programs as needed.",
   },
 ];
 
@@ -84,6 +78,10 @@ export const FrontEndSkills = {
     {
       name: 'JAVA',
       imgDir: 'Java',
+    },
+    {
+      name: 'Kotlin',
+      imgDir: 'Kotlin',
     },
   ],
   librarys: [
@@ -146,6 +144,14 @@ export const FrontEndSkills = {
     {
       name: 'Web Storm',
       imgDir: 'WebStorm',
+    },
+    {
+      name: 'Git',
+      imgDir: 'Git',
+    },
+    {
+      name: 'Github',
+      imgDir: 'Github',
     },
   ],
 };
@@ -217,6 +223,14 @@ export const BackEndSkills = {
     {
       name: 'Access',
       imgDir: 'Access',
+    },
+    {
+      name: 'Git',
+      imgDir: 'Git',
+    },
+    {
+      name: 'Github',
+      imgDir: 'Github',
     },
   ],
 };

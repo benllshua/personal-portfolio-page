@@ -65,9 +65,7 @@ interface ThemeProps {
 }
 const Theme = ({ children }: ThemeProps) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const [mode, setMode] = useState<'light' | 'dark'>(
-    prefersDarkMode ? 'dark' : 'light'
-  );
+  const [mode, setMode] = useState<'light' | 'dark'>(prefersDarkMode ? 'dark' : 'light');
   const [particalsModeState, setParticalsMode] = useState(true);
   const [color, setColor] = useState(colors[0]);
 

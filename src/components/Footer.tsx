@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MessageContext } from '../context/MessageContext';
+import { copyToClipBoard } from '../functions/copyToClipBoard';
+import { email } from '../content/email';
 
 // components
 import { Grid, Container, Typography, Box } from '@mui/material';
@@ -14,10 +17,7 @@ import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      backgroundColor:
-        theme.palette.mode === 'dark'
-          ? theme.palette.primary.dark
-          : theme.palette.primary.main,
+      backgroundColor: theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.main,
       width: '100vw',
       minHeight: 600,
       marginTop: 80,
@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Footer = () => {
   const classes = useStyles();
+  const { setMessage } = useContext(MessageContext);
 
   return (
     <footer className={classes.root}>
@@ -74,10 +75,7 @@ const Footer = () => {
               <Link href={'https://storyset.com/web'} className={classes.text}>
                 Web illustrations by Storyset
               </Link>
-              <Link
-                href={'https://storyset.com/people'}
-                className={classes.text}
-              >
+              <Link href={'https://storyset.com/people'} className={classes.text}>
                 People illustrations by Storyset
               </Link>
               <Link href={'https://storyset.com/work'} className={classes.text}>
@@ -86,10 +84,7 @@ const Footer = () => {
               <Link href={'https://storyset.com/app'} className={classes.text}>
                 App illustrations by Storyset
               </Link>
-              <Link
-                href={'https://storyset.com/education'}
-                className={classes.text}
-              >
+              <Link href={'https://storyset.com/education'} className={classes.text}>
                 Education illustrations by Storyset
               </Link>
             </Box>
@@ -100,31 +95,26 @@ const Footer = () => {
                 Contact & Social
               </Typography>
               <Link
-                href={'https://github.com/benllshua'}
+                href={''}
                 className={classes.text}
+                onClick={() => {
+                  copyToClipBoard(email);
+                  setMessage(`copied "${email}" to clipboard 🙂`);
+                }}
               >
                 <Mail className={classes.icon} />
                 Mail
               </Link>
-              <Link
-                href={'https://github.com/benllshua'}
-                className={classes.text}
-              >
+              <Link href={'https://github.com/benllshua'} className={classes.text}>
                 <GitHub className={classes.icon} />
                 GitHub
               </Link>
-              <Link
-                href={'https://www.linkedin.com/in/ben-shua-08b103198/'}
-                className={classes.text}
-              >
+              <Link href={'https://www.linkedin.com/in/ben-shua-08b103198/'} className={classes.text}>
                 <LinkedIn className={classes.icon} />
                 LinkedIn
               </Link>
 
-              <Link
-                href={'https://www.instagram.com/benllshua/'}
-                className={classes.text}
-              >
+              <Link href={'https://www.instagram.com/benllshua/'} className={classes.text}>
                 <Instagram className={classes.icon} />
                 Instagram
               </Link>

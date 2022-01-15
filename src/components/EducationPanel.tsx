@@ -11,16 +11,7 @@ import {
   TimelineContent,
 } from '@mui/lab';
 
-import {
-  Grid,
-  Paper,
-  Box,
-  Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Button,
-} from '@mui/material';
+import { Grid, Paper, Box, Typography, Accordion, AccordionSummary, AccordionDetails, Button } from '@mui/material';
 
 import { ExpandMore } from '@mui/icons-material';
 import ImagesDialog from './ImagesDialog';
@@ -101,10 +92,7 @@ const EducationPanel = () => {
               {educationPlaces.map((education, index) => (
                 <div key={index}>
                   <SlideAndFade delay={0.3 + 0.1 * index}>
-                    <Item
-                      education={education}
-                      last={index === educationPlaces.length - 1}
-                    />
+                    <Item education={education} last={index === educationPlaces.length - 1} />
                   </SlideAndFade>
                 </div>
               ))}
@@ -118,13 +106,9 @@ const EducationPanel = () => {
                     width={350}
                     height={350}
                     alt="illustration"
-                    src={`/images/illustrations/${
-                      color.getColor()?.folderName
-                    }/learningBro.png`}
+                    src={`/images/illustrations/${color.getColor()?.folderName}/learningBro.png`}
                     placeholder="blur"
-                    blurDataURL={`/images/illustrations/${
-                      color.getColor()?.folderName
-                    }/learningBro.png`}
+                    blurDataURL={`/images/illustrations/${color.getColor()?.folderName}/learningBro.png`}
                   />
                 </div>
               </Tilt>
@@ -149,19 +133,11 @@ const Item = ({ education, last }: ItemProps) => {
   return (
     <TimelineItem>
       <TimelineOppositeContent>
-        <Typography
-          variant="body1"
-          color="textSecondary"
-          className={classes.text}
-        >
+        <Typography variant="body1" color="textSecondary" className={classes.text}>
           {education.type}
         </Typography>
 
-        <Typography
-          variant="caption"
-          color="textSecondary"
-          className={classes.caption}
-        >
+        <Typography variant="caption" color="textSecondary" className={classes.caption}>
           {education.startDate} - {education.endDate}
         </Typography>
       </TimelineOppositeContent>
@@ -172,11 +148,7 @@ const Item = ({ education, last }: ItemProps) => {
         {!last && <TimelineConnector className={classes.primaryTail} />}
       </TimelineSeparator>
       <TimelineContent>
-        <EduAccordion
-          title={education.title}
-          description={education.description}
-          imageList={education.imageList}
-        />
+        <EduAccordion title={education.title} description={education.description} imageList={education.imageList} />
       </TimelineContent>
     </TimelineItem>
   );

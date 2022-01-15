@@ -32,22 +32,10 @@ const Portfolio = () => {
 
   return (
     <div className="section" id="portfolioSection">
-      <Typography
-        variant="h3"
-        component="h3"
-        align="center"
-        gutterBottom
-        className={classes.subTitle}
-      >
+      <Typography variant="h3" component="h3" align="center" gutterBottom className={classes.subTitle}>
         {'Portfolio'}
       </Typography>
-      <Typography
-        variant="h5"
-        component="h5"
-        align="center"
-        className={classes.subTitle}
-        gutterBottom
-      >
+      <Typography variant="h5" component="h5" align="center" className={classes.subTitle} gutterBottom>
         {'past work & projects'}
       </Typography>
       <FullWidthTabs />

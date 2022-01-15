@@ -57,14 +57,9 @@ const About = () => {
 
   return (
     <div className="section" id="aboutSection">
-        <Typography
-          variant="h3"
-          component="h3"
-          align="center"
-          className={classes.subTitle}
-        >
-          About me
-        </Typography>
+      <Typography variant="h3" component="h3" align="center" className={classes.subTitle}>
+        About me
+      </Typography>
       <Grid container spacing={3} direction={isBreakpoint ? 'column' : 'row'}>
         <Grid item md={1}>
           <PanelController panel={panel} setPanelTo={setPanel} />

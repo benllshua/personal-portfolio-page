@@ -7,23 +7,10 @@ import { SpeedDial, SpeedDialIcon, SpeedDialAction } from '@mui/material';
 import { Theme, useTheme } from '@mui/material/styles';
 import { makeStyles, createStyles } from '@mui/styles';
 
-import {
-  Brightness4Outlined,
-  Brightness7,
-  Close,
-  Flare,
-  FormatPaint,
-  Palette,
-  Settings,
-} from '@mui/icons-material';
+import { Brightness4Outlined, Brightness7, Close, Flare, FormatPaint, Palette, Settings } from '@mui/icons-material';
 
 // contexts
-import {
-  DarkModeContext,
-  colors,
-  ParticalsModeContext,
-  ColorContext,
-} from '../themes/theme';
+import { DarkModeContext, colors, ParticalsModeContext, ColorContext } from '../themes/theme';
 import { Box, Divider, Fab, Popover, Typography } from '@mui/material';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -110,12 +97,7 @@ const ThemeController = () => {
       onClick: handleOpenColorMenu,
     },
     {
-      icon:
-        theme.palette.mode === 'light' ? (
-          <Brightness4Outlined />
-        ) : (
-          <Brightness7 />
-        ),
+      icon: theme.palette.mode === 'light' ? <Brightness4Outlined /> : <Brightness7 />,
       name: theme.palette.mode === 'light' ? 'Dark Mode' : 'Light Mode ',
       onClick: darkModeToggler,
     },

@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
 
 // components
-import {
-  Chip,
-  Dialog,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Divider,
-} from '@mui/material';
+import { Chip, Dialog, DialogContent, DialogContentText, DialogTitle, Divider } from '@mui/material';
 
 // styles
 import { Theme } from '@mui/material/styles';
@@ -50,13 +43,7 @@ const SkillChip = ({ skill }: SkillChip) => {
 
   return (
     <>
-      <Chip
-        label={skill.name}
-        color={'primary'}
-        deleteIcon={<Info />}
-        onDelete={onOpen}
-        className={classes.chip}
-      />
+      <Chip label={skill.name} color={'primary'} deleteIcon={<Info />} onDelete={onOpen} className={classes.chip} />
       <Dialog open={open} onClose={onClose}>
         <Box p={1}>
           <DialogTitle>

@@ -11,15 +11,7 @@ import {
   TimelineContent,
 } from '@mui/lab';
 
-import {
-  Grid,
-  Paper,
-  Box,
-  Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from '@mui/material';
+import { Grid, Paper, Box, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
 import { ExpandMore, Work } from '@mui/icons-material';
 import SlideAndFade from './animations/SlideAndFade';
@@ -99,17 +91,10 @@ const WorkPanel = () => {
                         <TimelineDot color="primary" variant="outlined">
                           <Work color="primary" />
                         </TimelineDot>
-                        {index !== workPlaces.length - 1 ? (
-                          <TimelineConnector className={classes.primaryTail} />
-                        ) : (
-                          ''
-                        )}
+                        {index !== workPlaces.length - 1 ? <TimelineConnector className={classes.primaryTail} /> : ''}
                       </TimelineSeparator>
                       <TimelineContent>
-                        <WorkAccordion
-                          title={work.title}
-                          description={work.description}
-                        />
+                        <WorkAccordion title={work.title} description={work.description} />
                       </TimelineContent>
                     </TimelineItem>
                   </SlideAndFade>
@@ -125,13 +110,9 @@ const WorkPanel = () => {
                     width={350}
                     height={350}
                     alt="illustration"
-                    src={`/images/illustrations/${
-                      color.getColor()?.folderName
-                    }/working.png`}
+                    src={`/images/illustrations/${color.getColor()?.folderName}/working.png`}
                     placeholder="blur"
-                    blurDataURL={`/images/illustrations/${
-                      color.getColor()?.folderName
-                    }/working.png`}
+                    blurDataURL={`/images/illustrations/${color.getColor()?.folderName}/working.png`}
                   />
                 </div>
               </Tilt>

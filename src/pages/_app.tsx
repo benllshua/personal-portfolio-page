@@ -9,6 +9,7 @@ import { AppProps } from 'next/app';
 import '../styles/globals.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import Theme from '../themes/theme';
+import MessageContextProvider from '../context/MessageContext';
 
 export default function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
@@ -26,7 +27,9 @@ export default function MyApp(props: AppProps) {
       <Theme>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...pageProps} />
+        <MessageContextProvider>
+          <Component {...pageProps} />
+        </MessageContextProvider>
       </Theme>
     </React.Fragment>
   );

@@ -10,12 +10,7 @@ import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 
 // data
-import {
-  BackEndSkills,
-  FrontEndSkills,
-  skills,
-  UXSkills,
-} from '../../content/skills';
+import { BackEndSkills, FrontEndSkills, skills, UXSkills } from '../../content/skills';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -77,21 +72,10 @@ const Skills = () => {
 
   return (
     <div className={`section ${classes.spaceOnMobile}`} id="skillsSection">
-      <Typography
-        variant="h3"
-        component="h3"
-        align="center"
-        gutterBottom
-        className={classes.subTitle}
-      >
+      <Typography variant="h3" component="h3" align="center" gutterBottom className={classes.subTitle}>
         {'Skills'}
       </Typography>
-      <Typography
-        variant="h5"
-        component="h5"
-        align="center"
-        className={classes.subTitle}
-      >
+      <Typography variant="h5" component="h5" align="center" className={classes.subTitle}>
         {'what I`m good at:'}
       </Typography>
       <div className={classes.pillContainer}>
@@ -101,13 +85,7 @@ const Skills = () => {
           </div>
         ))}
       </div>
-      <Typography
-        variant="h5"
-        component="h5"
-        align="center"
-        gutterBottom
-        className={classes.subTitle}
-      >
+      <Typography variant="h5" component="h5" align="center" gutterBottom className={classes.subTitle}>
         {'Practical Skills'}
       </Typography>
       <Paper>
@@ -136,11 +114,7 @@ const TabPanel = (props: TabPanelProps) => {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
-      hidden={value !== index}
-      {...other}
-      style={{ width: '90%', margin: '16px auto' }}
-    >
+    <div hidden={value !== index} {...other} style={{ width: '90%', margin: '16px auto' }}>
       <Fade in={value === index}>
         <Box p={6}>{children}</Box>
       </Fade>
@@ -296,12 +270,7 @@ const Skill = ({ imgDir, name }: SkillType) => {
 
   return (
     <div className={classes.skillRoot}>
-      <Image
-        src={`${basicPath}/${imgDir}.svg`}
-        alt={`${name} illustration`}
-        width={50}
-        height={50}
-      />
+      <Image src={`${basicPath}/${imgDir}.svg`} alt={`${name} illustration`} width={50} height={50} />
       <Typography variant={'caption'}>{name}</Typography>
     </div>
   );
