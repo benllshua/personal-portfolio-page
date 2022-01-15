@@ -79,6 +79,10 @@ export const FrontEndSkills = {
       name: 'JAVA',
       imgDir: 'Java',
     },
+    {
+      name: 'Kotlin',
+      imgDir: 'Kotlin',
+    },
   ],
   librarys: [
     {
@@ -140,6 +144,14 @@ export const FrontEndSkills = {
     {
       name: 'Web Storm',
       imgDir: 'WebStorm',
+    },
+    {
+      name: 'Git',
+      imgDir: 'Git',
+    },
+    {
+      name: 'Github',
+      imgDir: 'Github',
     },
   ],
 };
@@ -211,6 +223,14 @@ export const BackEndSkills = {
     {
       name: 'Access',
       imgDir: 'Access',
+    },
+    {
+      name: 'Git',
+      imgDir: 'Git',
+    },
+    {
+      name: 'Github',
+      imgDir: 'Github',
     },
   ],
 };
