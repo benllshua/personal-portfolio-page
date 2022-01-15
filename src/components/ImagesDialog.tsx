@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { Dialog, DialogTitle } from '@mui/material';
 import SwipeableImageViews from './SwipeableImageViews';
-import Image from 'next/image';
 
 interface ImagesDialogProps {
   open: boolean;
@@ -12,12 +11,11 @@ interface ImagesDialogProps {
 
 const ImagesDialog = ({ onClose, imageList, open }: ImagesDialogProps) => {
   return (
-    <Dialog onClose={onClose} open={open}>
+    <Dialog onClose={onClose} open={open} maxWidth="lg">
       {imageList.length ? (
         imageList.length === 1 ? (
-          <div style={{ maxHeight: '80vh', maxWidth: '80vw' }}>
-            <Image src={imageList[0].imgFileName} layout="fill" alt={imageList[0].imgFileName} />
-          </div>
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={imageList[0].imgFileName} alt={imageList[0].imgFileName} />
         ) : (
           <SwipeableImageViews imageList={imageList} />
         )

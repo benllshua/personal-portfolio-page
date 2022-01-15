@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MessageContext } from '../context/MessageContext';
+import { copyToClipBoard } from '../functions/copyToClipBoard';
+import { email } from '../content/email';
 
 // components
 import { Grid, Container, Typography, Box } from '@mui/material';
@@ -39,6 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Footer = () => {
   const classes = useStyles();
+  const { setMessage } = useContext(MessageContext);
 
   return (
     <footer className={classes.root}>
@@ -90,7 +94,14 @@ const Footer = () => {
               <Typography variant="h4" gutterBottom color={'white'}>
                 Contact & Social
               </Typography>
-              <Link href={'https://github.com/benllshua'} className={classes.text}>
+              <Link
+                href={''}
+                className={classes.text}
+                onClick={() => {
+                  copyToClipBoard(email);
+                  setMessage(`copied "${email}" to clipboard 🙂`);
+                }}
+              >
                 <Mail className={classes.icon} />
                 Mail
               </Link>

@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MessageContext } from '../context/MessageContext';
+import { copyToClipBoard } from '../functions/copyToClipBoard';
+import { email } from '../content/email';
 
 // components
 import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
@@ -33,11 +36,19 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const SocialMediaLinks = () => {
   const classes = useStyles();
+  const { setMessage } = useContext(MessageContext);
 
   return (
     <div className={classes.position}>
       <SlideAndFade delay={3.0}>
-        <IconLink icon={<Mail />} href={'#'} text={'email'} />
+        <IconLink
+          icon={<Mail />}
+          text={'email'}
+          onClick={() => {
+            copyToClipBoard(email);
+            setMessage(`copied "${email}" to clipboard 🙂`);
+          }}
+        />
       </SlideAndFade>
       <SlideAndFade delay={3.2}>
         <IconLink icon={<GitHub />} text={'GitHub link'} href={'https://github.com/benllshua'} />
@@ -54,21 +65,32 @@ const SocialMediaLinks = () => {
 
 interface IconLinkProps {
   icon: any;
-  href: string;
+  href?: string;
   text: string;
-  onClick?: () => {};
+  onClick?: () => void;
 }
 
 const IconLink = ({ icon, href, text, onClick }: IconLinkProps) => {
   const classes = useStyles();
 
-  return (
-    <Tooltip title={text} placement="left">
-      <IconButton className={classes.iconFab} href={href} color="primary" onClick={onClick} size={'large'}>
-        {icon}
-      </IconButton>
-    </Tooltip>
-  );
+  if (typeof onclick !== 'undefined') {
+    return (
+      <Tooltip title={text} placement="left">
+        <IconButton className={classes.iconFab} color="primary" onClick={onClick} size={'large'}>
+          {icon}
+        </IconButton>
+      </Tooltip>
+    );
+  }
+  if (href)
+    return (
+      <Tooltip title={text} placement="left">
+        <IconButton className={classes.iconFab} href={href} color="primary" size={'large'}>
+          {icon}
+        </IconButton>
+      </Tooltip>
+    );
+  return <></>;
 };
 
 export default SocialMediaLinks;

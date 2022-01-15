@@ -30,6 +30,7 @@ const Footer = dynamic(() => import('../components/Footer'), {
 
 // hooks
 import { useMediaQuery } from '../hooks/useMediaQuery';
+import Message from '../components/Message';
 
 /**
  * Main page component
@@ -53,6 +54,7 @@ export default function Index() {
         <Portfolio />
       </Container>
       <ThemeController />
+      <Message />
 
       <Footer />
     </>
