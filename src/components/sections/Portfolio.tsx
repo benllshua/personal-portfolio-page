@@ -5,6 +5,8 @@ import { UXProjects, FRONTENDProjects } from '../../content/projects';
 
 // components
 import { Typography } from '@mui/material';
+import { DesignServices, DeveloperMode } from '@mui/icons-material';
+
 import Project from '../Project';
 
 // styles
@@ -91,9 +93,8 @@ const FullWidthTabs = () => {
         variant="fullWidth"
         aria-label="full width portfolio tabs"
       >
-        <Tab label="UX Design" />
-        <Tab label="Development Projects" />
-        <Tab label="Management " />
+        <Tab label="UX Design" icon={<DesignServices />} iconPosition="start" />
+        <Tab label="Development Projects" icon={<DeveloperMode />} iconPosition="start" />
       </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -122,15 +123,6 @@ const FullWidthTabs = () => {
             ))}
           </TabPanel>
         )}
-        {value === 2 && (
-          <TabPanel value={value} index={2} dir={theme.direction}>
-            Item Three
-          </TabPanel>
-        )}
-
-        <TabPanel value={value} index={3} dir={theme.direction}>
-          Item Three
-        </TabPanel>
       </SwipeableViews>
     </div>
   );
