@@ -149,6 +149,7 @@ const ThemeController = () => {
             ref={scrollContainer}
             className={classes.colorSizeContainer}
             onWheel={(e) => {
+              e.preventDefault();
               const container = scrollContainer.current;
               if (container) {
                 container.scrollTo({

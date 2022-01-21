@@ -15,7 +15,7 @@ const hobbies = [
     icon: <SportsEsports color="primary" />,
   },
   {
-    title: 'Listen to Music',
+    title: 'Listening to Music',
     icon: <MusicNote color="primary" />,
   },
   {

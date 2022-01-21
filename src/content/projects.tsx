@@ -7,7 +7,7 @@ const FRONTENDProjects = [
       'OctoTask is a web-based system application I built for the IDF to transfer & share crucial data efficiently and understandably. The goal is to reduce work from workers & supervisors and reduce their mistake potential',
     mainImg: `${basicPath}/OctoTask.png`,
     imageList: [
-      { label: 'all data is classified as this is a secret project', imgFileName: `${basicPath}/OctoTask.png` },
+      { label: 'All data is classified as this is a secret project', imgFileName: `${basicPath}/OctoTask.png` },
     ],
     tags: ['React', 'TS', 'GraphQL', 'Apollo Client', 'MUI', 'Socket.io', 'ESLint & Prettier', 'Docker'],
     githubLink: '',
@@ -24,7 +24,7 @@ const FRONTENDProjects = [
   {
     title: 'Hanabi Helper',
     description:
-      'As I\'ve mentioned, I like board games. when I lost pieces of "Hanabi" - a Chinese card game, I made an app that replaces those pieces and helped the game run smoother.',
+      'As I\'ve mentioned, I like board games. When I lost pieces of "Hanabi" - a Chinese card game, I made an app that replaces those pieces and helped the game run smoother.',
     mainImg: `${basicPath}/HanabiHelper.png`,
     imageList: [{ imgFileName: `${basicPath}/HanabiHelper.png` }],
     tags: ['Xamarin', 'C#', 'XML'],

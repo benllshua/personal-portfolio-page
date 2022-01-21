@@ -78,7 +78,7 @@ const StoryPanel = () => {
               <SlideAndFade delay={0.1}>
                 <br />
                 {`I love it, I like exploring ideas, try to achieve them throw
-              hard work (and teamwork 😉 ). maybe someday even with you...`}
+              hard work (and teamwork 😉 ). Maybe someday even with you...`}
               </SlideAndFade>
             </Typography>
 
