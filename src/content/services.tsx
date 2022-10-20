@@ -34,7 +34,7 @@ export const services = [
     ],
   },
   {
-    name: 'UX Design',
+    name: 'UX Design Thinking',
     description:
       'User experience (UX) designers focus on the experience that users have while using products like websites, apps, and physical objects. UX designers make those everyday interactions useful, enjoyable, and accessible. The role of an entry-level UX designer might include coming up with ideas to address user problems, conducting research with users, and designing wireframes, mockups, and prototypes. - Google UX Design course',
     imgSrc: 'UX.png',
@@ -49,7 +49,7 @@ export const services = [
     ],
   },
   {
-    name: 'Product Management',
+    name: 'Project Management',
     description:
       'Project management is the process of combining systems, techniques, and knowledge to complete a project within the established goals on time, budget, and scope. Every project has to manage four basic constraints; scope, schedule, budget, and quality.',
     imgSrc: 'TeamManagment.png',

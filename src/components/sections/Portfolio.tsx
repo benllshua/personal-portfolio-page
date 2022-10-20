@@ -1,17 +1,17 @@
-import React from 'react';
+import { FC } from 'react';
 
 // data
-import { UXProjects, FRONTENDProjects } from '../../content/projects';
+import { FRONTENDProjects } from '../../content/projects';
 
 // components
 import { Typography } from '@mui/material';
-import { DesignServices, DeveloperMode } from '@mui/icons-material';
+import SlideAndFade from '../animations/SlideAndFade';
 
 import Project from '../Project';
 
 // styles
 import { Theme } from '@mui/material/styles';
-import { makeStyles, createStyles } from '@mui/styles';
+import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Portfolio = () => {
+const Portfolio: FC = () => {
   const classes = useStyles();
 
   return (
@@ -40,90 +40,15 @@ const Portfolio = () => {
       <Typography variant="h5" component="h5" align="center" className={classes.subTitle} gutterBottom>
         {'past work & projects'}
       </Typography>
-      <FullWidthTabs />
+      {FRONTENDProjects.map((project, index) => (
+        <div key={`${project.title} ${index}`}>
+          <SlideAndFade delay={0.3 * index}>
+            <Project project={project} />
+          </SlideAndFade>
+        </div>
+      ))}
     </div>
   );
 };
 
 export default Portfolio;
-
-import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@mui/material/styles';
-
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import SlideAndFade from '../animations/SlideAndFade';
-
-interface TabPanelProps {
-  children?: React.ReactNode;
-  dir?: string;
-  index: any;
-  value: any;
-}
-
-const TabPanel = (props: TabPanelProps) => {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div hidden={value !== index} style={{ overflowX: 'hidden' }} {...other}>
-      {children}
-    </div>
-  );
-};
-
-const FullWidthTabs = () => {
-  const theme = useTheme();
-  const [value, setValue] = React.useState(1);
-
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-    setValue(newValue);
-  };
-
-  const handleChangeIndex = (index: number) => {
-    setValue(index);
-  };
-
-  return (
-    <div>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
-        variant="fullWidth"
-        aria-label="full width portfolio tabs"
-      >
-        <Tab label="UX Design" icon={<DesignServices />} iconPosition="start" />
-        <Tab label="Development Projects" icon={<DeveloperMode />} iconPosition="start" />
-      </Tabs>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        {value === 0 && (
-          <TabPanel value={value} index={0} dir={theme.direction}>
-            {UXProjects.map((project, index) => (
-              <div key={`${project.title} ${index}`}>
-                <SlideAndFade delay={0.3 * index}>
-                  <Project project={project} />
-                </SlideAndFade>
-              </div>
-            ))}
-          </TabPanel>
-        )}
-        {value === 1 && (
-          <TabPanel value={value} index={1} dir={theme.direction}>
-            {FRONTENDProjects.map((project, index) => (
-              <div key={`${project.title} ${index}`}>
-                <SlideAndFade delay={0.3 * index}>
-                  <Project project={project} />
-                </SlideAndFade>
-              </div>
-            ))}
-          </TabPanel>
-        )}
-      </SwipeableViews>
-    </div>
-  );
-};

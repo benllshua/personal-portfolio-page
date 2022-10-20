@@ -16,9 +16,6 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       height: 'auto',
       marginTop: theme.spacing(6),
-      [theme.breakpoints.up('md')]: {
-        // width: '70%',
-      },
     },
     tagsContainer: {
       display: 'flex',

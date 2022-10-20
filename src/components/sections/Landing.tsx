@@ -125,7 +125,7 @@ const Landing = () => {
           <div className={classes.fullWidth}>
             <SlideAndFade delay={0.5}>
               <Typography variant="h5" className={classes.subTitle}>
-                Product Architect
+                Full-Stack Developer & Team Lead
               </Typography>
             </SlideAndFade>
           </div>
@@ -137,21 +137,13 @@ const Landing = () => {
           <SlideAndFade delay={1}>
             <Typography variant="body1">
               {
-                'I can bring your project from 0 to 100. By offering experience in all product build parts, from identifying & designing to development & deployment, including proper management skills.'
+                'I can bring your project from 0 to 100. By offering experience in all product build parts, from identifying & designing to development & deployment, including proper management and teamwork skills.'
               }
             </Typography>
           </SlideAndFade>
 
           <div className={classes.buttonContainer}>
             <SlideAndFade delay={2}>
-              <Link href="/documents/BensResume.pdf" target="_blank" underline="none">
-                <Button variant="contained" color="primary">
-                  {'resume'}
-                  <Description className={classes.icon} />
-                </Button>
-              </Link>
-            </SlideAndFade>
-            <SlideAndFade delay={2.5}>
               <Button
                 variant="contained"
                 color="primary"
@@ -163,6 +155,14 @@ const Landing = () => {
                 {'get in contact'}
                 <Chat className={classes.icon} />
               </Button>
+            </SlideAndFade>
+            <SlideAndFade delay={2.5}>
+              <Link href="/documents/Ben's Resume (2).pdf" target="_blank" underline="none">
+                <Button variant="outlined" color="primary">
+                  {'resume'}
+                  <Description className={classes.icon} />
+                </Button>
+              </Link>
             </SlideAndFade>
           </div>
         </Grid>

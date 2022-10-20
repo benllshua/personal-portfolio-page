@@ -1,13 +1,11 @@
 import React from 'react';
 import { Person, PersonOutlined, School, SchoolOutlined, Work, WorkOutline } from '@mui/icons-material';
 
-import { Button, ButtonGroup, Paper, Zoom } from '@mui/material';
+import { Button, ButtonGroup, Paper, Zoom, useMediaQuery, useTheme } from '@mui/material';
 
 // styles
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
-
-import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -51,11 +49,12 @@ interface PanelControllerProps {
 }
 const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
   const classes = useStyles();
-  const isBreakpoint = useMediaQuery(900);
+  const theme = useTheme();
+  const bigScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <Paper className={classes.paper} elevation={4}>
-      <ButtonGroup orientation={isBreakpoint ? 'horizontal' : 'vertical'} variant="text">
+      <ButtonGroup orientation={bigScreen ? 'horizontal' : 'vertical'} variant="text">
         <Button aria-label="My Story" color="primary" className={classes.buttonSpacing} onClick={() => setPanelTo(1)}>
           {panel === 1 && (
             <Zoom in={panel === 1}>

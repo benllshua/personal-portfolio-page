@@ -12,15 +12,17 @@ const AboutPanelsAnimation = ({ children, status }: Props) => {
     <motion.div
       variants={{
         out: {
-          x: 500,
-          opacity: 0,
+          x: 1000,
+          // scale: 0,
+          height: 0,
           transition: {
             duration: 0.5,
           },
         },
         in: {
           x: 0,
-          opacity: 1,
+          // scale: 1,
+          height: 'fit-content',
           transition: {
             duration: 0.5,
             delay: 0.4,
@@ -28,11 +30,7 @@ const AboutPanelsAnimation = ({ children, status }: Props) => {
         },
       }}
       animate={status}
-      style={{
-        position: 'absolute',
-        left: 0,
-        top: 0,
-      }}
+      style={{ overflow: 'hidden' }}
     >
       {children}
     </motion.div>
