@@ -3,12 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'plugin:@next/next/recommended',
-    'google',
-    'prettier',
-  ],
+  extends: ['plugin:react/recommended', 'plugin:@next/next/recommended', 'google', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -18,5 +13,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint'],
-  rules: {},
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+  },
 };

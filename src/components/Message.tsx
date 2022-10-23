@@ -1,6 +1,6 @@
 import { Snackbar } from '@mui/material';
-import React, { useContext } from 'react';
 import Slide, { SlideProps } from '@mui/material/Slide';
+import { useContext } from 'react';
 import { MessageContext } from '../context/MessageContext';
 
 type TransitionProps = Omit<SlideProps, 'direction'>;

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // components
-import { Typography, Grid, Chip, Box, Button, ImageListItem, ImageListItemBar } from '@mui/material';
+import { Box, Button, Chip, Grid, ImageListItem, ImageListItemBar, Typography } from '@mui/material';
 import Image from 'next/image';
 import ImagesDialog from './ImagesDialog';
 
 // styles
 import { Theme } from '@mui/material/styles';
-import { makeStyles, createStyles } from '@mui/styles';
+import { createStyles, makeStyles } from '@mui/styles';
 
 import { useMediaQuery } from '../hooks/useMediaQuery';
 

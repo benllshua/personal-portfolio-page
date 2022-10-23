@@ -1,13 +1,11 @@
-import React from 'react';
-
 import { motion } from 'framer-motion';
+import { FC } from 'react';
 
 interface Props {
-  children: React.ReactNode;
   status: 'in' | 'out';
 }
 
-const AboutPanelsAnimation = ({ children, status }: Props) => {
+const AboutPanelsAnimation: FC<Props> = ({ children, status }) => {
   return (
     <motion.div
       variants={{

@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
+import { email } from '../content/email';
 import { MessageContext } from '../context/MessageContext';
 import { copyToClipBoard } from '../functions/copyToClipBoard';
-import { email } from '../content/email';
 
 // components
-import { Grid, Container, Typography, Box } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import Link from './Link';
 
 // styles
+import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
-import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
 
 // icons
 

@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-// components
-import { Typography, Paper, Divider, Fade } from '@mui/material';
-import SkillChip from '../SkillChip';
+import { Box, Divider, Fade, Paper, Tab, Tabs, Typography, useTheme } from '@mui/material';
 import SlideAndFade from '../animations/SlideAndFade';
+import SkillChip from '../SkillChip';
 
-// styles
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 
-// data
 import { BackEndSkills, FrontEndSkills, skills, UXSkills } from '../../content/skills';
+
+import { Api, DesignServices, DeveloperMode } from '@mui/icons-material';
+import Image from 'next/image';
+import SwipeableViews from 'react-swipeable-views';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -62,7 +63,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Skills = () => {
+const Skills: FC = () => {
   const classes = useStyles();
 
   return (
@@ -91,12 +92,6 @@ const Skills = () => {
 };
 
 export default Skills;
-
-import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@mui/material/styles';
-import { Tabs, Tab, Box } from '@mui/material';
-import { Api, DesignServices, DeveloperMode } from '@mui/icons-material';
-import Image from 'next/image';
 
 interface TabPanelProps {
   children?: React.ReactNode;

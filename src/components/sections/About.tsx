@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
 
 // components
-import { Grid, Typography, useTheme, useMediaQuery } from '@mui/material';
-import StoryPanel from '../StoryPanel';
+import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import EducationPanel from '../EducationPanel';
-import WorkPanel from '../WorkPanel';
 import PanelController from '../PanelController';
+import StoryPanel from '../StoryPanel';
+import WorkPanel from '../WorkPanel';
 
 // styles
 import { Theme } from '@mui/material/styles';
-import { makeStyles, createStyles } from '@mui/styles';
+import { createStyles, makeStyles } from '@mui/styles';
 import AboutPanelsAnimation from '../animations/AboutPanelsAnimation';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const About = () => {
+const About: FC = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [panel, setPanel] = useState(1);

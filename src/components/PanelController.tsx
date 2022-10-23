@@ -1,7 +1,6 @@
-import React from 'react';
 import { Person, PersonOutlined, School, SchoolOutlined, Work, WorkOutline } from '@mui/icons-material';
 
-import { Button, ButtonGroup, Paper, Zoom, useMediaQuery, useTheme } from '@mui/material';
+import { Button, ButtonGroup, Paper, useMediaQuery, useTheme, Zoom } from '@mui/material';
 
 // styles
 import { Theme } from '@mui/material/styles';

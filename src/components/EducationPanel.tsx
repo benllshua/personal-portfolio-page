@@ -1,30 +1,40 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 
 // components
 import {
   Timeline,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
   TimelineItem,
   TimelineOppositeContent,
   TimelineSeparator,
-  TimelineDot,
-  TimelineConnector,
-  TimelineContent,
 } from '@mui/lab';
 
-import { Grid, Paper, Box, Typography, Accordion, AccordionSummary, AccordionDetails, Button } from '@mui/material';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Button,
+  createStyles,
+  Grid,
+  makeStyles,
+  Paper,
+  Theme,
+  Typography,
+} from '@mui/material';
 
 import { ExpandMore } from '@mui/icons-material';
-import ImagesDialog from './ImagesDialog';
 import SlideAndFade from './animations/SlideAndFade';
+import ImagesDialog from './ImagesDialog';
 
 import Tilt from 'react-parallax-tilt';
 
 // Data
-import { educationPlaces, Education } from '../content/education';
+import { Education, educationPlaces } from '../content/education';
 
 // styles
-import { Theme } from '@mui/material/styles';
-import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -73,8 +83,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 // context
-import { ColorContext } from '../themes/theme';
 import Image from 'next/image';
+import { ColorContext } from '../themes/theme';
 
 const EducationPanel = () => {
   const classes = useStyles();

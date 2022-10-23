@@ -1,5 +1,4 @@
 import { useTheme } from '@mui/material';
-import React from 'react';
 import Particals from 'react-tsparticles';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 

@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
+import { email } from '../content/email';
 import { MessageContext } from '../context/MessageContext';
 import { copyToClipBoard } from '../functions/copyToClipBoard';
-import { email } from '../content/email';
 
 // components
 import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
@@ -10,7 +10,7 @@ import SlideAndFade from './animations/SlideAndFade';
 
 // styles
 import { Theme } from '@mui/material/styles';
-import { makeStyles, createStyles } from '@mui/styles';
+import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

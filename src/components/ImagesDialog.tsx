@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { Dialog, DialogTitle } from '@mui/material';
 import SwipeableImageViews from './SwipeableImageViews';
 

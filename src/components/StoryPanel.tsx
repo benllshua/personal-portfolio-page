@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 // components
-import { Grid, Paper, Box, Typography, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, Grid, List, ListItem, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material';
 import Tilt from 'react-parallax-tilt';
 
 // data
@@ -10,9 +10,9 @@ import { hobbies } from '../content/hobbies';
 // styles
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
+import Image from 'next/image';
 import { ColorContext } from '../themes/theme';
 import SlideAndFade from './animations/SlideAndFade';
-import Image from 'next/image';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
