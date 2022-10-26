@@ -1,6 +1,6 @@
-import React, { useState, useMemo, createContext, useEffect } from 'react';
 import { useMediaQuery } from '@mui/material';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createContext, FC, useEffect, useMemo, useState } from 'react';
 interface Color {
   primary: string;
   background: string;
@@ -60,10 +60,7 @@ const ColorContext = createContext({
   },
 });
 
-interface ThemeProps {
-  children: React.ReactNode;
-}
-const Theme = ({ children }: ThemeProps) => {
+const Theme: FC = ({ children }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [mode, setMode] = useState<'light' | 'dark'>(prefersDarkMode ? 'dark' : 'light');
   const [particalsModeState, setParticalsMode] = useState(true);

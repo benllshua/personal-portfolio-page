@@ -94,13 +94,12 @@ const Skills: FC = () => {
 export default Skills;
 
 interface TabPanelProps {
-  children?: React.ReactNode;
   dir?: string;
   index: any;
   value: any;
 }
 
-const TabPanel = (props: TabPanelProps) => {
+const TabPanel: FC<TabPanelProps> = (props) => {
   const { children, value, index, ...other } = props;
 
   return (

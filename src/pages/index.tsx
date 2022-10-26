@@ -1,42 +1,27 @@
-import React, { useContext } from 'react';
+import { FC, useContext } from 'react';
 
 // components
+import { Container } from '@mui/material';
 import ParticalsBackground from '../components/ParticalsBackground';
 import { ParticalsModeContext } from '../themes/theme';
-import { Container } from '@mui/material';
 
 // sections
 import Landing from '../components/sections/Landing';
-import dynamic from 'next/dynamic';
 
-const SocialMediaLinks = dynamic(() => import('../components/SocialMediaLinks'));
-const ThemeController = dynamic(() => import('../components/ThemeController'));
+import SocialMediaLinks from '../components/SocialMediaLinks';
+import ThemeController from '../components/ThemeController';
 
-const Services = dynamic(() => import('../components/sections/Services'), {
-  loading: () => <p>...</p>,
-});
-const About = dynamic(() => import('../components/sections/About'), {
-  loading: () => <p>...</p>,
-});
-const Skills = dynamic(() => import('../components/sections/Skills'), {
-  loading: () => <p>...</p>,
-});
-const Portfolio = dynamic(() => import('../components/sections/Portfolio'), {
-  loading: () => <p>...</p>,
-});
-const Footer = dynamic(() => import('../components/Footer'), {
-  loading: () => <p>...</p>,
-});
+import Footer from '../components/Footer';
+import About from '../components/sections/About';
+import Portfolio from '../components/sections/Portfolio';
+import Services from '../components/sections/Services';
+import Skills from '../components/sections/Skills';
 
 // hooks
-import { useMediaQuery } from '../hooks/useMediaQuery';
 import Message from '../components/Message';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
-/**
- * Main page component
- * @return {JSX.Element} : The JSX for the Main page
- */
-export default function Index() {
+const Index: FC = () => {
   const particalsMode = useContext(ParticalsModeContext);
 
   const isBreakpoint = useMediaQuery(900);
@@ -59,4 +44,6 @@ export default function Index() {
       <Footer />
     </>
   );
-}
+};
+
+export default Index;

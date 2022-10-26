@@ -1,13 +1,12 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
 interface Props {
-  children: React.ReactNode;
   delay?: number;
 }
 
-const SlideAndFade = ({ children, delay = 0, ...other }: Props) => {
+const SlideAndFade: FC<Props> = ({ children, delay = 0, ...other }) => {
   const baseDelay = 0.3;
   return (
     <motion.div

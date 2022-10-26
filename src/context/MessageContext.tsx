@@ -1,4 +1,4 @@
-import React, { useState, createContext, Dispatch, SetStateAction, ReactNode } from 'react';
+import { createContext, Dispatch, FC, SetStateAction, useState } from 'react';
 
 type MessageContextType = {
   message: string;
@@ -7,10 +7,7 @@ type MessageContextType = {
 
 const MessageContext = createContext<MessageContextType>({ message: '', setMessage: () => {} });
 
-interface MessageContextProviderProps {
-  children: ReactNode;
-}
-const MessageContextProvider = ({ children }: MessageContextProviderProps) => {
+const MessageContextProvider: FC = ({ children }) => {
   const [message, setMessage] = useState('');
 
   return <MessageContext.Provider value={{ message, setMessage }}>{children}</MessageContext.Provider>;
