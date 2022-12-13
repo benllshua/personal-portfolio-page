@@ -1,9 +1,11 @@
-import { FC, useContext } from 'react';
+import { FC, Suspense, useContext } from 'react';
 
 // components
 import { Container } from '@mui/material';
-import ParticalsBackground from '../components/ParticalsBackground';
 import { ParticalsModeContext } from '../themes/theme';
+const ParticalsBackground = dynamic(() => import('../components/ParticalsBackground'), {
+  suspense: true,
+});
 
 // sections
 import Landing from '../components/sections/Landing';
@@ -18,6 +20,7 @@ import Services from '../components/sections/Services';
 import Skills from '../components/sections/Skills';
 
 // hooks
+import dynamic from 'next/dynamic';
 import Message from '../components/Message';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
@@ -28,7 +31,11 @@ const Index: FC = () => {
 
   return (
     <>
-      {particalsMode.mode && <ParticalsBackground />}
+      {particalsMode.mode && (
+        <Suspense fallback={``}>
+          <ParticalsBackground />
+        </Suspense>
+      )}
       {!isBreakpoint && <SocialMediaLinks />}
 
       <Container maxWidth={isBreakpoint ? 'xs' : 'lg'}>

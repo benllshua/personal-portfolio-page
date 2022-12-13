@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { FC, useContext, useState } from 'react';
 
 // components
 import {
@@ -11,13 +11,13 @@ import {
   TimelineSeparator,
 } from '@mui/lab';
 
+import { ExpandMore } from '@mui/icons-material';
+import type {} from '@mui/lab/themeAugmentation';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Grid, Paper, Typography } from '@mui/material';
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
-
-import { ExpandMore } from '@mui/icons-material';
 import SlideAndFade from './animations/SlideAndFade';
-import ImagesDialog from './ImagesDialog';
+import ImageDialog from './ImagesDialog';
 
 import Tilt from 'react-parallax-tilt';
 
@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme: Theme) =>
 import Image from 'next/image';
 import { ColorContext } from '../themes/theme';
 
-const EducationPanel = () => {
+const EducationPanel: FC = () => {
   const classes = useStyles();
   const color = useContext(ColorContext);
 
@@ -187,7 +187,7 @@ const EduAccordion = ({ title, description, imageList }: EduAccordionProps) => {
           </AccordionDetails>
         </Accordion>
       </Paper>
-      <ImagesDialog open={open} onClose={onClose} imageList={imageList} />
+      <ImageDialog open={open} onClose={onClose} imageList={imageList} />
     </>
   );
 };

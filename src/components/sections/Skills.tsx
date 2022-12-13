@@ -11,7 +11,6 @@ import { BackEndSkills, FrontEndSkills, skills, UXSkills } from '../../content/s
 
 import { Api, DesignServices, DeveloperMode } from '@mui/icons-material';
 import Image from 'next/image';
-import SwipeableViews from 'react-swipeable-views';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -119,10 +118,6 @@ const FullWidthTabs = () => {
     setValue(newValue);
   };
 
-  const handleChangeIndex = (index: number) => {
-    setValue(index);
-  };
-
   return (
     <Paper elevation={8}>
       <Tabs
@@ -137,27 +132,22 @@ const FullWidthTabs = () => {
         <Tab label="Front End Dev" icon={<DeveloperMode />} />
         <Tab label="Back End Dev" icon={<Api />} />
       </Tabs>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        {value === 0 && (
-          <TabPanel value={value} index={0} dir={theme.direction}>
-            <SkillSection skills={UXSkills} />
-          </TabPanel>
-        )}
-        {value === 1 && (
-          <TabPanel value={value} index={1} dir={theme.direction}>
-            <SkillSection skills={FrontEndSkills} />
-          </TabPanel>
-        )}
-        {value === 2 && (
-          <TabPanel value={value} index={2} dir={theme.direction}>
-            <SkillSection skills={BackEndSkills} />
-          </TabPanel>
-        )}
-      </SwipeableViews>
+
+      {value === 0 && (
+        <TabPanel value={value} index={0} dir={theme.direction}>
+          <SkillSection skills={UXSkills} />
+        </TabPanel>
+      )}
+      {value === 1 && (
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          <SkillSection skills={FrontEndSkills} />
+        </TabPanel>
+      )}
+      {value === 2 && (
+        <TabPanel value={value} index={2} dir={theme.direction}>
+          <SkillSection skills={BackEndSkills} />
+        </TabPanel>
+      )}
     </Paper>
   );
 };
