@@ -1,9 +1,12 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, ReactNode } from 'react';
 
 import { motion } from 'framer-motion';
 
 interface Props {
   delay?: number;
+  children?: ReactNode;
 }
 
 const SlideAndFade: FC<Props> = ({ children, delay = 0, ...other }) => {

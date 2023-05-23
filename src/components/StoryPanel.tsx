@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+'use client';
 
 // components
 import { Box, Grid, List, ListItem, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material';
@@ -11,7 +11,7 @@ import { hobbies } from '../content/hobbies';
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 import Image from 'next/image';
-import { ColorContext } from '../themes/theme';
+import { useColorStore } from '../context/useColor';
 import SlideAndFade from './animations/SlideAndFade';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const StoryPanel = () => {
   const classes = useStyles();
-  const color = useContext(ColorContext);
+  const color = useColorStore((state) => state.color);
 
   return (
     <Paper elevation={8}>
@@ -108,9 +108,9 @@ const StoryPanel = () => {
                     width={350}
                     height={350}
                     alt="illustration"
-                    src={`/images/illustrations/${color.getColor()?.folderName}/growing.png`}
+                    src={`/images/illustrations/${color.folderName}/growing.png`}
                     placeholder="blur"
-                    blurDataURL={`/images/illustrations/${color.getColor()?.folderName}/growing.png`}
+                    blurDataURL={`/images/illustrations/${color.folderName}/growing.png`}
                   />
                 </div>
               </Tilt>

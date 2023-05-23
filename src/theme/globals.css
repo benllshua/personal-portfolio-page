@@ -4,11 +4,7 @@
 * {
   font-family: 'Poppins', 'Heebo', sans-serif !important;
 }
-/* html {
-  scroll-snap-type: mandatory;
-  scroll-snap-points-y: repeat(100vh);
-  scroll-snap-type: y mandatory;
-} */
+
 body,
 html {
   transition: 0.3s;
@@ -16,11 +12,9 @@ html {
   overflow-x: hidden;
 }
 .section {
-  /* backdrop-filter: blur(3px); */
   width: 100%;
   min-height: 100vh;
   position: relative;
-  /* scroll-snap-align: start; */
   padding-top: 64px;
 }
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import Image from 'next/image';
 import { FC } from 'react';

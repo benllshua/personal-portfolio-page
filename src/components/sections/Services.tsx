@@ -1,17 +1,19 @@
-import React, { useContext, useState } from 'react';
+'use client';
+
+import { useState } from 'react';
 
 // components
-import { Typography, Card, CardActionArea, Box } from '@mui/material';
+import { Box, Card, CardActionArea, Typography } from '@mui/material';
 // import AboutCircularAnim from '../AboutCircularAnim';
 import Image from 'next/image';
 
 // data
 import { services, serviceType } from '../../content/services';
-import { ColorContext } from '../../themes/theme';
 
 // styles
 import { Theme } from '@mui/material/styles';
-import { makeStyles, createStyles } from '@mui/styles';
+import { createStyles, makeStyles } from '@mui/styles';
+import { useColorStore } from '../../context/useColor';
 import ServiceDialog from '../ServiceDialog';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -88,7 +90,7 @@ interface ServiceCardProps {
 const ServiceCard = ({ service }: ServiceCardProps) => {
   const classes = useStyles();
   const basicPath = '/images/illustrations';
-  const color = useContext(ColorContext);
+  const color = useColorStore((state) => state.color);
 
   const [open, setOpen] = useState(false);
   const onClose = () => {
@@ -111,9 +113,9 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
                 width={250}
                 height={250}
                 alt={`${service.name} illustration`}
-                src={`${basicPath}/${color.getColor()?.folderName}/${service.imgSrc}`}
+                src={`${basicPath}/${color.folderName}/${service.imgSrc}`}
                 placeholder="blur"
-                blurDataURL={`${basicPath}/${color.getColor()?.folderName}/${service.imgSrc}`}
+                blurDataURL={`${basicPath}/${color.folderName}/${service.imgSrc}`}
               />
             </div>
             <Typography

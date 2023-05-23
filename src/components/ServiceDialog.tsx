@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+'use client';
 
 // components
+import { Beenhere, Close } from '@mui/icons-material';
 import {
   Chip,
   Dialog,
@@ -11,17 +12,16 @@ import {
   Icon,
   IconButton,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
-import { Beenhere, Close } from '@mui/icons-material';
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 import Image from 'next/image';
 
 // data
 import { serviceType } from '../content/services';
-
-import { useMediaQuery } from '../hooks/useMediaQuery';
-import { ColorContext } from '../themes/theme';
+import { useColorStore } from '../context/useColor';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -56,8 +56,9 @@ interface ServiceDialogProps {
 
 const ServiceDialog = ({ service, onClose, open }: ServiceDialogProps) => {
   const classes = useStyles();
-  const isBreakpoint = useMediaQuery(900);
-  const color = useContext(ColorContext);
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const color = useColorStore((state) => state.color);
 
   return (
     <Dialog onClose={onClose} open={open}>
@@ -80,7 +81,8 @@ const ServiceDialog = ({ service, onClose, open }: ServiceDialogProps) => {
       <DialogContent>
         <div className={classes.imageWrapper}>
           <Image
-            src={`/images/illustrations/${color.getColor()?.folderName}/${service.imgSrc}`}
+            src={`/images/illustrations/${color.folderName}/${service.imgSrc}`}
+            alt={`${service.imgSrc} illustartion`}
             width={150}
             height={150}
           />
@@ -95,7 +97,7 @@ const ServiceDialog = ({ service, onClose, open }: ServiceDialogProps) => {
         </div>
         <Divider className={classes.divider} />
         {service?.tags.map((tag, index) => (
-          <Chip key={index} label={tag} className={classes.chip} size={isBreakpoint ? 'small' : 'medium'} />
+          <Chip key={index} label={tag} className={classes.chip} size={isSmallScreen ? 'small' : 'medium'} />
         ))}
       </DialogContent>
     </Dialog>

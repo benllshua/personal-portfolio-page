@@ -1,17 +1,21 @@
-import React, { MouseEvent, useRef, useState, useContext } from 'react';
+'use client';
+
+import { MouseEvent, useRef, useState } from 'react';
 
 // components
-import { SpeedDial, SpeedDialIcon, SpeedDialAction } from '@mui/material';
+import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@mui/material';
 
 // styles
-import { Theme, useTheme } from '@mui/material/styles';
-import { makeStyles, createStyles } from '@mui/styles';
+import { Theme } from '@mui/material/styles';
+import { createStyles, makeStyles } from '@mui/styles';
 
 import { Brightness4Outlined, Brightness7, Close, Flare, FormatPaint, Palette, Settings } from '@mui/icons-material';
 
 // contexts
-import { DarkModeContext, colors, ParticalsModeContext, ColorContext } from '../themes/theme';
 import { Box, Divider, Fab, Popover, Typography } from '@mui/material';
+import { colors, useColorStore } from '../context/useColor';
+import { useDarkModeStore } from '../context/useDarkMode';
+import { useParticlesStore } from '../context/useParticlesMode';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -58,20 +62,27 @@ const useStyles = makeStyles((theme: Theme) =>
 const ThemeController = () => {
   const scrollContainer = useRef<HTMLDivElement>(null);
 
-  const darkMode = useContext(DarkModeContext);
-  const particalsMode = useContext(ParticalsModeContext);
-  const colorMode = useContext(ColorContext);
-  const theme = useTheme();
+  const { mode, toggleDarkMode } = useDarkModeStore();
+  const toggleParticlesMode = useParticlesStore((state) => state.toggleParticlesMode);
+  const setColor = useColorStore((state) => state.setColor);
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [openColorMenu, setOpenColorMenu] = useState<undefined | HTMLElement>();
+  const [openTranslationsMenu, setOpenTranslationsMenu] = useState<undefined | HTMLElement>();
 
   const handleCloseColorMenu = () => {
     setOpenColorMenu(undefined);
   };
   const handleOpenColorMenu = (e: MouseEvent<HTMLDivElement>) => {
     setOpenColorMenu(e.currentTarget);
+  };
+
+  const handleCloseTranslationsMenu = () => {
+    setOpenTranslationsMenu(undefined);
+  };
+  const handleOpenTranslationsMenu = (e: MouseEvent<HTMLDivElement>) => {
+    setOpenTranslationsMenu(e.currentTarget);
   };
 
   const handleClose = () => {
@@ -82,11 +93,11 @@ const ThemeController = () => {
     setOpen(true);
   };
   const darkModeToggler = () => {
-    darkMode.toggleDarkMode();
+    toggleDarkMode();
     handleClose();
   };
   const particalsModeToggler = () => {
-    particalsMode.toggleParticalsMode();
+    toggleParticlesMode();
     handleClose();
   };
 
@@ -97,8 +108,8 @@ const ThemeController = () => {
       onClick: handleOpenColorMenu,
     },
     {
-      icon: theme.palette.mode === 'light' ? <Brightness4Outlined /> : <Brightness7 />,
-      name: theme.palette.mode === 'light' ? 'Dark Mode' : 'Light Mode ',
+      icon: mode === 'light' ? <Brightness4Outlined /> : <Brightness7 />,
+      name: mode === 'light' ? 'Dark Mode' : 'Light Mode ',
       onClick: darkModeToggler,
     },
     {
@@ -106,6 +117,11 @@ const ThemeController = () => {
       name: 'Toggle Particals Effect',
       onClick: particalsModeToggler,
     },
+    // {
+    //   icon: <Translate />,
+    //   name: 'Translations',
+    //   onClick: handleOpenTranslationsMenu,
+    // },
   ];
 
   return (
@@ -168,7 +184,7 @@ const ThemeController = () => {
                   key={color.primary}
                   style={{ backgroundColor: color.primary }}
                   onClick={() => {
-                    colorMode.setColorMode(color);
+                    setColor(color);
                     handleCloseColorMenu();
                   }}
                 >
@@ -179,6 +195,41 @@ const ThemeController = () => {
           </div>
         </Box>
       </Popover>
+      {/* <Popover
+        open={Boolean(openTranslationsMenu)}
+        anchorEl={Boolean(openTranslationsMenu) ? openTranslationsMenu : undefined}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        onClose={handleCloseTranslationsMenu}
+      >
+        <Box p={3}>
+          <Typography gutterBottom>Choose your preferred language</Typography>
+          <Divider />
+          <Select
+            sx={{ mt: 1 }}
+            fullWidth
+            value={activeLocale}
+            onChange={(e) => {
+              router.push({ pathname, query }, asPath, {
+                locale: e.target.value as string,
+              })
+              handleCloseTranslationsMenu()
+            }}
+          >
+            {locales?.map((language) => (
+              <MenuItem value={language} key={language}>
+                {language}
+              </MenuItem>
+            ))}
+          </Select>
+        </Box>
+      </Popover> */}
     </>
   );
 };

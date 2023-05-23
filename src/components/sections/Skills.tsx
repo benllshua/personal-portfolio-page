@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+'use client';
+import React, { FC, ReactNode } from 'react';
 
 import { Box, Divider, Fade, Paper, Tab, Tabs, Typography, useTheme } from '@mui/material';
 import SlideAndFade from '../animations/SlideAndFade';
@@ -94,8 +95,9 @@ export default Skills;
 
 interface TabPanelProps {
   dir?: string;
-  index: any;
-  value: any;
+  index: number;
+  value: number;
+  children?: ReactNode;
 }
 
 const TabPanel: FC<TabPanelProps> = (props) => {
@@ -114,7 +116,7 @@ const FullWidthTabs = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(1);
 
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+  const handleChange = (event: React.ChangeEvent<object>, newValue: number) => {
     setValue(newValue);
   };
 

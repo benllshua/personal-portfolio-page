@@ -1,7 +1,9 @@
+'use client';
+
 import { FC } from 'react';
 
 // data
-import { FRONTENDProjects } from '../../content/projects';
+import { Projects } from '../../content/projects';
 
 // components
 import { Typography } from '@mui/material';
@@ -40,8 +42,8 @@ const Portfolio: FC = () => {
       <Typography variant="h5" component="h5" align="center" className={classes.subTitle} gutterBottom>
         {'past work & projects'}
       </Typography>
-      {FRONTENDProjects.map((project, index) => (
-        <div key={`${project.title} ${index}`}>
+      {Projects.map((project, index) => (
+        <div key={project.title}>
           <SlideAndFade delay={0.3 * index}>
             <Project project={project} />
           </SlideAndFade>

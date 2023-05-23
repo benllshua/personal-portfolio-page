@@ -1,34 +1,15 @@
-import { useTheme } from '@mui/material';
-import { useCallback } from 'react';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
-import type { Container, Engine } from 'tsparticles-engine';
-import { useMediaQuery } from '../hooks/useMediaQuery';
+'use client';
+
+import { useMediaQuery, useTheme } from '@mui/material';
+import Particals from 'react-tsparticles';
 
 const ParticalsBackground = () => {
   const theme = useTheme();
   const color = theme.palette.mode === 'light' ? '#aaa' : theme.palette.primary.main;
-  const isBreakpoint = useMediaQuery(900);
-
-  const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
-
-    // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
-    await loadFull(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async (container: Container) => {
-    await console.log(container);
-  }, []);
+  const bigScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
-    <Particles
-      // @ts-ignore
-      loaded={particlesLoaded}
-      // @ts-ignore
-      init={particlesInit}
+    <Particals
       options={{
         background: {
           position: '50% 50%',
@@ -58,7 +39,7 @@ const ParticalsBackground = () => {
         particles: {
           opacity: { value: 0.4 },
           number: {
-            value: isBreakpoint ? 10 : 70,
+            value: bigScreen ? 70 : 10,
           },
           color: {
             value: color,

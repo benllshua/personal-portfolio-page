@@ -1,7 +1,8 @@
+'use client';
+
 import { Snackbar } from '@mui/material';
 import Slide, { SlideProps } from '@mui/material/Slide';
-import { useContext } from 'react';
-import { MessageContext } from '../context/MessageContext';
+import { useMessageStore } from '../context/useMessage';
 
 type TransitionProps = Omit<SlideProps, 'direction'>;
 
@@ -10,7 +11,7 @@ const TransitionLeft = (props: TransitionProps) => {
 };
 
 const Message = () => {
-  const { message, setMessage } = useContext(MessageContext);
+  const { message, setMessage } = useMessageStore();
 
   return (
     <Snackbar

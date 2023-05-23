@@ -1,21 +1,20 @@
-import React, { useContext } from 'react';
-import { MessageContext } from '../../context/MessageContext';
-import { copyToClipBoard } from '../../functions/copyToClipBoard';
+'use client';
 
-// components
-import { Grid, Typography, Button } from '@mui/material';
-import Link from '../Link';
+import { Chat, Description } from '@mui/icons-material';
+import { Button, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Theme } from '@mui/material/styles';
+import { createStyles, makeStyles } from '@mui/styles';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import { Suspense } from 'react';
+import { email } from '../../content/email';
+import { useMessageStore } from '../../context/useMessage';
+import { copyToClipBoard } from '../../functions/copyToClipBoard';
 import SlideAndFade from '../animations/SlideAndFade';
 
-// assets
-import { Chat, Description } from '@mui/icons-material';
-import { useMediaQuery } from '../../hooks/useMediaQuery';
-import { email } from '../../content/email';
-
-// styles
-import { Theme } from '@mui/material/styles';
-import { makeStyles, createStyles } from '@mui/styles';
-import Image from 'next/image';
+const ProfileAvatar = dynamic(() => import('../ProfileAvatar'), {
+  ssr: false,
+});
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -103,18 +102,19 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Landing = () => {
   const classes = useStyles();
-  const isBreakpoint = useMediaQuery(900);
-  const { setMessage } = useContext(MessageContext);
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const setMessage = useMessageStore((state) => state.setMessage);
 
   return (
     <div className="section">
       <Grid
         container
         spacing={3}
-        className={isBreakpoint ? '' : classes.fullHeight}
-        direction={isBreakpoint ? 'column-reverse' : 'row'}
+        className={isSmallScreen ? '' : classes.fullHeight}
+        direction={isSmallScreen ? 'column-reverse' : 'row'}
       >
-        <Grid item md={5} className={classes.verticalCenter1}>
+        <Grid item md={6} className={classes.verticalCenter1}>
           <div className={classes.fullWidth}>
             <SlideAndFade>
               <Typography variant="h1" className={classes.mainTitle}>
@@ -157,7 +157,8 @@ const Landing = () => {
               </Button>
             </SlideAndFade>
             <SlideAndFade delay={2.5}>
-              <Link href="/documents/Ben's Resume (2).pdf" target="_blank" underline="none">
+              {/* @ts-ignore */}
+              <Link href="/documents/Ben's Resume (2).pdf" target="_blank">
                 <Button variant="outlined" color="primary">
                   {'resume'}
                   <Description className={classes.icon} />
@@ -166,16 +167,11 @@ const Landing = () => {
             </SlideAndFade>
           </div>
         </Grid>
-        <Grid item md={7} className={classes.verticalCenter2}>
+        <Grid item md={6} className={classes.verticalCenter2}>
           <div className={classes.imgFlexWrapper}>
-            <Image
-              src={'/images/profile5.png'}
-              alt="profileImg"
-              width={600}
-              height={600}
-              placeholder="blur"
-              blurDataURL={'/images/profile5.png'}
-            />
+            <Suspense fallback="">
+              <ProfileAvatar />
+            </Suspense>
           </div>
         </Grid>
       </Grid>

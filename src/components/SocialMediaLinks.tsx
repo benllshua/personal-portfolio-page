@@ -1,6 +1,6 @@
-import { useContext } from 'react';
+'use client';
+
 import { email } from '../content/email';
-import { MessageContext } from '../context/MessageContext';
 import { copyToClipBoard } from '../functions/copyToClipBoard';
 
 // components
@@ -11,6 +11,7 @@ import SlideAndFade from './animations/SlideAndFade';
 // styles
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
+import { useMessageStore } from '../context/useMessage';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const SocialMediaLinks = () => {
   const classes = useStyles();
-  const { setMessage } = useContext(MessageContext);
+  const setMessage = useMessageStore((state) => state.setMessage);
 
   return (
     <div className={classes.position}>
@@ -64,7 +65,7 @@ const SocialMediaLinks = () => {
 };
 
 interface IconLinkProps {
-  icon: any;
+  icon: JSX.Element;
   href?: string;
   text: string;
   onClick?: () => void;

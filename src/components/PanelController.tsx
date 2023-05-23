@@ -1,3 +1,5 @@
+'use client';
+
 import { Person, PersonOutlined, School, SchoolOutlined, Work, WorkOutline } from '@mui/icons-material';
 
 import { Button, ButtonGroup, Paper, useMediaQuery, useTheme, Zoom } from '@mui/material';

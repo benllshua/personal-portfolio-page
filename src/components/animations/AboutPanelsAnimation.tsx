@@ -1,8 +1,11 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 interface Props {
   status: 'in' | 'out';
+  children?: ReactNode;
 }
 
 const AboutPanelsAnimation: FC<Props> = ({ children, status }) => {

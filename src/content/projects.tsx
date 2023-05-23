@@ -1,6 +1,15 @@
-// section = 'FRONTEND' | 'BSCKEND' | 'UX' | 'MANAGEMENT'
 const basicPath = '/images/projects';
-const FRONTENDProjects = [
+
+export type Project = {
+  title: string;
+  description: string;
+  mainImg: string;
+  imageList: { imgFileName: string; label: string }[];
+  tags: string[];
+  githubLink: string;
+};
+
+const Projects: Project[] = [
   {
     title: 'Octo - Task',
     description:
@@ -17,7 +26,7 @@ const FRONTENDProjects = [
     title: 'Moreshet - Patzan',
     description: 'A public website we build for the North Command',
     mainImg: `${basicPath}/NotFound.png`,
-    imageList: [{ imgFileName: `${basicPath}/NotFound.png` }],
+    imageList: [{ imgFileName: `${basicPath}/NotFound.png`, label: 'project main screen' }],
     tags: ['HTML', 'CSS (SCSS)', 'Javascript', 'Bootstrap', 'Django', 'Jquery'],
     githubLink: '',
   },
@@ -26,7 +35,7 @@ const FRONTENDProjects = [
     description:
       'As I\'ve mentioned, I like board games. When I lost pieces of "Hanabi" - a Chinese card game, I made an app that replaces those pieces and helped the game run smoother.',
     mainImg: `${basicPath}/HanabiHelper.png`,
-    imageList: [{ imgFileName: `${basicPath}/HanabiHelper.png` }],
+    imageList: [{ imgFileName: `${basicPath}/HanabiHelper.png`, label: 'main poster image' }],
     tags: ['Xamarin', 'C#', 'XML'],
     githubLink: '',
   },
@@ -38,38 +47,11 @@ const FRONTENDProjects = [
     imageList: [
       { label: 'string', imgFileName: `${basicPath}/wineSite1.png` },
       { label: 'string2', imgFileName: `${basicPath}/wineSite1.png` },
-      { imgFileName: `${basicPath}/wineSite1.png` },
+      { imgFileName: `${basicPath}/wineSite1.png`, label: 'poster image' },
     ],
     tags: ['HTML', 'CSS (SCSS)', 'JS', 'Fontawesome'],
     githubLink: '',
   },
 ];
 
-const UXProjects = [
-  {
-    title: 'My portfolio page',
-    description: 'This page that youre watching right now',
-    mainImg: `${basicPath}/NotFound.png`,
-    imageList: [],
-    tags: [],
-    githubLink: '',
-  },
-  {
-    title: 'The Gaurdian',
-    description: 'IDF project - classified',
-    mainImg: `${basicPath}/NotFound.png`,
-    imageList: [],
-    tags: [],
-    githubLink: '',
-  },
-  {
-    title: 'Dine',
-    description: 'A bill split app Idea, became a personal project - never excuted',
-    mainImg: `${basicPath}/Dine.png`,
-    imageList: [{ imgFileName: `${basicPath}/Dine.png` }],
-    tags: [],
-    githubLink: '',
-  },
-];
-
-export { UXProjects, FRONTENDProjects };
+export { Projects };
