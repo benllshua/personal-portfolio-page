@@ -15,8 +15,9 @@ export default function layout({ children }: Props) {
       <body>
         <Theme>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+
           <CssBaseline />
-          <>{children} </>
+          {children}
         </Theme>
       </body>
     </html>

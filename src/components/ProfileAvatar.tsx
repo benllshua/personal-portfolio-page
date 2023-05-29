@@ -27,10 +27,10 @@ const ProfileAvatar: FC = () => {
           id="path-5"
         ></path>
       </defs>
-      <g id="avatarmaker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g id="avatarmaker" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g transform="translate(-825.000000, -1100.000000)" id="avatarmaker/Circle">
           <g transform="translate(825.000000, 1100.000000)">
-            <g id="Circle" stroke-width="1" fill-rule="evenodd" transform="translate(12.000000, 40.000000)">
+            <g id="Circle" strokeWidth="1" fillRule="evenodd" transform="translate(12.000000, 40.000000)">
               <mask id="mask-2" fill="white">
                 <use xlinkHref="#path-1"></use>
               </mask>
@@ -43,7 +43,7 @@ const ProfileAvatar: FC = () => {
               <use xlinkHref="#path-3"></use>
             </mask>
             <g id="Mask"></g>
-            <g id="avatarmaker" stroke-width="1" fill-rule="evenodd" mask="url(#mask-4)">
+            <g id="avatarmaker" strokeWidth="1" fillRule="evenodd" mask="url(#mask-4)">
               <g id="Body" transform="translate(32.000000, 36.000000)">
                 <mask id="mask-6" fill="white">
                   <use xlinkHref="#path-5"></use>
@@ -57,7 +57,7 @@ const ProfileAvatar: FC = () => {
                 <path
                   d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z"
                   id="Neck-Shadow"
-                  fill-opacity="0.100000001"
+                  fillOpacity="0.100000001"
                   fill="#000000"
                   mask="url(#mask-6)"
                 ></path>
@@ -72,23 +72,23 @@ const ProfileAvatar: FC = () => {
                 <mask id="react-mask-74" fill="white">
                   <use xlinkHref="#react-path-73"></use>
                 </mask>
-                <use id="Hoodie" fill="#B7C1DB" fill-rule="evenodd" xlinkHref="#react-path-73"></use>
-                <g id="Color/Palette/Gray-01" mask="url(#react-mask-74)" fill-rule="evenodd" fill="#262E33">
+                <use id="Hoodie" fill="#B7C1DB" fillRule="evenodd" xlinkHref="#react-path-73"></use>
+                <g id="Color/Palette/Gray-01" mask="url(#react-mask-74)" fillRule="evenodd" fill="#262E33">
                   <rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
                 </g>
                 <path
                   d="M102,61.7390531 L102,110 L95,110 L95,58.1502625 C97.2037542,59.4600576 99.5467694,60.6607878 102,61.7390531 Z M169,58.1502625 L169,98.5 C169,100.432997 167.432997,102 165.5,102 C163.567003,102 162,100.432997 162,98.5 L162,61.7390531 C164.453231,60.6607878 166.796246,59.4600576 169,58.1502625 Z"
                   id="Straps"
                   fill="#F4F4F4"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   mask="url(#react-mask-74)"
                 ></path>
                 <path
                   d="M90.9601329,12.7243537 C75.9093095,15.5711782 65.5,21.2428847 65.5,32.3076923 C65.5,52.0200095 98.5376807,68 132,68 C165.462319,68 198.5,52.0200095 198.5,32.3076923 C198.5,21.2428847 188.09069,15.5711782 173.039867,12.7243537 C182.124921,16.0744598 188,21.7060546 188,31.0769231 C188,51.4689754 160.178795,68 132,68 C103.821205,68 76,51.4689754 76,31.0769231 C76,21.7060546 81.8750795,16.0744598 90.9601329,12.7243537 Z"
                   id="Shadow"
-                  fill-opacity="0.16"
+                  fillOpacity="0.16"
                   fill="#000000"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   mask="url(#react-mask-74)"
                 ></path>
               </g>
@@ -105,15 +105,15 @@ const ProfileAvatar: FC = () => {
                   </mask>
                   <use
                     id="Mouth"
-                    fill-opacity="0.699999988"
+                    fillOpacity="0.699999988"
                     fill="#000000"
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     xlinkHref="#react-path-3"
                   ></use>
                   <rect
                     id="Teeth"
                     fill="#FFFFFF"
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     mask="url(#react-mask-4)"
                     x="39"
                     y="2"
@@ -121,20 +121,20 @@ const ProfileAvatar: FC = () => {
                     height="16"
                     rx="5"
                   ></rect>
-                  <g id="Tongue" stroke-width="1" fill-rule="evenodd" mask="url(#react-mask-4)" fill="#FF4F6D">
+                  <g id="Tongue" strokeWidth="1" fillRule="evenodd" mask="url(#react-mask-4)" fill="#FF4F6D">
                     <g transform="translate(38.000000, 24.000000)">
                       <circle cx="11" cy="11" r="11"></circle>
                       <circle cx="21" cy="11" r="11"></circle>
                     </g>
                   </g>
                 </g>
-                <g id="Nose/Default" transform="translate(28.000000, 40.000000)" fill-opacity="0.16">
+                <g id="Nose/Default" transform="translate(28.000000, 40.000000)" fillOpacity="0.16">
                   <path
                     d="M16,8 C16,12.418278 21.372583,16 28,16 L28,16 C34.627417,16 40,12.418278 40,8"
                     id="Nose"
                   ></path>
                 </g>
-                <g id="Eyes/Happy-😁" transform="translate(0.000000, 8.000000)" fill-opacity="0.599999964">
+                <g id="Eyes/Happy-😁" transform="translate(0.000000, 8.000000)" fillOpacity="0.599999964">
                   <path
                     d="M16.1601674,22.4473116 C18.006676,18.648508 22.1644225,16 26.9975803,16 C31.8136766,16 35.9591217,18.629842 37.8153518,22.4071242 C38.3667605,23.5291977 37.5821037,24.4474817 36.790607,23.7670228 C34.3395063,21.6597833 30.8587163,20.3437884 26.9975803,20.3437884 C23.2572061,20.3437884 19.8737584,21.5787519 17.4375392,23.5716412 C16.5467928,24.3002944 15.6201012,23.5583844 16.1601674,22.4473116 Z"
                     id="Squint"
@@ -144,7 +144,7 @@ const ProfileAvatar: FC = () => {
                     id="Squint"
                   ></path>
                 </g>
-                <g id="Eyebrow/Natural/Default-Natural" fill-opacity="0.599999964">
+                <g id="Eyebrow/Natural/Default-Natural" fillOpacity="0.599999964">
                   <path
                     d="M26.0390934,6.21012364 C20.2775554,6.98346216 11.2929313,12.0052479 12.04426,17.8178111 C12.0689481,18.0080543 12.3567302,18.0673468 12.4809077,17.9084937 C14.9674041,14.7203351 34.1927973,10.0365481 41.1942673,11.0147151 C41.8350523,11.1044465 42.2580662,10.4430343 41.8210501,10.0302067 C38.0765663,6.49485426 31.2003792,5.51224825 26.0390934,6.21012364"
                     id="Eyebrow"
@@ -157,7 +157,7 @@ const ProfileAvatar: FC = () => {
                   ></path>
                 </g>
               </g>
-              <g id="Top" stroke-width="1" fill-rule="evenodd">
+              <g id="Top" strokeWidth="1" fillRule="evenodd">
                 <defs>
                   <rect id="react-path-60" x="0" y="0" width="264" height="280"></rect>
                   <path
@@ -198,7 +198,7 @@ const ProfileAvatar: FC = () => {
                       id="Short-Hair"
                       stroke="none"
                       fill="#1F3140"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       xlinkHref="#react-path-59"
                     ></use>
                     <g id="Skin/👶🏽-03-Brown" mask="url(#react-mask-57)" fill="#724133">

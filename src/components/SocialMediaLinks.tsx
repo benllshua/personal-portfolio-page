@@ -5,12 +5,13 @@ import { copyToClipBoard } from '../functions/copyToClipBoard';
 
 // components
 import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
-import { IconButton, Tooltip } from '@mui/material';
 import SlideAndFade from './animations/SlideAndFade';
+import { IconButton, Tooltip } from './mui';
 
 // styles
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
+import Link from 'next/link';
 import { useMessageStore } from '../context/useMessage';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -52,7 +53,7 @@ const SocialMediaLinks = () => {
         />
       </SlideAndFade>
       <SlideAndFade delay={3.2}>
-        <IconLink icon={<GitHub />} text={'GitHub link'} href={'https://github.com/benllshua'} />
+        <IconLink text={'GitHub link'} icon={<GitHub />} href={'https://github.com/benllshua'} />
       </SlideAndFade>
       <SlideAndFade delay={3.4}>
         <IconLink text={'LinkedIn link'} icon={<LinkedIn />} href={'https://www.linkedin.com/in/ben-shua-08b103198/'} />
@@ -86,9 +87,12 @@ const IconLink = ({ icon, href, text, onClick }: IconLinkProps) => {
   if (href)
     return (
       <Tooltip title={text} placement="left">
-        <IconButton className={classes.iconFab} href={href} color="primary" size={'large'}>
-          {icon}
-        </IconButton>
+        {/** @ts-ignore */}
+        <Link href={href} passHref>
+          <IconButton className={classes.iconFab} color="primary" size={'large'}>
+            {icon}
+          </IconButton>
+        </Link>
       </Tooltip>
     );
   return <></>;

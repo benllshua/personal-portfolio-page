@@ -69,7 +69,7 @@ const ThemeController = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [openColorMenu, setOpenColorMenu] = useState<undefined | HTMLElement>();
-  const [openTranslationsMenu, setOpenTranslationsMenu] = useState<undefined | HTMLElement>();
+  // const [openTranslationsMenu, setOpenTranslationsMenu] = useState<undefined | HTMLElement>();
 
   const handleCloseColorMenu = () => {
     setOpenColorMenu(undefined);
@@ -78,12 +78,12 @@ const ThemeController = () => {
     setOpenColorMenu(e.currentTarget);
   };
 
-  const handleCloseTranslationsMenu = () => {
-    setOpenTranslationsMenu(undefined);
-  };
-  const handleOpenTranslationsMenu = (e: MouseEvent<HTMLDivElement>) => {
-    setOpenTranslationsMenu(e.currentTarget);
-  };
+  // const handleCloseTranslationsMenu = () => {
+  //   setOpenTranslationsMenu(undefined);
+  // };
+  // const handleOpenTranslationsMenu = (e: MouseEvent<HTMLDivElement>) => {
+  //   setOpenTranslationsMenu(e.currentTarget);
+  // };
 
   const handleClose = () => {
     setOpen(false);

@@ -2,7 +2,7 @@
 
 import { FC, ReactNode } from 'react';
 
-import { motion } from 'framer-motion';
+import { motion } from './motion';
 
 interface Props {
   delay?: number;

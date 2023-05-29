@@ -1,7 +1,6 @@
 'use client';
 
-import { Message } from '@mui/icons-material';
-import { Container, useMediaQuery, useTheme } from '@mui/material';
+import { Container, NoSsr, useMediaQuery, useTheme } from '@mui/material';
 import Footer from '../components/Footer';
 import ParticalsBackground from '../components/ParticalsBackground';
 import SocialMediaLinks from '../components/SocialMediaLinks';
@@ -22,7 +21,11 @@ export default function Page() {
   return (
     <>
       {particalsMode && <ParticalsBackground />}
-      {!isSmallScreen && <SocialMediaLinks />}
+      {!isSmallScreen && (
+        <NoSsr>
+          <SocialMediaLinks />
+        </NoSsr>
+      )}
 
       <Container maxWidth={isSmallScreen ? 'xs' : 'lg'}>
         <Landing />
@@ -32,7 +35,6 @@ export default function Page() {
         <Portfolio />
       </Container>
       <ThemeController />
-      <Message />
 
       <Footer />
     </>

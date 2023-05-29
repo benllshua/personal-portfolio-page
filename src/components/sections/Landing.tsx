@@ -6,7 +6,6 @@ import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { Suspense } from 'react';
 import { email } from '../../content/email';
 import { useMessageStore } from '../../context/useMessage';
 import { copyToClipBoard } from '../../functions/copyToClipBoard';
@@ -169,9 +168,7 @@ const Landing = () => {
         </Grid>
         <Grid item md={6} className={classes.verticalCenter2}>
           <div className={classes.imgFlexWrapper}>
-            <Suspense fallback="">
-              <ProfileAvatar />
-            </Suspense>
+            <ProfileAvatar />
           </div>
         </Grid>
       </Grid>
