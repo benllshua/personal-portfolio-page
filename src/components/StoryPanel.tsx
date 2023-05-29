@@ -89,14 +89,10 @@ const StoryPanel = () => {
             </SlideAndFade>
             <List dense>
               {hobbies.map((hobbie, index) => (
-                <div key={index}>
-                  <SlideAndFade delay={0.7 + index * 0.1}>
-                    <ListItem>
-                      <ListItemIcon>{hobbie.icon}</ListItemIcon>
-                      <ListItemText primary={hobbie.title} />
-                    </ListItem>
-                  </SlideAndFade>
-                </div>
+                <ListItem key={index}>
+                  <ListItemIcon>{hobbie.icon}</ListItemIcon>
+                  <ListItemText primary={hobbie.title} />
+                </ListItem>
               ))}
             </List>
           </Grid>

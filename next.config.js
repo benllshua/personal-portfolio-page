@@ -9,4 +9,5 @@ module.exports = {
     typedRoutes: true,
   },
   swcMinify: false,
+  productionBrowserSourceMaps: true,
 };

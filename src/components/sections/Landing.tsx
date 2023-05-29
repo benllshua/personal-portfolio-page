@@ -123,7 +123,7 @@ const Landing = () => {
           </div>
           <div className={classes.fullWidth}>
             <SlideAndFade delay={0.5}>
-              <Typography variant="h5" className={classes.subTitle}>
+              <Typography variant="h5" className={classes.subTitle} component="h2">
                 Full-Stack Developer & Team Lead
               </Typography>
             </SlideAndFade>
