@@ -1,3 +1,4 @@
+'use client';
 import { useMediaQuery } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { FC, useEffect, useMemo } from 'react';

@@ -1,6 +1,7 @@
 'use client';
 
-import { Container, NoSsr, useMediaQuery, useTheme } from '@mui/material';
+import Theme from '@/theme';
+import { Container, CssBaseline, NoSsr, useMediaQuery, useTheme } from '@mui/material';
 import Footer from '../components/Footer';
 import ParticalsBackground from '../components/ParticalsBackground';
 import SocialMediaLinks from '../components/SocialMediaLinks';
@@ -19,7 +20,8 @@ export default function Page() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <>
+    <Theme>
+      <CssBaseline />
       {particalsMode && <ParticalsBackground />}
       {!isSmallScreen && (
         <NoSsr>
@@ -37,6 +39,6 @@ export default function Page() {
       <ThemeController />
 
       <Footer />
-    </>
+    </Theme>
   );
 }
