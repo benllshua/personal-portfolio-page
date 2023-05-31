@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   icons: '/images/logo.png',
   authors: { name: 'Ben Shua', url: 'benllshua.com' },
-  robots: 'index, follow',
+  robots: { follow: true, index: true },
   keywords: [
     'Ben',
     'BEN',

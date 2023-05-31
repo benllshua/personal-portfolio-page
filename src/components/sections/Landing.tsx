@@ -157,7 +157,7 @@ const Landing = () => {
             </SlideAndFade>
             <SlideAndFade delay={2.5}>
               {/* @ts-ignore */}
-              <Link href="/documents/Ben's Resume (2).pdf" target="_blank">
+              <Link href="/documents/Bens Resume.pdf" target="_blank">
                 <Button variant="outlined" color="primary">
                   {'resume'}
                   <Description className={classes.icon} />

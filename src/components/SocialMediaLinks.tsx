@@ -65,15 +65,34 @@ const SocialMediaLinks = () => {
   );
 };
 
-interface IconLinkProps {
-  icon: JSX.Element;
-  href?: string;
-  text: string;
-  onClick?: () => void;
-}
+type IconLinkProps =
+  | {
+      icon: JSX.Element;
+      href: string;
+      text: string;
+      onClick?: () => void;
+    }
+  | {
+      icon: JSX.Element;
+      href?: string;
+      text: string;
+      onClick: () => void;
+    };
 
 const IconLink = ({ icon, href, text, onClick }: IconLinkProps) => {
   const classes = useStyles();
+
+  if (href)
+    return (
+      <Tooltip title={text} placement="left">
+        {/** @ts-ignore */}
+        <Link href={href}>
+          <IconButton className={classes.iconFab} color="primary" size={'large'}>
+            {icon}
+          </IconButton>
+        </Link>
+      </Tooltip>
+    );
 
   if (typeof onclick !== 'undefined') {
     return (
@@ -84,17 +103,7 @@ const IconLink = ({ icon, href, text, onClick }: IconLinkProps) => {
       </Tooltip>
     );
   }
-  if (href)
-    return (
-      <Tooltip title={text} placement="left">
-        {/** @ts-ignore */}
-        <Link href={href} passHref>
-          <IconButton className={classes.iconFab} color="primary" size={'large'}>
-            {icon}
-          </IconButton>
-        </Link>
-      </Tooltip>
-    );
+
   return <></>;
 };
 

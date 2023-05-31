@@ -1,5 +1,6 @@
 'use client';
 
+import Message from '@/components/Message';
 import Theme from '@/theme';
 import { Container, CssBaseline, NoSsr, useMediaQuery, useTheme } from '@mui/material';
 import dynamic from 'next/dynamic';
@@ -39,6 +40,7 @@ export default function Page() {
         <Portfolio />
       </Container>
       <ThemeController />
+      <Message />
 
       <Footer />
     </Theme>

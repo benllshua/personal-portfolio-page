@@ -31,7 +31,13 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       color: '#ffffffaa',
       textDecoration: 'none',
+      background: 'none',
+      cursor: 'pointer',
+      border: 'none',
+      padding: 0,
+      width: '100%',
       '&:hover': {
+        border: 'none',
         color: '#ffffffee',
       },
     },
@@ -113,9 +119,7 @@ const Footer = () => {
               <Typography variant="h4" gutterBottom color={'white'}>
                 Contact & Social
               </Typography>
-              <Link
-                // @ts-ignore
-                href=""
+              <button
                 className={classes.text}
                 onClick={() => {
                   copyToClipBoard(email);
@@ -124,7 +128,7 @@ const Footer = () => {
               >
                 <Mail className={classes.icon} />
                 Mail
-              </Link>
+              </button>
               {/* @ts-ignore */}
               <Link href="https://github.com/benllshua" className={classes.text}>
                 <GitHub className={classes.icon} />
