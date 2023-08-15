@@ -1,7 +1,22 @@
-import React from 'react';
 import { Description, DescriptionOutlined, School, SchoolOutlined } from '@mui/icons-material';
+
 const basicPath = '/images/certificates';
-export const educationPlaces = [
+
+export type EducationInfo = {
+  title: string;
+  description: string;
+  icon: JSX.Element;
+  hoveredIcon: JSX.Element;
+  type: string;
+  image: {
+    src: string;
+    label: string;
+  };
+  startDate: string;
+  endDate: string;
+};
+
+export const educationPlaces: EducationInfo[] = [
   {
     title: 'Meir Shfeia',
     description:
@@ -9,7 +24,10 @@ export const educationPlaces = [
     icon: <SchoolOutlined color="primary" />,
     hoveredIcon: <School color="primary" />,
     type: 'High School',
-    imageList: [],
+    image: {
+      src: `${basicPath}/`,
+      label: '',
+    },
     startDate: '09/2015',
     endDate: '06/2020',
   },
@@ -19,7 +37,10 @@ export const educationPlaces = [
     icon: <DescriptionOutlined color="primary" />,
     hoveredIcon: <Description color="primary" />,
     type: 'Certification',
-    imageList: [],
+    image: {
+      src: `${basicPath}/`,
+      label: '',
+    },
     startDate: '09/2020',
     endDate: '12/2020',
   },
@@ -30,7 +51,10 @@ export const educationPlaces = [
     icon: <DescriptionOutlined color="primary" />,
     hoveredIcon: <Description color="primary" />,
     type: 'Certification',
-    imageList: [],
+    image: {
+      src: `${basicPath}/`,
+      label: '',
+    },
     startDate: '04/2021',
     endDate: '10/2021',
   },
@@ -41,7 +65,10 @@ export const educationPlaces = [
     icon: <SchoolOutlined color="primary" />,
     hoveredIcon: <School color="primary" />,
     type: 'University',
-    imageList: [],
+    image: {
+      src: `${basicPath}/`,
+      label: '',
+    },
     startDate: '10/2021',
     endDate: 'not finished',
   },
@@ -52,19 +79,8 @@ export const educationPlaces = [
     hoveredIcon: <Description color="primary" />,
     type: 'Certification',
 
-    imageList: [{ imgFileName: `${basicPath}/ReactSecurity.png` }],
+    image: { src: `${basicPath}/ReactSecurity.png`, label: 'react security certificate' },
     startDate: '11/2021',
     endDate: '12/2021',
   },
 ];
-
-export type Education = {
-  title: string;
-  description: string;
-  icon: any;
-  hoveredIcon: any;
-  type: string;
-  imageList: { label?: string; imgFileName: string }[];
-  startDate: string;
-  endDate: string;
-};

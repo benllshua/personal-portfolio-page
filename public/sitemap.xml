@@ -9,14 +9,30 @@
 
 <url>
   <loc>https://www.benllshua.com/</loc>
-  <lastmod>2022-01-07T10:32:11+00:00</lastmod>
+  <lastmod>2023-05-29T10:32:11+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.benllshua.com/documents/BensResume.pdf</loc>
-  <lastmod>2022-01-07T10:32:11+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2023-05-29:32:11+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
+<url>
+  <loc>http://benllshua.com/</loc>
+  <lastmod>2023-05-29T10:32:11+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://benllshua.com/</loc>
+  <lastmod>2023-05-29T10:32:11+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.benllshua.com/</loc>
+  <lastmod>2023-05-29T10:32:11+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+
 
 
 </urlset>

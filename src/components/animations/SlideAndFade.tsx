@@ -1,13 +1,15 @@
-import React from 'react';
+'use client';
 
-import { motion } from 'framer-motion';
+import { FC, ReactNode } from 'react';
+
+import { motion } from './motion';
 
 interface Props {
-  children: React.ReactNode;
   delay?: number;
+  children?: ReactNode;
 }
 
-const SlideAndFade = ({ children, delay = 0, ...other }: Props) => {
+const SlideAndFade: FC<Props> = ({ children, delay = 0, ...other }) => {
   const baseDelay = 0.3;
   return (
     <motion.div

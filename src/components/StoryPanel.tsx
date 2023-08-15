@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+'use client';
 
 // components
-import { Grid, Paper, Box, Typography, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, Grid, List, ListItem, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material';
 import Tilt from 'react-parallax-tilt';
 
 // data
@@ -10,9 +10,9 @@ import { hobbies } from '../content/hobbies';
 // styles
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
-import { ColorContext } from '../themes/theme';
-import SlideAndFade from './animations/SlideAndFade';
 import Image from 'next/image';
+import { useColorStore } from '../context/useColor';
+import SlideAndFade from './animations/SlideAndFade';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const StoryPanel = () => {
   const classes = useStyles();
-  const color = useContext(ColorContext);
+  const color = useColorStore((state) => state.color);
 
   return (
     <Paper elevation={8}>
@@ -89,14 +89,10 @@ const StoryPanel = () => {
             </SlideAndFade>
             <List dense>
               {hobbies.map((hobbie, index) => (
-                <div key={index}>
-                  <SlideAndFade delay={0.7 + index * 0.1}>
-                    <ListItem>
-                      <ListItemIcon>{hobbie.icon}</ListItemIcon>
-                      <ListItemText primary={hobbie.title} />
-                    </ListItem>
-                  </SlideAndFade>
-                </div>
+                <ListItem key={index}>
+                  <ListItemIcon>{hobbie.icon}</ListItemIcon>
+                  <ListItemText primary={hobbie.title} />
+                </ListItem>
               ))}
             </List>
           </Grid>
@@ -108,9 +104,9 @@ const StoryPanel = () => {
                     width={350}
                     height={350}
                     alt="illustration"
-                    src={`/images/illustrations/${color.getColor()?.folderName}/growing.png`}
+                    src={`/images/illustrations/${color.folderName}/growing.png`}
                     placeholder="blur"
-                    blurDataURL={`/images/illustrations/${color.getColor()?.folderName}/growing.png`}
+                    blurDataURL={`/images/illustrations/${color.folderName}/growing.png`}
                   />
                 </div>
               </Tilt>

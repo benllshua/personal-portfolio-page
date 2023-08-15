@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
-import { MessageContext } from '../context/MessageContext';
-import { copyToClipBoard } from '../functions/copyToClipBoard';
+'use client';
+
 import { email } from '../content/email';
+import { copyToClipBoard } from '../functions/copyToClipBoard';
 
 // components
 import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
-import { IconButton, Tooltip } from '@mui/material';
 import SlideAndFade from './animations/SlideAndFade';
+import { IconButton, Tooltip } from './mui';
 
 // styles
 import { Theme } from '@mui/material/styles';
-import { makeStyles, createStyles } from '@mui/styles';
+import { createStyles, makeStyles } from '@mui/styles';
+import Link from 'next/link';
+import { useMessageStore } from '../context/useMessage';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const SocialMediaLinks = () => {
   const classes = useStyles();
-  const { setMessage } = useContext(MessageContext);
+  const setMessage = useMessageStore((state) => state.setMessage);
 
   return (
     <div className={classes.position}>
@@ -51,7 +53,7 @@ const SocialMediaLinks = () => {
         />
       </SlideAndFade>
       <SlideAndFade delay={3.2}>
-        <IconLink icon={<GitHub />} text={'GitHub link'} href={'https://github.com/benllshua'} />
+        <IconLink text={'GitHub link'} icon={<GitHub />} href={'https://github.com/benllshua'} />
       </SlideAndFade>
       <SlideAndFade delay={3.4}>
         <IconLink text={'LinkedIn link'} icon={<LinkedIn />} href={'https://www.linkedin.com/in/ben-shua-08b103198/'} />
@@ -63,15 +65,34 @@ const SocialMediaLinks = () => {
   );
 };
 
-interface IconLinkProps {
-  icon: any;
-  href?: string;
-  text: string;
-  onClick?: () => void;
-}
+type IconLinkProps =
+  | {
+      icon: JSX.Element;
+      href: string;
+      text: string;
+      onClick?: () => void;
+    }
+  | {
+      icon: JSX.Element;
+      href?: string;
+      text: string;
+      onClick: () => void;
+    };
 
 const IconLink = ({ icon, href, text, onClick }: IconLinkProps) => {
   const classes = useStyles();
+
+  if (href)
+    return (
+      <Tooltip title={text} placement="left">
+        {/** @ts-ignore */}
+        <Link href={href}>
+          <IconButton className={classes.iconFab} color="primary" size={'large'}>
+            {icon}
+          </IconButton>
+        </Link>
+      </Tooltip>
+    );
 
   if (typeof onclick !== 'undefined') {
     return (
@@ -82,14 +103,7 @@ const IconLink = ({ icon, href, text, onClick }: IconLinkProps) => {
       </Tooltip>
     );
   }
-  if (href)
-    return (
-      <Tooltip title={text} placement="left">
-        <IconButton className={classes.iconFab} href={href} color="primary" size={'large'}>
-          {icon}
-        </IconButton>
-      </Tooltip>
-    );
+
   return <></>;
 };
 

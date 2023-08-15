@@ -1,16 +1,17 @@
-import React, { useContext } from 'react';
-import { MessageContext } from '../context/MessageContext';
-import { copyToClipBoard } from '../functions/copyToClipBoard';
+'use client';
+
 import { email } from '../content/email';
+import { copyToClipBoard } from '../functions/copyToClipBoard';
 
 // components
-import { Grid, Container, Typography, Box } from '@mui/material';
-import Link from './Link';
+import { Box, Container, Grid, Typography } from '@mui/material';
+import Link from 'next/link';
 
 // styles
+import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
-import { GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
+import { useMessageStore } from '../context/useMessage';
 
 // icons
 
@@ -30,7 +31,13 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       color: '#ffffffaa',
       textDecoration: 'none',
+      background: 'none',
+      cursor: 'pointer',
+      border: 'none',
+      padding: 0,
+      width: '100%',
       '&:hover': {
+        border: 'none',
         color: '#ffffffee',
       },
     },
@@ -42,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Footer = () => {
   const classes = useStyles();
-  const { setMessage } = useContext(MessageContext);
+  const setMessage = useMessageStore((state) => state.setMessage);
 
   return (
     <footer className={classes.root}>
@@ -53,16 +60,24 @@ const Footer = () => {
               <Typography variant="h4" gutterBottom color={'white'}>
                 Navigation
               </Typography>
-              <Link href={'#servicesSection'} className={classes.text}>
+
+              {/* @ts-ignore */}
+              <Link href="#servicesSection" className={classes.text}>
                 Services
               </Link>
-              <Link href={'#aboutSection'} className={classes.text}>
+
+              {/* @ts-ignore */}
+              <Link href="#aboutSection" className={classes.text}>
                 About
               </Link>
-              <Link href={'#skillsSection'} className={classes.text}>
+
+              {/* @ts-ignore */}
+              <Link href="#skillsSection" className={classes.text}>
                 Skills
               </Link>
-              <Link href={'#portfolioSection'} className={classes.text}>
+
+              {/* @ts-ignore */}
+              <Link href="#portfolioSection" className={classes.text}>
                 Portfolio
               </Link>
             </Box>
@@ -72,19 +87,29 @@ const Footer = () => {
               <Typography variant="h4" gutterBottom color={'white'}>
                 Assets
               </Typography>
-              <Link href={'https://storyset.com/web'} className={classes.text}>
+
+              {/* @ts-ignore */}
+              <Link href="https://storyset.com/web" className={classes.text}>
                 Web illustrations by Storyset
               </Link>
-              <Link href={'https://storyset.com/people'} className={classes.text}>
+
+              {/* @ts-ignore */}
+              <Link href="https://storyset.com/people" className={classes.text}>
                 People illustrations by Storyset
               </Link>
-              <Link href={'https://storyset.com/work'} className={classes.text}>
+
+              {/* @ts-ignore */}
+              <Link href="https://storyset.com/work" className={classes.text}>
                 Work illustrations by Storyset
               </Link>
-              <Link href={'https://storyset.com/app'} className={classes.text}>
+
+              {/* @ts-ignore */}
+              <Link href="https://storyset.com/app" className={classes.text}>
                 App illustrations by Storyset
               </Link>
-              <Link href={'https://storyset.com/education'} className={classes.text}>
+
+              {/* @ts-ignore */}
+              <Link href="https://storyset.com/education" className={classes.text}>
                 Education illustrations by Storyset
               </Link>
             </Box>
@@ -94,8 +119,7 @@ const Footer = () => {
               <Typography variant="h4" gutterBottom color={'white'}>
                 Contact & Social
               </Typography>
-              <Link
-                href={''}
+              <button
                 className={classes.text}
                 onClick={() => {
                   copyToClipBoard(email);
@@ -104,17 +128,19 @@ const Footer = () => {
               >
                 <Mail className={classes.icon} />
                 Mail
-              </Link>
-              <Link href={'https://github.com/benllshua'} className={classes.text}>
+              </button>
+              {/* @ts-ignore */}
+              <Link href="https://github.com/benllshua" className={classes.text}>
                 <GitHub className={classes.icon} />
                 GitHub
               </Link>
-              <Link href={'https://www.linkedin.com/in/ben-shua-08b103198/'} className={classes.text}>
+              {/* @ts-ignore */}
+              <Link href="https://www.linkedin.com/in/ben-shua-08b103198/" className={classes.text}>
                 <LinkedIn className={classes.icon} />
                 LinkedIn
               </Link>
-
-              <Link href={'https://www.instagram.com/benllshua/'} className={classes.text}>
+              {/* @ts-ignore */}
+              <Link href="https://www.instagram.com/benllshua/" className={classes.text}>
                 <Instagram className={classes.icon} />
                 Instagram
               </Link>

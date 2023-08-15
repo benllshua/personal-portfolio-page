@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
+'use client';
+
+import { FC, useState } from 'react';
 
 // components
-import { Typography, Grid, Chip, Box, Button, ImageListItem, ImageListItemBar } from '@mui/material';
+import {
+  Box,
+  Button,
+  Chip,
+  Grid,
+  ImageListItem,
+  ImageListItemBar,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import Image from 'next/image';
-import ImagesDialog from './ImagesDialog';
 
 // styles
 import { Theme } from '@mui/material/styles';
-import { makeStyles, createStyles } from '@mui/styles';
+import { createStyles, makeStyles } from '@mui/styles';
 
-import { useMediaQuery } from '../hooks/useMediaQuery';
+import { Project } from '../content/projects';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       height: 'auto',
       marginTop: theme.spacing(6),
-      [theme.breakpoints.up('md')]: {
-        // width: '70%',
-      },
     },
     tagsContainer: {
       display: 'flex',
@@ -56,18 +64,13 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface Props {
-  project: {
-    title: string;
-    description: string;
-    mainImg: string;
-    imageList: { label?: string; imgFileName: string }[];
-    tags: string[];
-  };
+  project: Project;
 }
 
-const Project = ({ project }: Props) => {
-  const { title, description, tags, mainImg, imageList } = project;
+const Project: FC<Props> = ({ project }) => {
+  const { title, description, tags, mainImg } = project;
   const classes = useStyles();
+  const theme = useTheme();
 
   const [open, setOpen] = useState(false);
   const onClose = () => {
@@ -76,7 +79,7 @@ const Project = ({ project }: Props) => {
   const onOpen = () => {
     setOpen(true);
   };
-  const isSmallScreen = useMediaQuery(900);
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Grid container className={classes.root}>
@@ -131,7 +134,6 @@ const Project = ({ project }: Props) => {
           </Button>
         </div>
       )}
-      <ImagesDialog open={open} onClose={onClose} imageList={imageList} />
     </Grid>
   );
 };

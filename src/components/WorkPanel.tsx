@@ -1,21 +1,21 @@
-import React, { useContext } from 'react';
+'use client';
 
 // components
 import {
   Timeline,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
   TimelineItem,
   TimelineOppositeContent,
   TimelineSeparator,
-  TimelineDot,
-  TimelineConnector,
-  TimelineContent,
 } from '@mui/lab';
 
-import { Grid, Paper, Box, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Grid, Paper, Typography } from '@mui/material';
 
 import { ExpandMore, Work } from '@mui/icons-material';
-import SlideAndFade from './animations/SlideAndFade';
 import Tilt from 'react-parallax-tilt';
+import SlideAndFade from './animations/SlideAndFade';
 
 // Data
 import { workPlaces } from '../content/workPlaces';
@@ -59,12 +59,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 // context
-import { ColorContext } from '../themes/theme';
 import Image from 'next/image';
+import { useColorStore } from '../context/useColor';
 
 const WorkPanel = () => {
   const classes = useStyles();
-  const color = useContext(ColorContext);
+  const color = useColorStore((state) => state.color);
 
   return (
     <Paper elevation={8}>
@@ -110,9 +110,9 @@ const WorkPanel = () => {
                     width={350}
                     height={350}
                     alt="illustration"
-                    src={`/images/illustrations/${color.getColor()?.folderName}/working.png`}
+                    src={`/images/illustrations/${color.folderName}/working.png`}
                     placeholder="blur"
-                    blurDataURL={`/images/illustrations/${color.getColor()?.folderName}/working.png`}
+                    blurDataURL={`/images/illustrations/${color.folderName}/working.png`}
                   />
                 </div>
               </Tilt>

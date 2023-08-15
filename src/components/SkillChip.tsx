@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+'use client';
+
+import { useState } from 'react';
 
 // components
 import { Chip, Dialog, DialogContent, DialogContentText, DialogTitle, Divider } from '@mui/material';
 
 // styles
-import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 
 // icons
 import { Info } from '@mui/icons-material';
 
 // data
-import { Skill } from '../content/skills';
 import { Box } from '@mui/system';
+import { Skill } from '../content/skills';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     chip: {
       transition: '0.3s',

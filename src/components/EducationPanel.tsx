@@ -1,30 +1,31 @@
-import React, { useContext, useState } from 'react';
+'use client';
+import { FC, useState } from 'react';
 
 // components
 import {
   Timeline,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
   TimelineItem,
   TimelineOppositeContent,
   TimelineSeparator,
-  TimelineDot,
-  TimelineConnector,
-  TimelineContent,
 } from '@mui/lab';
 
-import { Grid, Paper, Box, Typography, Accordion, AccordionSummary, AccordionDetails, Button } from '@mui/material';
-
 import { ExpandMore } from '@mui/icons-material';
-import ImagesDialog from './ImagesDialog';
+import type {} from '@mui/lab/themeAugmentation';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Grid, Paper, Typography } from '@mui/material';
+import { Theme } from '@mui/material/styles';
+import { createStyles, makeStyles } from '@mui/styles';
+import ImageDialog from './ImagesDialog';
 import SlideAndFade from './animations/SlideAndFade';
 
 import Tilt from 'react-parallax-tilt';
 
 // Data
-import { educationPlaces, Education } from '../content/education';
+import { EducationInfo, educationPlaces } from '../content/education';
 
 // styles
-import { Theme } from '@mui/material/styles';
-import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -73,12 +74,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 // context
-import { ColorContext } from '../themes/theme';
 import Image from 'next/image';
+import { useColorStore } from '../context/useColor';
 
-const EducationPanel = () => {
+const EducationPanel: FC = () => {
   const classes = useStyles();
-  const color = useContext(ColorContext);
+  const color = useColorStore((state) => state.color);
 
   return (
     <Paper elevation={8}>
@@ -106,9 +107,9 @@ const EducationPanel = () => {
                     width={350}
                     height={350}
                     alt="illustration"
-                    src={`/images/illustrations/${color.getColor()?.folderName}/learningBro.png`}
+                    src={`/images/illustrations/${color.folderName}/learningBro.png`}
                     placeholder="blur"
-                    blurDataURL={`/images/illustrations/${color.getColor()?.folderName}/learningBro.png`}
+                    blurDataURL={`/images/illustrations/${color.folderName}/learningBro.png`}
                   />
                 </div>
               </Tilt>
@@ -123,7 +124,7 @@ const EducationPanel = () => {
 export default EducationPanel;
 
 interface ItemProps {
-  education: Education;
+  education: EducationInfo;
   last: boolean;
 }
 
@@ -148,7 +149,7 @@ const Item = ({ education, last }: ItemProps) => {
         {!last && <TimelineConnector className={classes.primaryTail} />}
       </TimelineSeparator>
       <TimelineContent>
-        <EduAccordion title={education.title} description={education.description} imageList={education.imageList} />
+        <EduAccordion title={education.title} description={education.description} image={education.image} />
       </TimelineContent>
     </TimelineItem>
   );
@@ -157,18 +158,12 @@ const Item = ({ education, last }: ItemProps) => {
 interface EduAccordionProps {
   title: string;
   description: string;
-  imageList: { label?: string; imgFileName: string }[];
+  image: { label: string; src: string };
 }
 
-const EduAccordion = ({ title, description, imageList }: EduAccordionProps) => {
+const EduAccordion = ({ title, description, image }: EduAccordionProps) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const onClose = () => {
-    setOpen(false);
-  };
-  const onOpen = () => {
-    setOpen(true);
-  };
 
   return (
     <>
@@ -181,13 +176,13 @@ const EduAccordion = ({ title, description, imageList }: EduAccordionProps) => {
             <Typography variant="body2" className={classes.bodyText}>
               {description}
             </Typography>
-            <Button size={'small'} variant={'outlined'} onClick={onOpen}>
+            <Button size={'small'} variant={'outlined'} onClick={() => setOpen(true)}>
               {'VIEW CERTIFICATES'}
             </Button>
           </AccordionDetails>
         </Accordion>
       </Paper>
-      <ImagesDialog open={open} onClose={onClose} imageList={imageList} />
+      <ImageDialog open={open} onClose={() => setOpen(false)} src={image.src} label={image.label} />
     </>
   );
 };

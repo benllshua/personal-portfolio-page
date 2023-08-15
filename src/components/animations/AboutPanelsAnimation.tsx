@@ -1,38 +1,39 @@
-import React from 'react';
+'use client';
 
-import { motion } from 'framer-motion';
+import { FC, ReactNode } from 'react';
+import { motion } from './motion';
 
 interface Props {
-  children: React.ReactNode;
   status: 'in' | 'out';
+  children?: ReactNode;
 }
 
-const AboutPanelsAnimation = ({ children, status }: Props) => {
+const AboutPanelsAnimation: FC<Props> = ({ children, status }) => {
   return (
     <motion.div
       variants={{
         out: {
-          x: 500,
+          x: 1000,
+          // scale: 0,
+          height: 0,
           opacity: 0,
           transition: {
-            duration: 0.5,
+            duration: 0.7,
           },
         },
         in: {
           x: 0,
           opacity: 1,
+          // scale: 1,
+          height: 'fit-content',
           transition: {
-            duration: 0.5,
+            duration: 0.7,
             delay: 0.4,
           },
         },
       }}
       animate={status}
-      style={{
-        position: 'absolute',
-        left: 0,
-        top: 0,
-      }}
+      style={{ overflow: 'hidden' }}
     >
       {children}
     </motion.div>

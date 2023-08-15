@@ -1,12 +1,12 @@
-import { useTheme } from '@mui/material';
-import React from 'react';
+'use client';
+
+import { useMediaQuery, useTheme } from '@mui/material';
 import Particals from 'react-tsparticles';
-import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const ParticalsBackground = () => {
   const theme = useTheme();
   const color = theme.palette.mode === 'light' ? '#aaa' : theme.palette.primary.main;
-  const isBreakpoint = useMediaQuery(900);
+  const bigScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <Particals
@@ -39,7 +39,7 @@ const ParticalsBackground = () => {
         particles: {
           opacity: { value: 0.4 },
           number: {
-            value: isBreakpoint ? 10 : 70,
+            value: bigScreen ? 70 : 10,
           },
           color: {
             value: color,

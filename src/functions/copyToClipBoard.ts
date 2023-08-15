@@ -1,3 +1,4 @@
+'use client';
 /**
  * @description this function copy prop text to user clipboard
  */

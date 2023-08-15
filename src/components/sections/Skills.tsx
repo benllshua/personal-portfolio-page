@@ -1,16 +1,17 @@
-import React from 'react';
+'use client';
+import React, { FC, ReactNode } from 'react';
 
-// components
-import { Typography, Paper, Divider, Fade } from '@mui/material';
-import SkillChip from '../SkillChip';
+import { Box, Divider, Fade, Paper, Tab, Tabs, Typography, useTheme } from '@mui/material';
 import SlideAndFade from '../animations/SlideAndFade';
+import SkillChip from '../SkillChip';
 
-// styles
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 
-// data
 import { BackEndSkills, FrontEndSkills, skills, UXSkills } from '../../content/skills';
+
+import { Api, DesignServices, DeveloperMode } from '@mui/icons-material';
+import Image from 'next/image';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -59,19 +60,14 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       flexWrap: 'wrap',
     },
-    spaceOnMobile: {
-      [theme.breakpoints.down('md')]: {
-        marginTop: theme.spacing(64),
-      },
-    },
   })
 );
 
-const Skills = () => {
+const Skills: FC = () => {
   const classes = useStyles();
 
   return (
-    <div className={`section ${classes.spaceOnMobile}`} id="skillsSection">
+    <div className="section" id="skillsSection">
       <Typography variant="h3" component="h3" align="center" gutterBottom className={classes.subTitle}>
         {'Skills'}
       </Typography>
@@ -97,20 +93,14 @@ const Skills = () => {
 
 export default Skills;
 
-import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@mui/material/styles';
-import { Tabs, Tab, Box } from '@mui/material';
-import { Api, DesignServices, DeveloperMode } from '@mui/icons-material';
-import Image from 'next/image';
-
 interface TabPanelProps {
-  children?: React.ReactNode;
   dir?: string;
-  index: any;
-  value: any;
+  index: number;
+  value: number;
+  children?: ReactNode;
 }
 
-const TabPanel = (props: TabPanelProps) => {
+const TabPanel: FC<TabPanelProps> = (props) => {
   const { children, value, index, ...other } = props;
 
   return (
@@ -126,12 +116,8 @@ const FullWidthTabs = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(1);
 
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+  const handleChange = (event: React.ChangeEvent<object>, newValue: number) => {
     setValue(newValue);
-  };
-
-  const handleChangeIndex = (index: number) => {
-    setValue(index);
   };
 
   return (
@@ -148,27 +134,22 @@ const FullWidthTabs = () => {
         <Tab label="Front End Dev" icon={<DeveloperMode />} />
         <Tab label="Back End Dev" icon={<Api />} />
       </Tabs>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        {value === 0 && (
-          <TabPanel value={value} index={0} dir={theme.direction}>
-            <SkillSection skills={UXSkills} />
-          </TabPanel>
-        )}
-        {value === 1 && (
-          <TabPanel value={value} index={1} dir={theme.direction}>
-            <SkillSection skills={FrontEndSkills} />
-          </TabPanel>
-        )}
-        {value === 2 && (
-          <TabPanel value={value} index={2} dir={theme.direction}>
-            <SkillSection skills={BackEndSkills} />
-          </TabPanel>
-        )}
-      </SwipeableViews>
+
+      {value === 0 && (
+        <TabPanel value={value} index={0} dir={theme.direction}>
+          <SkillSection skills={UXSkills} />
+        </TabPanel>
+      )}
+      {value === 1 && (
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          <SkillSection skills={FrontEndSkills} />
+        </TabPanel>
+      )}
+      {value === 2 && (
+        <TabPanel value={value} index={2} dir={theme.direction}>
+          <SkillSection skills={BackEndSkills} />
+        </TabPanel>
+      )}
     </Paper>
   );
 };
