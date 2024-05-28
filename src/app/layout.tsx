@@ -1,9 +1,11 @@
+import Theme from '@/theme';
+import { CssBaseline } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
 import '../theme/globals.css';
-
-import Theme from '@/theme';
 
 interface Props {
   children: ReactNode;
@@ -12,9 +14,14 @@ interface Props {
 export default function layout({ children }: Props) {
   return (
     <html lang={'en'} dir={'ltr'}>
+      <CssBaseline />
       <body>
         <AppRouterCacheProvider>
-          <Theme>{children}</Theme>
+          <Theme>
+            {children}
+            <SpeedInsights />
+            <Analytics />
+          </Theme>
         </AppRouterCacheProvider>
       </body>
     </html>
