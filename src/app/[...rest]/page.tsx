@@ -1,18 +1,27 @@
-import { Container } from '@mui/material';
+'use client';
+import { useColorStore } from '@/context/useColor';
+import { Button, Container, Grid } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import Illustration from 'public/illustrations/404 Error-amico.svg';
 
 export default function NotFoundPage() {
+  const color = useColorStore((state) => state.color);
+
   return (
     <Container>
-      <Image src={Illustration} alt="404 page Illustration" width={300} />
-      <div className="flex items-center justify-center gap-8">
-        <h1 className="text-xl font-bold">
-          Not Found
-          <Link href={'/'}>Back Home</Link>
-        </h1>
-      </div>
+      <Grid container justifyContent="center" alignItems="center" minHeight="90vh" direction="column" gap={2}>
+        <Image
+          src={`/images/illustrations/${color.folderName}/notFound.png`}
+          alt="404 page Illustration"
+          width={400}
+          height={400}
+        />
+        <Link href={'/'}>
+          <Button variant="contained" color="primary">
+            Back Home
+          </Button>
+        </Link>
+      </Grid>
     </Container>
   );
 }
