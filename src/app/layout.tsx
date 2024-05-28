@@ -1,6 +1,9 @@
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
 import '../theme/globals.css';
+
+import Theme from '@/theme';
 
 interface Props {
   children: ReactNode;
@@ -9,7 +12,11 @@ interface Props {
 export default function layout({ children }: Props) {
   return (
     <html lang={'en'} dir={'ltr'}>
-      <body>{children}</body>
+      <body>
+        <AppRouterCacheProvider>
+          <Theme>{children}</Theme>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }

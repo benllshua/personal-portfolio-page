@@ -1,7 +1,6 @@
 'use client';
 
 import Message from '@/components/Message';
-import Theme from '@/theme';
 import { Container, CssBaseline, NoSsr, useMediaQuery, useTheme } from '@mui/material';
 import dynamic from 'next/dynamic';
 import Footer from '../components/Footer';
@@ -23,7 +22,7 @@ export default function Page() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Theme>
+    <>
       <CssBaseline />
       {particalsMode && <ParticalsBackground />}
       {!isSmallScreen && (
@@ -43,6 +42,6 @@ export default function Page() {
       <Message />
 
       <Footer />
-    </Theme>
+    </>
   );
 }

@@ -20,7 +20,7 @@ import Image from 'next/image';
 import { Theme } from '@mui/material/styles';
 import { createStyles, makeStyles } from '@mui/styles';
 
-import { Project } from '../content/projects';
+import type { Project } from '../content/projects';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

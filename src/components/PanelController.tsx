@@ -2,7 +2,7 @@
 
 import { Person, PersonOutlined, School, SchoolOutlined, Work, WorkOutline } from '@mui/icons-material';
 
-import { Button, ButtonGroup, Paper, useMediaQuery, useTheme, Zoom } from '@mui/material';
+import { Button, ButtonGroup, Paper, Zoom } from '@mui/material';
 
 // styles
 import { Theme } from '@mui/material/styles';
@@ -50,12 +50,10 @@ interface PanelControllerProps {
 }
 const PanelController = ({ panel, setPanelTo }: PanelControllerProps) => {
   const classes = useStyles();
-  const theme = useTheme();
-  const bigScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <Paper className={classes.paper} elevation={4}>
-      <ButtonGroup orientation={bigScreen ? 'horizontal' : 'vertical'} variant="text">
+      <ButtonGroup variant="text">
         <Button aria-label="My Story" color="primary" className={classes.buttonSpacing} onClick={() => setPanelTo(1)}>
           {panel === 1 && (
             <Zoom in={panel === 1}>
