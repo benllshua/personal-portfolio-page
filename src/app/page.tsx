@@ -1,7 +1,7 @@
 'use client';
 
 import Message from '@/components/Message';
-import { Container, CssBaseline, NoSsr, useMediaQuery, useTheme } from '@mui/material';
+import { Container, NoSsr, useMediaQuery, useTheme } from '@mui/material';
 import dynamic from 'next/dynamic';
 import Footer from '../components/Footer';
 import SocialMediaLinks from '../components/SocialMediaLinks';
@@ -23,7 +23,6 @@ export default function Page() {
 
   return (
     <>
-      <CssBaseline />
       {particalsMode && <ParticalsBackground />}
       {!isSmallScreen && (
         <NoSsr>
